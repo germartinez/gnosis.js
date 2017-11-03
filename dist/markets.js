@@ -62,8 +62,7 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
             collateralToken,
             baseCost,
             cost,
-            txPromises,
-            txRequiredEventNames,
+            txInfo,
             buyer,
             marketAllowance,
             txRequiredEvents,
@@ -120,52 +119,98 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
                             approvalResetAmount = cost;
                         }
 
-                        txPromises = [];
-                        txRequiredEventNames = [];
+                        txInfo = [];
 
                         if (!(approvalAmount == null)) {
-                            _context.next = 36;
+                            _context.next = 42;
                             break;
                         }
 
                         buyer = txOpts.from || this.defaultAccount;
-                        _context.next = 32;
+                        _context.next = 31;
                         return collateralToken.allowance(buyer, marketAddress, txOpts);
 
-                    case 32:
+                    case 31:
                         marketAllowance = _context.sent;
 
-
-                        if (marketAllowance.lt(cost)) {
-                            txPromises.push(collateralToken.approve(marketAddress, approvalResetAmount, txOpts));
-                            txRequiredEventNames.push('Approval');
+                        if (!marketAllowance.lt(cost)) {
+                            _context.next = 40;
+                            break;
                         }
-                        _context.next = 37;
-                        break;
+
+                        _context.t6 = txInfo;
+                        _context.next = 36;
+                        return collateralToken.approve.sendTransaction(marketAddress, approvalResetAmount, txOpts);
 
                     case 36:
-                        if (this.web3.toBigNumber(0).lt(approvalAmount)) {
-                            txPromises.push(collateralToken.approve(marketAddress, approvalAmount, txOpts));
-                            txRequiredEventNames.push('Approval');
-                        }
-
-                    case 37:
-                        txPromises.push(market.buy(outcomeTokenIndex, outcomeTokenCount, cost, txOpts));
-                        txRequiredEventNames.push('OutcomeTokenPurchase');
-
-                        _context.next = 41;
-                        return _promise2.default.all(txPromises);
-
-                    case 41:
-                        _context.t6 = function (res, i) {
-                            return (0, _utils.requireEventFromTXResult)(res, txRequiredEventNames[i]);
+                        _context.t7 = _context.sent;
+                        _context.t8 = this.contracts.Token;
+                        _context.t9 = {
+                            tx: _context.t7,
+                            contract: _context.t8,
+                            requiredEventName: 'Approval'
                         };
 
-                        txRequiredEvents = _context.sent.map(_context.t6);
+                        _context.t6.push.call(_context.t6, _context.t9);
+
+                    case 40:
+                        _context.next = 50;
+                        break;
+
+                    case 42:
+                        if (!this.web3.toBigNumber(0).lt(approvalAmount)) {
+                            _context.next = 50;
+                            break;
+                        }
+
+                        _context.t10 = txInfo;
+                        _context.next = 46;
+                        return collateralToken.approve.sendTransaction(marketAddress, approvalAmount, txOpts);
+
+                    case 46:
+                        _context.t11 = _context.sent;
+                        _context.t12 = this.contracts.Token;
+                        _context.t13 = {
+                            tx: _context.t11,
+                            contract: _context.t12,
+                            requiredEventName: 'Approval'
+                        };
+
+                        _context.t10.push.call(_context.t10, _context.t13);
+
+                    case 50:
+                        _context.t14 = txInfo;
+                        _context.next = 53;
+                        return market.buy.sendTransaction(outcomeTokenIndex, outcomeTokenCount, cost, txOpts);
+
+                    case 53:
+                        _context.t15 = _context.sent;
+                        _context.t16 = this.contracts.Market;
+                        _context.t17 = {
+                            tx: _context.t15,
+                            contract: _context.t16,
+                            requiredEventName: 'OutcomeTokenPurchase'
+                        };
+
+                        _context.t14.push.call(_context.t14, _context.t17);
+
+                        _context.next = 59;
+                        return _promise2.default.all(txInfo.map(function (_ref3, i) {
+                            var tx = _ref3.tx,
+                                contract = _ref3.contract;
+                            return contract.syncTransaction(tx);
+                        }));
+
+                    case 59:
+                        _context.t18 = function (res, i) {
+                            return (0, _utils.requireEventFromTXResult)(res, txInfo[i].requiredEventName);
+                        };
+
+                        txRequiredEvents = _context.sent.map(_context.t18);
                         purchaseEvent = txRequiredEvents[txRequiredEvents.length - 1];
                         return _context.abrupt('return', purchaseEvent.args.outcomeTokenCost.plus(purchaseEvent.args.marketFees));
 
-                    case 45:
+                    case 63:
                     case 'end':
                         return _context.stop();
                 }
@@ -194,7 +239,7 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
  * @alias Gnosis#sellOutcomeTokens
  */
 var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
-    var _ref5 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee3() {
+    var _ref6 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee3() {
         var _normalizeWeb3Args3,
             _normalizeWeb3Args4,
             _normalizeWeb3Args4$,
@@ -203,15 +248,14 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
             outcomeTokenCount,
             opts,
             txOpts,
-            _ref6,
+            _ref7,
             approvalAmount,
             approvalResetAmount,
             market,
             outcomeToken,
             baseProfit,
             minProfit,
-            txPromises,
-            txRequiredEventNames,
+            txInfo,
             seller,
             marketAllowance,
             txRequiredEvents,
@@ -227,7 +271,7 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
                             functionInputs: [{ name: 'market', type: 'address' }, { name: 'outcomeTokenIndex', type: 'uint8' }, { name: 'outcomeTokenCount', type: 'uint256' }]
                         }), _normalizeWeb3Args4 = (0, _slicedToArray3.default)(_normalizeWeb3Args3, 2), _normalizeWeb3Args4$ = (0, _slicedToArray3.default)(_normalizeWeb3Args4[0], 3), marketAddress = _normalizeWeb3Args4$[0], outcomeTokenIndex = _normalizeWeb3Args4$[1], outcomeTokenCount = _normalizeWeb3Args4$[2], opts = _normalizeWeb3Args4[1];
                         txOpts = (0, _pick3.default)(opts, ['from', 'to', 'value', 'gas', 'gasPrice']);
-                        _ref6 = opts || {}, approvalAmount = _ref6.approvalAmount, approvalResetAmount = _ref6.approvalResetAmount;
+                        _ref7 = opts || {}, approvalAmount = _ref7.approvalAmount, approvalResetAmount = _ref7.approvalResetAmount;
                         _context3.next = 5;
                         return this.contracts.Market.at(marketAddress);
 
@@ -269,52 +313,98 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
                             approvalResetAmount = outcomeTokenCount;
                         }
 
-                        txPromises = [];
-                        txRequiredEventNames = [];
+                        txInfo = [];
 
                         if (!(approvalAmount == null)) {
-                            _context3.next = 37;
+                            _context3.next = 43;
                             break;
                         }
 
                         seller = txOpts.from || this.defaultAccount;
-                        _context3.next = 33;
+                        _context3.next = 32;
                         return outcomeToken.allowance(seller, marketAddress, txOpts);
 
-                    case 33:
+                    case 32:
                         marketAllowance = _context3.sent;
 
-
-                        if (marketAllowance.lt(outcomeTokenCount)) {
-                            txPromises.push(outcomeToken.approve(marketAddress, approvalResetAmount, txOpts));
-                            txRequiredEventNames.push('Approval');
+                        if (!marketAllowance.lt(outcomeTokenCount)) {
+                            _context3.next = 41;
+                            break;
                         }
-                        _context3.next = 38;
-                        break;
+
+                        _context3.t7 = txInfo;
+                        _context3.next = 37;
+                        return outcomeToken.approve.sendTransaction(marketAddress, approvalResetAmount, txOpts);
 
                     case 37:
-                        if (this.web3.toBigNumber(0).lt(approvalAmount)) {
-                            txPromises.push(outcomeToken.approve(marketAddress, approvalAmount, txOpts));
-                            txRequiredEventNames.push('Approval');
-                        }
-
-                    case 38:
-                        txPromises.push(market.sell(outcomeTokenIndex, outcomeTokenCount, minProfit, txOpts));
-                        txRequiredEventNames.push('OutcomeTokenSale');
-
-                        _context3.next = 42;
-                        return _promise2.default.all(txPromises);
-
-                    case 42:
-                        _context3.t7 = function (res, i) {
-                            return (0, _utils.requireEventFromTXResult)(res, txRequiredEventNames[i]);
+                        _context3.t8 = _context3.sent;
+                        _context3.t9 = this.contracts.Token;
+                        _context3.t10 = {
+                            tx: _context3.t8,
+                            contract: _context3.t9,
+                            requiredEventName: 'Approval'
                         };
 
-                        txRequiredEvents = _context3.sent.map(_context3.t7);
+                        _context3.t7.push.call(_context3.t7, _context3.t10);
+
+                    case 41:
+                        _context3.next = 51;
+                        break;
+
+                    case 43:
+                        if (!this.web3.toBigNumber(0).lt(approvalAmount)) {
+                            _context3.next = 51;
+                            break;
+                        }
+
+                        _context3.t11 = txInfo;
+                        _context3.next = 47;
+                        return outcomeToken.approve.sendTransaction(marketAddress, approvalAmount, txOpts);
+
+                    case 47:
+                        _context3.t12 = _context3.sent;
+                        _context3.t13 = this.contracts.Token;
+                        _context3.t14 = {
+                            tx: _context3.t12,
+                            contract: _context3.t13,
+                            requiredEventName: 'Approval'
+                        };
+
+                        _context3.t11.push.call(_context3.t11, _context3.t14);
+
+                    case 51:
+                        _context3.t15 = txInfo;
+                        _context3.next = 54;
+                        return market.sell.sendTransaction(outcomeTokenIndex, outcomeTokenCount, minProfit, txOpts);
+
+                    case 54:
+                        _context3.t16 = _context3.sent;
+                        _context3.t17 = this.contracts.Market;
+                        _context3.t18 = {
+                            tx: _context3.t16,
+                            contract: _context3.t17,
+                            requiredEventName: 'OutcomeTokenSale'
+                        };
+
+                        _context3.t15.push.call(_context3.t15, _context3.t18);
+
+                        _context3.next = 60;
+                        return _promise2.default.all(txInfo.map(function (_ref8, i) {
+                            var tx = _ref8.tx,
+                                contract = _ref8.contract;
+                            return contract.syncTransaction(tx);
+                        }));
+
+                    case 60:
+                        _context3.t19 = function (res, i) {
+                            return (0, _utils.requireEventFromTXResult)(res, txInfo[i].requiredEventName);
+                        };
+
+                        txRequiredEvents = _context3.sent.map(_context3.t19);
                         saleEvent = txRequiredEvents[txRequiredEvents.length - 1];
                         return _context3.abrupt('return', saleEvent.args.outcomeTokenProfit.minus(saleEvent.args.marketFees));
 
-                    case 46:
+                    case 64:
                     case 'end':
                         return _context3.stop();
                 }
@@ -323,7 +413,7 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
     }));
 
     return function sellOutcomeTokens() {
-        return _ref5.apply(this, arguments);
+        return _ref6.apply(this, arguments);
     };
 }();
 
@@ -359,8 +449,8 @@ var createMarket = exports.createMarket = (0, _utils.wrapWeb3Function)(function 
 });
 
 buyOutcomeTokens.estimateGas = function () {
-    var _ref4 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee2(_ref3) {
-        var using = _ref3.using;
+    var _ref5 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee2(_ref4) {
+        var using = _ref4.using;
         return _regenerator2.default.wrap(function _callee2$(_context2) {
             while (1) {
                 switch (_context2.prev = _context2.next) {
@@ -384,13 +474,13 @@ buyOutcomeTokens.estimateGas = function () {
     }));
 
     return function (_x) {
-        return _ref4.apply(this, arguments);
+        return _ref5.apply(this, arguments);
     };
 }();
 
 sellOutcomeTokens.estimateGas = function () {
-    var _ref8 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee4(_ref7) {
-        var using = _ref7.using;
+    var _ref10 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee4(_ref9) {
+        var using = _ref9.using;
         return _regenerator2.default.wrap(function _callee4$(_context4) {
             while (1) {
                 switch (_context4.prev = _context4.next) {
@@ -414,7 +504,7 @@ sellOutcomeTokens.estimateGas = function () {
     }));
 
     return function (_x2) {
-        return _ref8.apply(this, arguments);
+        return _ref10.apply(this, arguments);
     };
 }();
 //# sourceMappingURL=markets.js.map
