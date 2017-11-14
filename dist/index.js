@@ -339,7 +339,7 @@ var Gnosis = function () {
                                 break;
 
                             case 10:
-                                if (!((typeof provider === 'undefined' ? 'undefined' : (0, _typeof3.default)(provider)) === 'object' && provider.constructor.name.toLowerCase().endsWith('provider'))) {
+                                if (!((typeof provider === 'undefined' ? 'undefined' : (0, _typeof3.default)(provider)) === 'object' && typeof provider.send === 'function' && typeof provider.sendAsync === 'function')) {
                                     _context3.next = 14;
                                     break;
                                 }

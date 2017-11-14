@@ -152,10 +152,6 @@ var _decimal2 = _interopRequireDefault(_decimal);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function constructorName(obj) {
-    return obj != null && obj.constructor != null ? obj.constructor.name : null;
-}
-
 function makeWeb3Compatible(value, type, argName) {
     if (type == null) {
         throw new Error('type must be specified for argument ' + argName);
@@ -239,9 +235,7 @@ function makeWeb3Compatible(value, type, argName) {
             throw new Error('number of bits for ' + type + ' ' + argName + ' is too large');
         }
 
-        if (constructorName(value) === 'BigNumber' || constructorName(value) === 'Decimal') {
-            value = value.valueOf();
-        }
+        value = value.valueOf();
 
         if ((0, _isString3.default)(value) && /^-?(0x[\da-f]+|\d+)$/i.test(value) || (0, _isNumber3.default)(value)) {
             if ((0, _isString3.default)(value) && value.startsWith('0x') && value.slice(2) === Number(value).toString(16) || value == Number(value).toString()) {
@@ -510,9 +504,9 @@ function requireEventFromTXResult(result, eventName) {
     });
 
     if (matchingLogs.length < 1) {
-        throw new Error('could not find any logs in result ' + result + ' corresponding to event ' + eventName);
+        throw new Error('could not find any logs in transaction ' + result.tx + ' corresponding to event ' + eventName);
     } else if (matchingLogs.length > 1) {
-        throw new Error('found too many logs in result ' + result + ' corresponding to event ' + eventName);
+        throw new Error('found too many logs in transaction ' + result.tx + ' corresponding to event ' + eventName);
     }
 
     return matchingLogs[0];

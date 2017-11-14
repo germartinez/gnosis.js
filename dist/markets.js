@@ -40,6 +40,7 @@ var _pick3 = _interopRequireDefault(_pick2);
  * @param {(Contract|string)} opts.market - The market to buy tokens from
  * @param {(number|string|BigNumber)} opts.outcomeTokenIndex - The index of the outcome
  * @param {(number|string|BigNumber)} opts.outcomeTokenCount - Number of outcome tokens to buy
+ * @param {(number|string|BigNumber)} [opts.limitMargin=0] - Because transactions change prices, there is a chance that the cost limit for the buy, which is set to the cost according to the latest mined block, will prevent the buy transaction from succeeding. This parameter can be used to increase the cost limit by a fixed proportion. For example, specifying `limitMargin: 0.05` will make the cost limit increase by 5%.
  * @param {(number|string|BigNumber)} [opts.approvalAmount] - Amount of collateral to allow market to spend. If unsupplied or null, allowance will be reset to the `approvalResetAmount` only if necessary. If set to 0, the approval transaction will be skipped.
  * @param {(number|string|BigNumber)} [opts.approvalResetAmount] - Set to this amount when resetting market collateral allowance. If unsupplied or null, will be the cost of this transaction.
  * @returns {BigNumber} How much collateral tokens caller paid
@@ -58,9 +59,11 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
             _ref2,
             approvalAmount,
             approvalResetAmount,
+            limitMargin,
             market,
             collateralToken,
             baseCost,
+            baseCostWithFee,
             cost,
             txInfo,
             buyer,
@@ -78,7 +81,7 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
                             functionInputs: [{ name: 'market', type: 'address' }, { name: 'outcomeTokenIndex', type: 'uint8' }, { name: 'outcomeTokenCount', type: 'uint256' }]
                         }), _normalizeWeb3Args2 = (0, _slicedToArray3.default)(_normalizeWeb3Args, 2), _normalizeWeb3Args2$ = (0, _slicedToArray3.default)(_normalizeWeb3Args2[0], 3), marketAddress = _normalizeWeb3Args2$[0], outcomeTokenIndex = _normalizeWeb3Args2$[1], outcomeTokenCount = _normalizeWeb3Args2$[2], opts = _normalizeWeb3Args2[1];
                         txOpts = (0, _pick3.default)(opts, ['from', 'to', 'value', 'gas', 'gasPrice']);
-                        _ref2 = opts || {}, approvalAmount = _ref2.approvalAmount, approvalResetAmount = _ref2.approvalResetAmount;
+                        _ref2 = opts || {}, approvalAmount = _ref2.approvalAmount, approvalResetAmount = _ref2.approvalResetAmount, limitMargin = _ref2.limitMargin;
                         _context.next = 5;
                         return this.contracts.Market.at(marketAddress);
 
@@ -101,18 +104,25 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
 
                     case 16:
                         collateralToken = _context.sent;
-                        _context.next = 19;
+
+
+                        if (limitMargin == null) {
+                            limitMargin = 0;
+                        }
+
+                        _context.next = 20;
                         return this.lmsrMarketMaker.calcCost(marketAddress, outcomeTokenIndex, outcomeTokenCount, txOpts);
 
-                    case 19:
+                    case 20:
                         baseCost = _context.sent;
                         _context.t4 = baseCost;
-                        _context.next = 23;
+                        _context.next = 24;
                         return market.calcMarketFee(baseCost, txOpts);
 
-                    case 23:
+                    case 24:
                         _context.t5 = _context.sent;
-                        cost = _context.t4.add.call(_context.t4, _context.t5);
+                        baseCostWithFee = _context.t4.add.call(_context.t4, _context.t5);
+                        cost = baseCostWithFee.mul(this.web3.toBigNumber(1).add(limitMargin)).round();
 
 
                         if (approvalResetAmount == null) {
@@ -122,27 +132,27 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
                         txInfo = [];
 
                         if (!(approvalAmount == null)) {
-                            _context.next = 42;
+                            _context.next = 44;
                             break;
                         }
 
                         buyer = txOpts.from || this.defaultAccount;
-                        _context.next = 31;
+                        _context.next = 33;
                         return collateralToken.allowance(buyer, marketAddress, txOpts);
 
-                    case 31:
+                    case 33:
                         marketAllowance = _context.sent;
 
                         if (!marketAllowance.lt(cost)) {
-                            _context.next = 40;
+                            _context.next = 42;
                             break;
                         }
 
                         _context.t6 = txInfo;
-                        _context.next = 36;
+                        _context.next = 38;
                         return collateralToken.approve.sendTransaction(marketAddress, approvalResetAmount, txOpts);
 
-                    case 36:
+                    case 38:
                         _context.t7 = _context.sent;
                         _context.t8 = this.contracts.Token;
                         _context.t9 = {
@@ -153,21 +163,21 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
 
                         _context.t6.push.call(_context.t6, _context.t9);
 
-                    case 40:
-                        _context.next = 50;
+                    case 42:
+                        _context.next = 52;
                         break;
 
-                    case 42:
+                    case 44:
                         if (!this.web3.toBigNumber(0).lt(approvalAmount)) {
-                            _context.next = 50;
+                            _context.next = 52;
                             break;
                         }
 
                         _context.t10 = txInfo;
-                        _context.next = 46;
+                        _context.next = 48;
                         return collateralToken.approve.sendTransaction(marketAddress, approvalAmount, txOpts);
 
-                    case 46:
+                    case 48:
                         _context.t11 = _context.sent;
                         _context.t12 = this.contracts.Token;
                         _context.t13 = {
@@ -178,12 +188,12 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
 
                         _context.t10.push.call(_context.t10, _context.t13);
 
-                    case 50:
+                    case 52:
                         _context.t14 = txInfo;
-                        _context.next = 53;
+                        _context.next = 55;
                         return market.buy.sendTransaction(outcomeTokenIndex, outcomeTokenCount, cost, txOpts);
 
-                    case 53:
+                    case 55:
                         _context.t15 = _context.sent;
                         _context.t16 = this.contracts.Market;
                         _context.t17 = {
@@ -194,14 +204,14 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
 
                         _context.t14.push.call(_context.t14, _context.t17);
 
-                        _context.next = 59;
+                        _context.next = 61;
                         return _promise2.default.all(txInfo.map(function (_ref3, i) {
                             var tx = _ref3.tx,
                                 contract = _ref3.contract;
                             return contract.syncTransaction(tx);
                         }));
 
-                    case 59:
+                    case 61:
                         _context.t18 = function (res, i) {
                             return (0, _utils.requireEventFromTXResult)(res, txInfo[i].requiredEventName);
                         };
@@ -210,7 +220,7 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
                         purchaseEvent = txRequiredEvents[txRequiredEvents.length - 1];
                         return _context.abrupt('return', purchaseEvent.args.outcomeTokenCost.plus(purchaseEvent.args.marketFees));
 
-                    case 63:
+                    case 65:
                     case 'end':
                         return _context.stop();
                 }
@@ -233,6 +243,7 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
  * @param {(Contract|string)} opts.market - The market to sell tokens to
  * @param {(number|string|BigNumber)} opts.outcomeTokenIndex - The index of the outcome
  * @param {(number|string|BigNumber)} opts.outcomeTokenCount - Number of outcome tokens to sell
+ * @param {(number|string|BigNumber)} [opts.limitMargin=0] - Because transactions change profits, there is a chance that the profit limit for the sell, which is set to the profit according to the latest mined block, will prevent the sell transaction from succeeding. This parameter can be used to decrease the profit limit by a fixed proportion. For example, specifying `limitMargin: 0.05` will make the profit limit decrease by 5%.
  * @param {(number|string|BigNumber)} [opts.approvalAmount] - Amount of outcome tokens to allow market to handle. If unsupplied or null, allowance will be reset to the `approvalResetAmount` only if necessary. If set to 0, the approval transaction will be skipped.
  * @param {(number|string|BigNumber)} [opts.approvalResetAmount] - Set to this amount when resetting market outcome token allowance. If unsupplied or null, will be the sale amount specified by `outcomeTokenCount`.
  * @returns {BigNumber} How much collateral tokens caller received from sale
@@ -251,9 +262,11 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
             _ref7,
             approvalAmount,
             approvalResetAmount,
+            limitMargin,
             market,
             outcomeToken,
             baseProfit,
+            baseProfitWithFee,
             minProfit,
             txInfo,
             seller,
@@ -271,7 +284,7 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
                             functionInputs: [{ name: 'market', type: 'address' }, { name: 'outcomeTokenIndex', type: 'uint8' }, { name: 'outcomeTokenCount', type: 'uint256' }]
                         }), _normalizeWeb3Args4 = (0, _slicedToArray3.default)(_normalizeWeb3Args3, 2), _normalizeWeb3Args4$ = (0, _slicedToArray3.default)(_normalizeWeb3Args4[0], 3), marketAddress = _normalizeWeb3Args4$[0], outcomeTokenIndex = _normalizeWeb3Args4$[1], outcomeTokenCount = _normalizeWeb3Args4$[2], opts = _normalizeWeb3Args4[1];
                         txOpts = (0, _pick3.default)(opts, ['from', 'to', 'value', 'gas', 'gasPrice']);
-                        _ref7 = opts || {}, approvalAmount = _ref7.approvalAmount, approvalResetAmount = _ref7.approvalResetAmount;
+                        _ref7 = opts || {}, approvalAmount = _ref7.approvalAmount, approvalResetAmount = _ref7.approvalResetAmount, limitMargin = _ref7.limitMargin;
                         _context3.next = 5;
                         return this.contracts.Market.at(marketAddress);
 
@@ -295,18 +308,25 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
 
                     case 17:
                         outcomeToken = _context3.sent;
-                        _context3.next = 20;
+
+
+                        if (limitMargin == null) {
+                            limitMargin = 0;
+                        }
+
+                        _context3.next = 21;
                         return this.lmsrMarketMaker.calcProfit(marketAddress, outcomeTokenIndex, outcomeTokenCount, txOpts);
 
-                    case 20:
+                    case 21:
                         baseProfit = _context3.sent;
                         _context3.t5 = baseProfit;
-                        _context3.next = 24;
+                        _context3.next = 25;
                         return market.calcMarketFee(baseProfit, txOpts);
 
-                    case 24:
+                    case 25:
                         _context3.t6 = _context3.sent;
-                        minProfit = _context3.t5.sub.call(_context3.t5, _context3.t6);
+                        baseProfitWithFee = _context3.t5.sub.call(_context3.t5, _context3.t6);
+                        minProfit = baseProfitWithFee.mul(this.web3.toBigNumber(1).sub(limitMargin)).round();
 
 
                         if (approvalResetAmount == null) {
@@ -316,27 +336,27 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
                         txInfo = [];
 
                         if (!(approvalAmount == null)) {
-                            _context3.next = 43;
+                            _context3.next = 45;
                             break;
                         }
 
                         seller = txOpts.from || this.defaultAccount;
-                        _context3.next = 32;
+                        _context3.next = 34;
                         return outcomeToken.allowance(seller, marketAddress, txOpts);
 
-                    case 32:
+                    case 34:
                         marketAllowance = _context3.sent;
 
                         if (!marketAllowance.lt(outcomeTokenCount)) {
-                            _context3.next = 41;
+                            _context3.next = 43;
                             break;
                         }
 
                         _context3.t7 = txInfo;
-                        _context3.next = 37;
+                        _context3.next = 39;
                         return outcomeToken.approve.sendTransaction(marketAddress, approvalResetAmount, txOpts);
 
-                    case 37:
+                    case 39:
                         _context3.t8 = _context3.sent;
                         _context3.t9 = this.contracts.Token;
                         _context3.t10 = {
@@ -347,21 +367,21 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
 
                         _context3.t7.push.call(_context3.t7, _context3.t10);
 
-                    case 41:
-                        _context3.next = 51;
+                    case 43:
+                        _context3.next = 53;
                         break;
 
-                    case 43:
+                    case 45:
                         if (!this.web3.toBigNumber(0).lt(approvalAmount)) {
-                            _context3.next = 51;
+                            _context3.next = 53;
                             break;
                         }
 
                         _context3.t11 = txInfo;
-                        _context3.next = 47;
+                        _context3.next = 49;
                         return outcomeToken.approve.sendTransaction(marketAddress, approvalAmount, txOpts);
 
-                    case 47:
+                    case 49:
                         _context3.t12 = _context3.sent;
                         _context3.t13 = this.contracts.Token;
                         _context3.t14 = {
@@ -372,12 +392,12 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
 
                         _context3.t11.push.call(_context3.t11, _context3.t14);
 
-                    case 51:
+                    case 53:
                         _context3.t15 = txInfo;
-                        _context3.next = 54;
+                        _context3.next = 56;
                         return market.sell.sendTransaction(outcomeTokenIndex, outcomeTokenCount, minProfit, txOpts);
 
-                    case 54:
+                    case 56:
                         _context3.t16 = _context3.sent;
                         _context3.t17 = this.contracts.Market;
                         _context3.t18 = {
@@ -388,14 +408,14 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
 
                         _context3.t15.push.call(_context3.t15, _context3.t18);
 
-                        _context3.next = 60;
+                        _context3.next = 62;
                         return _promise2.default.all(txInfo.map(function (_ref8, i) {
                             var tx = _ref8.tx,
                                 contract = _ref8.contract;
                             return contract.syncTransaction(tx);
                         }));
 
-                    case 60:
+                    case 62:
                         _context3.t19 = function (res, i) {
                             return (0, _utils.requireEventFromTXResult)(res, txInfo[i].requiredEventName);
                         };
@@ -404,7 +424,7 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
                         saleEvent = txRequiredEvents[txRequiredEvents.length - 1];
                         return _context3.abrupt('return', saleEvent.args.outcomeTokenProfit.minus(saleEvent.args.marketFees));
 
-                    case 64:
+                    case 66:
                     case 'end':
                         return _context3.stop();
                 }
