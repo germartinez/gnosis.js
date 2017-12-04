@@ -21,10 +21,6 @@ var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
-var _pick2 = require('lodash/pick');
-
-var _pick3 = _interopRequireDefault(_pick2);
-
 /**
  * Publishes an event description onto IPFS.
  *
@@ -118,7 +114,6 @@ var resolveEvent = exports.resolveEvent = function () {
             eventAddress,
             outcome,
             opts,
-            txOpts,
             event,
             oracle,
             _args3 = arguments;
@@ -131,39 +126,38 @@ var resolveEvent = exports.resolveEvent = function () {
                             methodName: 'resolveEvent',
                             functionInputs: [{ name: 'event', type: 'address' }, { name: 'outcome', type: 'int256' }]
                         }), _normalizeWeb3Args2 = (0, _slicedToArray3.default)(_normalizeWeb3Args, 2), _normalizeWeb3Args2$ = (0, _slicedToArray3.default)(_normalizeWeb3Args2[0], 2), eventAddress = _normalizeWeb3Args2$[0], outcome = _normalizeWeb3Args2$[1], opts = _normalizeWeb3Args2[1];
-                        txOpts = (0, _pick3.default)(opts, ['from', 'to', 'value', 'gas', 'gasPrice']);
-                        _context3.next = 4;
+                        _context3.next = 3;
                         return this.contracts.Event.at(eventAddress);
 
-                    case 4:
+                    case 3:
                         event = _context3.sent;
                         _context3.t0 = this.contracts.CentralizedOracle;
-                        _context3.next = 8;
-                        return event.oracle(txOpts);
+                        _context3.next = 7;
+                        return event.oracle(opts);
 
-                    case 8:
+                    case 7:
                         _context3.t1 = _context3.sent;
-                        _context3.next = 11;
+                        _context3.next = 10;
                         return _context3.t0.at.call(_context3.t0, _context3.t1);
 
-                    case 11:
+                    case 10:
                         oracle = _context3.sent;
                         _context3.t2 = _utils.requireEventFromTXResult;
-                        _context3.next = 15;
-                        return oracle.setOutcome(outcome, txOpts);
+                        _context3.next = 14;
+                        return oracle.setOutcome(outcome, opts);
 
-                    case 15:
+                    case 14:
                         _context3.t3 = _context3.sent;
                         (0, _context3.t2)(_context3.t3, 'OutcomeAssignment');
                         _context3.t4 = _utils.requireEventFromTXResult;
-                        _context3.next = 20;
-                        return event.setOutcome(txOpts);
+                        _context3.next = 19;
+                        return event.setOutcome(opts);
 
-                    case 20:
+                    case 19:
                         _context3.t5 = _context3.sent;
                         (0, _context3.t4)(_context3.t5, 'OutcomeAssignment');
 
-                    case 22:
+                    case 21:
                     case 'end':
                         return _context3.stop();
                 }

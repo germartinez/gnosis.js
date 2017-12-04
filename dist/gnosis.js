@@ -61,7 +61,7 @@ var Gnosis =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 142);
+/******/ 	return __webpack_require__(__webpack_require__.s = 133);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -871,7 +871,7 @@ var Gnosis =
 
 var BigNumber = __webpack_require__(41);
 var sha3 = __webpack_require__(42);
-var utf8 = __webpack_require__(314);
+var utf8 = __webpack_require__(309);
 
 var unitMap = {
     'noether':      '0',
@@ -2355,7 +2355,7 @@ if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var store      = __webpack_require__(70)('wks')
+var store      = __webpack_require__(68)('wks')
   , uid        = __webpack_require__(46)
   , Symbol     = __webpack_require__(5).Symbol
   , USE_SYMBOL = typeof Symbol == 'function';
@@ -2404,8 +2404,8 @@ if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 
 var BigNumber = __webpack_require__(41);
 var utils = __webpack_require__(1);
-var c = __webpack_require__(58);
-var SolidityParam = __webpack_require__(138);
+var c = __webpack_require__(57);
+var SolidityParam = __webpack_require__(131);
 
 
 /**
@@ -2639,8 +2639,8 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject       = __webpack_require__(9)
-  , IE8_DOM_DEFINE = __webpack_require__(97)
-  , toPrimitive    = __webpack_require__(67)
+  , IE8_DOM_DEFINE = __webpack_require__(93)
+  , toPrimitive    = __webpack_require__(65)
   , dP             = Object.defineProperty;
 
 exports.f = __webpack_require__(10) ? Object.defineProperty : function defineProperty(O, P, Attributes){
@@ -2660,7 +2660,7 @@ exports.f = __webpack_require__(10) ? Object.defineProperty : function definePro
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(6);
-var SolidityParam = __webpack_require__(138);
+var SolidityParam = __webpack_require__(131);
 
 /**
  * SolidityType prototype is used to encode/decode solidity params of certain type
@@ -2920,7 +2920,7 @@ module.exports = SolidityType;
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(32);
+var isObject = __webpack_require__(31);
 module.exports = function(it){
   if(!isObject(it))throw TypeError(it + ' is not an object!');
   return it;
@@ -2931,7 +2931,7 @@ module.exports = function(it){
 /***/ (function(module, exports, __webpack_require__) {
 
 // Thank's IE8 for his funny defineProperty
-module.exports = !__webpack_require__(33)(function(){
+module.exports = !__webpack_require__(32)(function(){
   return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 });
 
@@ -2940,46 +2940,14 @@ module.exports = !__webpack_require__(33)(function(){
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
-var IObject = __webpack_require__(148)
-  , defined = __webpack_require__(64);
+var IObject = __webpack_require__(139)
+  , defined = __webpack_require__(62);
 module.exports = function(it){
   return IObject(defined(it));
 };
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports) {
-
-/**
- * Checks if `value` is classified as an `Array` object.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an array, else `false`.
- * @example
- *
- * _.isArray([1, 2, 3]);
- * // => true
- *
- * _.isArray(document.body.children);
- * // => false
- *
- * _.isArray('abc');
- * // => false
- *
- * _.isArray(_.noop);
- * // => false
- */
-var isArray = Array.isArray;
-
-module.exports = isArray;
-
-
-/***/ }),
-/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3010,8 +2978,8 @@ module.exports = isArray;
 
 
 var utils = __webpack_require__(1);
-var config = __webpack_require__(58);
-var Iban = __webpack_require__(59);
+var config = __webpack_require__(57);
+var Iban = __webpack_require__(58);
 
 /**
  * Should the format output to a big number
@@ -3295,13 +3263,13 @@ module.exports = {
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global    = __webpack_require__(5)
   , core      = __webpack_require__(3)
-  , ctx       = __webpack_require__(31)
-  , hide      = __webpack_require__(15)
+  , ctx       = __webpack_require__(30)
+  , hide      = __webpack_require__(14)
   , PROTOTYPE = 'prototype';
 
 var $export = function(type, name, source){
@@ -3361,11 +3329,11 @@ $export.R = 128; // real proto method for `library`
 module.exports = $export;
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP         = __webpack_require__(7)
-  , createDesc = __webpack_require__(34);
+  , createDesc = __webpack_require__(33);
 module.exports = __webpack_require__(10) ? function(object, key, value){
   return dP.f(object, key, createDesc(1, value));
 } : function(object, key, value){
@@ -3374,7 +3342,7 @@ module.exports = __webpack_require__(10) ? function(object, key, value){
 };
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports) {
 
 var hasOwnProperty = {}.hasOwnProperty;
@@ -3383,11 +3351,11 @@ module.exports = function(it, key){
 };
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assignValue = __webpack_require__(53),
-    baseAssignValue = __webpack_require__(78);
+var assignValue = __webpack_require__(76),
+    baseAssignValue = __webpack_require__(77);
 
 /**
  * Copies properties of `source` to `object`.
@@ -3429,44 +3397,7 @@ module.exports = copyObject;
 
 
 /***/ }),
-/* 18 */
-/***/ (function(module, exports) {
-
-/**
- * Checks if `value` is the
- * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
- * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an object, else `false`.
- * @example
- *
- * _.isObject({});
- * // => true
- *
- * _.isObject([1, 2, 3]);
- * // => true
- *
- * _.isObject(_.noop);
- * // => true
- *
- * _.isObject(null);
- * // => false
- */
-function isObject(value) {
-  var type = typeof value;
-  return value != null && (type == 'object' || type == 'function');
-}
-
-module.exports = isObject;
-
-
-/***/ }),
-/* 19 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -3492,7 +3423,7 @@ module.exports = isObject;
  */
 
 var utils = __webpack_require__(1);
-var errors = __webpack_require__(28);
+var errors = __webpack_require__(27);
 
 var Method = function (options) {
     this.name = options.name;
@@ -3636,25 +3567,62 @@ module.exports = Method;
 
 
 /***/ }),
-/* 20 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = {};
 
 /***/ }),
-/* 21 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
-var $keys       = __webpack_require__(100)
-  , enumBugKeys = __webpack_require__(71);
+var $keys       = __webpack_require__(96)
+  , enumBugKeys = __webpack_require__(69);
 
 module.exports = Object.keys || function keys(O){
   return $keys(O, enumBugKeys);
 };
 
 /***/ }),
-/* 22 */
+/* 20 */
+/***/ (function(module, exports) {
+
+/**
+ * Checks if `value` is the
+ * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+ * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(_.noop);
+ * // => true
+ *
+ * _.isObject(null);
+ * // => false
+ */
+function isObject(value) {
+  var type = typeof value;
+  return value != null && (type == 'object' || type == 'function');
+}
+
+module.exports = isObject;
+
+
+/***/ }),
+/* 21 */
 /***/ (function(module, exports) {
 
 var g;
@@ -3681,7 +3649,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -3709,7 +3677,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3724,8 +3692,8 @@ module.exports = {
   toHash: toHash,
   getProperty: getProperty,
   escapeQuotes: escapeQuotes,
-  equal: __webpack_require__(87),
-  ucs2length: __webpack_require__(239),
+  equal: __webpack_require__(85),
+  ucs2length: __webpack_require__(234),
   varOccurences: varOccurences,
   varReplace: varReplace,
   cleanUpCode: cleanUpCode,
@@ -3983,7 +3951,7 @@ function unescapeJsonPointer(str) {
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -4123,7 +4091,7 @@ function unescapeJsonPointer(str) {
 }));
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -4396,13 +4364,13 @@ function unescapeJsonPointer(str) {
 }));
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(90), __webpack_require__(91));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(88), __webpack_require__(89));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -4533,7 +4501,7 @@ function unescapeJsonPointer(str) {
 }));
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports) {
 
 /*
@@ -4582,7 +4550,7 @@ module.exports = {
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -4732,15 +4700,15 @@ module.exports = Property;
 
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var $at  = __webpack_require__(145)(true);
+var $at  = __webpack_require__(136)(true);
 
 // 21.1.3.27 String.prototype[@@iterator]()
-__webpack_require__(96)(String, 'String', function(iterated){
+__webpack_require__(92)(String, 'String', function(iterated){
   this._t = String(iterated); // target
   this._i = 0;                // next index
 // 21.1.5.2.1 %StringIteratorPrototype%.next()
@@ -4755,11 +4723,11 @@ __webpack_require__(96)(String, 'String', function(iterated){
 });
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(65);
+var aFunction = __webpack_require__(63);
 module.exports = function(fn, that, length){
   aFunction(fn);
   if(that === undefined)return fn;
@@ -4780,7 +4748,7 @@ module.exports = function(fn, that, length){
 };
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = function(it){
@@ -4788,7 +4756,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = function(exec){
@@ -4800,7 +4768,7 @@ module.exports = function(exec){
 };
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports) {
 
 module.exports = function(bitmap, value){
@@ -4813,7 +4781,7 @@ module.exports = function(bitmap, value){
 };
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -4823,13 +4791,13 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(174), __esModule: true };
+module.exports = { "default": __webpack_require__(165), __esModule: true };
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -4854,6 +4822,38 @@ function objectToString(value) {
 }
 
 module.exports = objectToString;
+
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+/**
+ * Checks if `value` is classified as an `Array` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+ * @example
+ *
+ * _.isArray([1, 2, 3]);
+ * // => true
+ *
+ * _.isArray(document.body.children);
+ * // => false
+ *
+ * _.isArray('abc');
+ * // => false
+ *
+ * _.isArray(_.noop);
+ * // => false
+ */
+var isArray = Array.isArray;
+
+module.exports = isArray;
 
 
 /***/ }),
@@ -4932,9 +4932,9 @@ module.exports = nativeKeysIn;
 
 
 
-var base64 = __webpack_require__(277)
-var ieee754 = __webpack_require__(278)
-var isArray = __webpack_require__(279)
+var base64 = __webpack_require__(272)
+var ieee754 = __webpack_require__(273)
+var isArray = __webpack_require__(274)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -6712,7 +6712,7 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
 
 /***/ }),
 /* 41 */
@@ -9430,8 +9430,8 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/*! bignumber.js v2.0.7 https://github.com/Mik
  * @date 2015
  */
 
-var CryptoJS = __webpack_require__(291);
-var sha3 = __webpack_require__(137);
+var CryptoJS = __webpack_require__(286);
+var sha3 = __webpack_require__(130);
 
 module.exports = function (value, options) {
     if (options && options.encoding === 'hex') {
@@ -9457,11 +9457,11 @@ module.exports = function (value, options) {
 
 exports.__esModule = true;
 
-var _isIterable2 = __webpack_require__(350);
+var _isIterable2 = __webpack_require__(345);
 
 var _isIterable3 = _interopRequireDefault(_isIterable2);
 
-var _getIterator2 = __webpack_require__(353);
+var _getIterator2 = __webpack_require__(348);
 
 var _getIterator3 = _interopRequireDefault(_getIterator2);
 
@@ -9517,7 +9517,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.sendTransactionAndGetResult = exports.Decimal = undefined;
 
-var _from = __webpack_require__(36);
+var _from = __webpack_require__(35);
 
 var _from2 = _interopRequireDefault(_from);
 
@@ -9525,7 +9525,7 @@ var _promise = __webpack_require__(52);
 
 var _promise2 = _interopRequireDefault(_promise);
 
-var _toConsumableArray2 = __webpack_require__(75);
+var _toConsumableArray2 = __webpack_require__(73);
 
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
@@ -9541,56 +9541,52 @@ var _slicedToArray2 = __webpack_require__(43);
 
 var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
 
-var _typeof2 = __webpack_require__(95);
+var _typeof2 = __webpack_require__(91);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
-var _functionsIn2 = __webpack_require__(356);
+var _functionsIn2 = __webpack_require__(351);
 
 var _functionsIn3 = _interopRequireDefault(_functionsIn2);
 
-var _filter2 = __webpack_require__(359);
+var _filter2 = __webpack_require__(354);
 
 var _filter3 = _interopRequireDefault(_filter2);
 
-var _pick2 = __webpack_require__(93);
-
-var _pick3 = _interopRequireDefault(_pick2);
-
-var _defaults2 = __webpack_require__(373);
+var _defaults2 = __webpack_require__(355);
 
 var _defaults3 = _interopRequireDefault(_defaults2);
 
-var _forOwn2 = __webpack_require__(114);
+var _forOwn2 = __webpack_require__(107);
 
 var _forOwn3 = _interopRequireDefault(_forOwn2);
 
-var _clone2 = __webpack_require__(376);
+var _clone2 = __webpack_require__(358);
 
 var _clone3 = _interopRequireDefault(_clone2);
 
-var _isNumber2 = __webpack_require__(390);
+var _isNumber2 = __webpack_require__(372);
 
 var _isNumber3 = _interopRequireDefault(_isNumber2);
 
-var _isBoolean2 = __webpack_require__(391);
+var _isBoolean2 = __webpack_require__(373);
 
 var _isBoolean3 = _interopRequireDefault(_isBoolean2);
 
-var _isString2 = __webpack_require__(392);
+var _isString2 = __webpack_require__(374);
 
 var _isString3 = _interopRequireDefault(_isString2);
 
-var _has2 = __webpack_require__(393);
+var _has2 = __webpack_require__(375);
 
 var _has3 = _interopRequireDefault(_has2);
 
-var _isArray2 = __webpack_require__(12);
+var _isArray2 = __webpack_require__(37);
 
 var _isArray3 = _interopRequireDefault(_isArray2);
 
 var sendTransactionAndGetResult = exports.sendTransactionAndGetResult = function () {
-    var _ref9 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee3(opts) {
+    var _ref11 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee3(opts) {
         var _caller;
 
         var caller, result, matchingLog;
@@ -9644,7 +9640,7 @@ var sendTransactionAndGetResult = exports.sendTransactionAndGetResult = function
     }));
 
     return function sendTransactionAndGetResult(_x) {
-        return _ref9.apply(this, arguments);
+        return _ref11.apply(this, arguments);
     };
 }();
 
@@ -9658,7 +9654,7 @@ exports.requireEventFromTXResult = requireEventFromTXResult;
 exports.promisify = promisify;
 exports.promisifyAll = promisifyAll;
 
-var _decimal = __webpack_require__(395);
+var _decimal = __webpack_require__(376);
 
 var _decimal2 = _interopRequireDefault(_decimal);
 
@@ -9816,36 +9812,44 @@ function normalizeWeb3Args(args, opts) {
             // we consider argument to be an options object if it has the parameter name as a key on it
             methodOpts = (0, _defaults3.default)((0, _clone3.default)(args[0]), defaults);
             methodArgs = getTruffleArgsFromOptions(functionInputs, methodOpts, argAliases);
+            functionInputs.forEach(function (_ref2) {
+                var name = _ref2.name;
+                delete methodOpts[name];
+            });
         } else {
             methodOpts = null;
-            methodArgs = functionInputs.map(function (_ref2, i) {
-                var name = _ref2.name,
-                    type = _ref2.type;
+            methodArgs = functionInputs.map(function (_ref3, i) {
+                var name = _ref3.name,
+                    type = _ref3.type;
                 return makeWeb3Compatible(args[i], type, name);
             });
         }
     } else if (functionInputs.length === args.length) {
         methodOpts = null;
-        methodArgs = functionInputs.map(function (_ref3, i) {
-            var name = _ref3.name,
-                type = _ref3.type;
-            return makeWeb3Compatible(args[i], type, name);
-        });
-    } else if (functionInputs.length + 1 === args.length && (0, _typeof3.default)(args[functionInputs.length]) === 'object') {
-        methodOpts = args[args.length - 1];
-        // this map should not hit the last element of args
         methodArgs = functionInputs.map(function (_ref4, i) {
             var name = _ref4.name,
                 type = _ref4.type;
             return makeWeb3Compatible(args[i], type, name);
         });
+    } else if (functionInputs.length + 1 === args.length && (0, _typeof3.default)(args[functionInputs.length]) === 'object') {
+        methodOpts = args[args.length - 1];
+        // this map should not hit the last element of args
+        methodArgs = functionInputs.map(function (_ref5, i) {
+            var name = _ref5.name,
+                type = _ref5.type;
+            return makeWeb3Compatible(args[i], type, name);
+        });
     } else if (args.length === 1 && (0, _typeof3.default)(args[0]) === 'object') {
         methodOpts = (0, _defaults3.default)((0, _clone3.default)(args[0]), defaults);
         methodArgs = getTruffleArgsFromOptions(functionInputs, methodOpts, argAliases);
+        functionInputs.forEach(function (_ref6) {
+            var name = _ref6.name;
+            delete methodOpts[name];
+        });
     } else {
-        throw new Error(methodName + '(' + functionInputs.map(function (_ref5) {
-            var name = _ref5.name,
-                type = _ref5.type;
+        throw new Error(methodName + '(' + functionInputs.map(function (_ref7) {
+            var name = _ref7.name,
+                type = _ref7.type;
             return type + ' ' + name;
         }).join(', ') + ') can\'t be called with args (' + args.join(', ') + ')');
     }
@@ -9868,8 +9872,8 @@ function getWeb3CallMetadata(args, opts, speccedOpts) {
         callerABI = callerContract.abi;
     }
 
-    var functionCandidates = callerABI.filter(function (_ref6) {
-        var name = _ref6.name;
+    var functionCandidates = callerABI.filter(function (_ref8) {
+        var name = _ref8.name;
         return name === methodName;
     });
 
@@ -9895,7 +9899,7 @@ function getWeb3CallMetadata(args, opts, speccedOpts) {
 
     // Pass extra options down to the web3 layer
     if (methodOpts != null) {
-        methodArgs.push((0, _pick3.default)(methodOpts, ['from', 'to', 'value', 'gas', 'gasPrice']));
+        methodArgs.push(methodOpts);
     }
 
     return {
@@ -9906,7 +9910,7 @@ function getWeb3CallMetadata(args, opts, speccedOpts) {
 
 function wrapWeb3Function(spec) {
     var wrappedFn = function () {
-        var _ref7 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
+        var _ref9 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
             var opts,
                 speccedOpts,
                 _args = arguments;
@@ -9931,7 +9935,7 @@ function wrapWeb3Function(spec) {
         }));
 
         return function wrappedFn() {
-            return _ref7.apply(this, arguments);
+            return _ref9.apply(this, arguments);
         };
     }();
 
@@ -10073,7 +10077,7 @@ module.exports = function(key){
 /***/ (function(module, exports, __webpack_require__) {
 
 var def = __webpack_require__(7).f
-  , has = __webpack_require__(16)
+  , has = __webpack_require__(15)
   , TAG = __webpack_require__(4)('toStringTag');
 
 module.exports = function(it, tag, stat){
@@ -10084,10 +10088,10 @@ module.exports = function(it, tag, stat){
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(152);
+__webpack_require__(143);
 var global        = __webpack_require__(5)
-  , hide          = __webpack_require__(15)
-  , Iterators     = __webpack_require__(20)
+  , hide          = __webpack_require__(14)
+  , Iterators     = __webpack_require__(18)
   , TO_STRING_TAG = __webpack_require__(4)('toStringTag');
 
 for(var collections = ['NodeList', 'DOMTokenList', 'MediaList', 'StyleSheetList', 'CSSRuleList'], i = 0; i < 5; i++){
@@ -10108,7 +10112,7 @@ exports.f = {}.propertyIsEnumerable;
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(177);
+module.exports = __webpack_require__(168);
 
 
 /***/ }),
@@ -10159,44 +10163,10 @@ exports.default = function (fn) {
 /* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(179), __esModule: true };
+module.exports = { "default": __webpack_require__(170), __esModule: true };
 
 /***/ }),
 /* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseAssignValue = __webpack_require__(78),
-    eq = __webpack_require__(54);
-
-/** Used for built-in method references. */
-var objectProto = Object.prototype;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/**
- * Assigns `value` to `key` of `object` if the existing value is not equivalent
- * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
- * for equality comparisons.
- *
- * @private
- * @param {Object} object The object to modify.
- * @param {string} key The key of the property to assign.
- * @param {*} value The value to assign.
- */
-function assignValue(object, key, value) {
-  var objValue = object[key];
-  if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) ||
-      (value === undefined && !(key in object))) {
-    baseAssignValue(object, key, value);
-  }
-}
-
-module.exports = assignValue;
-
-
-/***/ }),
-/* 54 */
 /***/ (function(module, exports) {
 
 /**
@@ -10239,10 +10209,10 @@ module.exports = eq;
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var overArg = __webpack_require__(83);
+var overArg = __webpack_require__(82);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeKeys = overArg(Object.keys, Object);
@@ -10251,10 +10221,10 @@ module.exports = nativeKeys;
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var eq = __webpack_require__(54);
+var eq = __webpack_require__(53);
 
 /**
  * Gets the index at which the `key` is found in `array` of key-value pairs.
@@ -10278,7 +10248,7 @@ module.exports = assocIndexOf;
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -10587,7 +10557,7 @@ module.exports = assocIndexOf;
 }));
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -10672,7 +10642,7 @@ module.exports = {
 
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -10905,7 +10875,7 @@ module.exports = Iban;
 
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -10934,7 +10904,7 @@ module.exports = Iban;
  * @date 2014
  */
 
-var formatters = __webpack_require__(13);
+var formatters = __webpack_require__(12);
 var utils = __webpack_require__(1);
 
 /**
@@ -11156,7 +11126,7 @@ module.exports = Filter;
 
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -11181,7 +11151,7 @@ module.exports = Filter;
  * @date 2015
  */
 
-var Method = __webpack_require__(19);
+var Method = __webpack_require__(17);
 
 /// @returns an array of objects describing web3.eth.filter api methods
 var eth = function () {
@@ -11269,34 +11239,7 @@ module.exports = {
 
 
 /***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isArray = __webpack_require__(12),
-    isKey = __webpack_require__(363),
-    stringToPath = __webpack_require__(365),
-    toString = __webpack_require__(367);
-
-/**
- * Casts `value` to a path array if it's not one.
- *
- * @private
- * @param {*} value The value to inspect.
- * @param {Object} [object] The object to query keys on.
- * @returns {Array} Returns the cast property path array.
- */
-function castPath(value, object) {
-  if (isArray(value)) {
-    return value;
-  }
-  return isKey(value, object) ? [value] : stringToPath(toString(value));
-}
-
-module.exports = castPath;
-
-
-/***/ }),
-/* 63 */
+/* 61 */
 /***/ (function(module, exports) {
 
 // 7.1.4 ToInteger
@@ -11307,7 +11250,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 64 */
+/* 62 */
 /***/ (function(module, exports) {
 
 // 7.2.1 RequireObjectCoercible(argument)
@@ -11317,7 +11260,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 65 */
+/* 63 */
 /***/ (function(module, exports) {
 
 module.exports = function(it){
@@ -11326,10 +11269,10 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 66 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(32)
+var isObject = __webpack_require__(31)
   , document = __webpack_require__(5).document
   // in old IE typeof document.createElement is 'object'
   , is = isObject(document) && isObject(document.createElement);
@@ -11338,11 +11281,11 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 67 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = __webpack_require__(32);
+var isObject = __webpack_require__(31);
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
 // and the second argument - flag - preferred type is a string
 module.exports = function(it, S){
@@ -11355,28 +11298,28 @@ module.exports = function(it, S){
 };
 
 /***/ }),
-/* 68 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
-var toInteger = __webpack_require__(63)
+var toInteger = __webpack_require__(61)
   , min       = Math.min;
 module.exports = function(it){
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
 };
 
 /***/ }),
-/* 69 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var shared = __webpack_require__(70)('keys')
+var shared = __webpack_require__(68)('keys')
   , uid    = __webpack_require__(46);
 module.exports = function(key){
   return shared[key] || (shared[key] = uid(key));
 };
 
 /***/ }),
-/* 70 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(5)
@@ -11387,7 +11330,7 @@ module.exports = function(key){
 };
 
 /***/ }),
-/* 71 */
+/* 69 */
 /***/ (function(module, exports) {
 
 // IE 8- don't enum bug keys
@@ -11396,29 +11339,29 @@ module.exports = (
 ).split(',');
 
 /***/ }),
-/* 72 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.13 ToObject(argument)
-var defined = __webpack_require__(64);
+var defined = __webpack_require__(62);
 module.exports = function(it){
   return Object(defined(it));
 };
 
 /***/ }),
-/* 73 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports.f = __webpack_require__(4);
 
 /***/ }),
-/* 74 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global         = __webpack_require__(5)
   , core           = __webpack_require__(3)
   , LIBRARY        = __webpack_require__(45)
-  , wksExt         = __webpack_require__(73)
+  , wksExt         = __webpack_require__(71)
   , defineProperty = __webpack_require__(7).f;
 module.exports = function(name){
   var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
@@ -11426,7 +11369,7 @@ module.exports = function(name){
 };
 
 /***/ }),
-/* 75 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11434,7 +11377,7 @@ module.exports = function(name){
 
 exports.__esModule = true;
 
-var _from = __webpack_require__(36);
+var _from = __webpack_require__(35);
 
 var _from2 = _interopRequireDefault(_from);
 
@@ -11453,12 +11396,12 @@ exports.default = function (arr) {
 };
 
 /***/ }),
-/* 76 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var classof   = __webpack_require__(77)
+var classof   = __webpack_require__(75)
   , ITERATOR  = __webpack_require__(4)('iterator')
-  , Iterators = __webpack_require__(20);
+  , Iterators = __webpack_require__(18);
 module.exports = __webpack_require__(3).getIteratorMethod = function(it){
   if(it != undefined)return it[ITERATOR]
     || it['@@iterator']
@@ -11466,11 +11409,11 @@ module.exports = __webpack_require__(3).getIteratorMethod = function(it){
 };
 
 /***/ }),
-/* 77 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
-var cof = __webpack_require__(35)
+var cof = __webpack_require__(34)
   , TAG = __webpack_require__(4)('toStringTag')
   // ES3 wrong here
   , ARG = cof(function(){ return arguments; }()) == 'Arguments';
@@ -11494,10 +11437,44 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 78 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var defineProperty = __webpack_require__(194);
+var baseAssignValue = __webpack_require__(77),
+    eq = __webpack_require__(53);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Assigns `value` to `key` of `object` if the existing value is not equivalent
+ * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * for equality comparisons.
+ *
+ * @private
+ * @param {Object} object The object to modify.
+ * @param {string} key The key of the property to assign.
+ * @param {*} value The value to assign.
+ */
+function assignValue(object, key, value) {
+  var objValue = object[key];
+  if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) ||
+      (value === undefined && !(key in object))) {
+    baseAssignValue(object, key, value);
+  }
+}
+
+module.exports = assignValue;
+
+
+/***/ }),
+/* 77 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var defineProperty = __webpack_require__(185);
 
 /**
  * The base implementation of `assignValue` and `assignMergeValue` without
@@ -11525,11 +11502,11 @@ module.exports = baseAssignValue;
 
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseRest = __webpack_require__(80),
-    isIterateeCall = __webpack_require__(197);
+var baseRest = __webpack_require__(79),
+    isIterateeCall = __webpack_require__(190);
 
 /**
  * Creates a function like `_.assign`.
@@ -11568,12 +11545,12 @@ module.exports = createAssigner;
 
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var identity = __webpack_require__(196),
-    overRest = __webpack_require__(109),
-    setToString = __webpack_require__(110);
+var identity = __webpack_require__(187),
+    overRest = __webpack_require__(188),
+    setToString = __webpack_require__(189);
 
 /**
  * The base implementation of `_.rest` which doesn't validate or coerce arguments.
@@ -11591,7 +11568,7 @@ module.exports = baseRest;
 
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports) {
 
 /**
@@ -11618,11 +11595,11 @@ module.exports = apply;
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(37),
-    isObject = __webpack_require__(18);
+var baseGetTag = __webpack_require__(36),
+    isObject = __webpack_require__(20);
 
 /** `Object#toString` result references. */
 var asyncTag = '[object AsyncFunction]',
@@ -11661,7 +11638,7 @@ module.exports = isFunction;
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports) {
 
 /**
@@ -11682,10 +11659,10 @@ module.exports = overArg;
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var freeGlobal = __webpack_require__(205);
+var freeGlobal = __webpack_require__(200);
 
 /** Detect free variable `self`. */
 var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
@@ -11697,41 +11674,17 @@ module.exports = root;
 
 
 /***/ }),
-/* 85 */
-/***/ (function(module, exports) {
-
-/**
- * This method returns `false`.
- *
- * @static
- * @memberOf _
- * @since 4.13.0
- * @category Util
- * @returns {boolean} Returns `false`.
- * @example
- *
- * _.times(2, _.stubFalse);
- * // => [false, false]
- */
-function stubFalse() {
-  return false;
-}
-
-module.exports = stubFalse;
-
-
-/***/ }),
-/* 86 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var url = __webpack_require__(233)
-  , equal = __webpack_require__(87)
-  , util = __webpack_require__(24)
-  , SchemaObject = __webpack_require__(126)
-  , traverse = __webpack_require__(240);
+var url = __webpack_require__(228)
+  , equal = __webpack_require__(85)
+  , util = __webpack_require__(23)
+  , SchemaObject = __webpack_require__(119)
+  , traverse = __webpack_require__(235);
 
 module.exports = resolve;
 
@@ -11999,7 +11952,7 @@ function resolveIds(schema) {
 
 
 /***/ }),
-/* 87 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12049,13 +12002,13 @@ module.exports = function equal(a, b) {
 
 
 /***/ }),
-/* 88 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var resolve = __webpack_require__(86);
+var resolve = __webpack_require__(84);
 
 module.exports = {
   Validation: errorSubclass(ValidationError),
@@ -12090,10 +12043,10 @@ function errorSubclass(Subclass) {
 
 
 /***/ }),
-/* 89 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Web3 = __webpack_require__(289);
+var Web3 = __webpack_require__(284);
 
 // dont override global variable
 if (typeof window !== 'undefined' && typeof window.Web3 === 'undefined') {
@@ -12104,7 +12057,7 @@ module.exports = Web3;
 
 
 /***/ }),
-/* 90 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -12259,7 +12212,7 @@ module.exports = Web3;
 }));
 
 /***/ }),
-/* 91 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -12407,7 +12360,7 @@ module.exports = Web3;
 }));
 
 /***/ }),
-/* 92 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -12434,15 +12387,15 @@ module.exports = Web3;
 
 var f = __webpack_require__(6);
 
-var SolidityTypeAddress = __webpack_require__(317);
-var SolidityTypeBool = __webpack_require__(318);
-var SolidityTypeInt = __webpack_require__(319);
-var SolidityTypeUInt = __webpack_require__(320);
-var SolidityTypeDynamicBytes = __webpack_require__(321);
-var SolidityTypeString = __webpack_require__(322);
-var SolidityTypeReal = __webpack_require__(323);
-var SolidityTypeUReal = __webpack_require__(324);
-var SolidityTypeBytes = __webpack_require__(325);
+var SolidityTypeAddress = __webpack_require__(312);
+var SolidityTypeBool = __webpack_require__(313);
+var SolidityTypeInt = __webpack_require__(314);
+var SolidityTypeUInt = __webpack_require__(315);
+var SolidityTypeDynamicBytes = __webpack_require__(316);
+var SolidityTypeString = __webpack_require__(317);
+var SolidityTypeReal = __webpack_require__(318);
+var SolidityTypeUReal = __webpack_require__(319);
+var SolidityTypeBytes = __webpack_require__(320);
 
 var isDynamic = function (solidityType, type) {
    return solidityType.isDynamicType(type) ||
@@ -12660,65 +12613,7 @@ module.exports = coder;
 
 
 /***/ }),
-/* 93 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var basePick = __webpack_require__(360),
-    flatRest = __webpack_require__(371);
-
-/**
- * Creates an object composed of the picked `object` properties.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Object
- * @param {Object} object The source object.
- * @param {...(string|string[])} [paths] The property paths to pick.
- * @returns {Object} Returns the new object.
- * @example
- *
- * var object = { 'a': 1, 'b': '2', 'c': 3 };
- *
- * _.pick(object, ['a', 'c']);
- * // => { 'a': 1, 'c': 3 }
- */
-var pick = flatRest(function(object, paths) {
-  return object == null ? {} : basePick(object, paths);
-});
-
-module.exports = pick;
-
-
-/***/ }),
-/* 94 */
-/***/ (function(module, exports) {
-
-/**
- * This method returns the first argument it receives.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Util
- * @param {*} value Any value.
- * @returns {*} Returns `value`.
- * @example
- *
- * var object = { 'a': 1 };
- *
- * console.log(_.identity(object) === object);
- * // => true
- */
-function identity(value) {
-  return value;
-}
-
-module.exports = identity;
-
-
-/***/ }),
-/* 95 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12726,11 +12621,11 @@ module.exports = identity;
 
 exports.__esModule = true;
 
-var _iterator = __webpack_require__(143);
+var _iterator = __webpack_require__(134);
 
 var _iterator2 = _interopRequireDefault(_iterator);
 
-var _symbol = __webpack_require__(155);
+var _symbol = __webpack_require__(146);
 
 var _symbol2 = _interopRequireDefault(_symbol);
 
@@ -12745,20 +12640,20 @@ exports.default = typeof _symbol2.default === "function" && _typeof(_iterator2.d
 };
 
 /***/ }),
-/* 96 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var LIBRARY        = __webpack_require__(45)
-  , $export        = __webpack_require__(14)
-  , redefine       = __webpack_require__(98)
-  , hide           = __webpack_require__(15)
-  , has            = __webpack_require__(16)
-  , Iterators      = __webpack_require__(20)
-  , $iterCreate    = __webpack_require__(146)
+  , $export        = __webpack_require__(13)
+  , redefine       = __webpack_require__(94)
+  , hide           = __webpack_require__(14)
+  , has            = __webpack_require__(15)
+  , Iterators      = __webpack_require__(18)
+  , $iterCreate    = __webpack_require__(137)
   , setToStringTag = __webpack_require__(47)
-  , getPrototypeOf = __webpack_require__(151)
+  , getPrototypeOf = __webpack_require__(142)
   , ITERATOR       = __webpack_require__(4)('iterator')
   , BUGGY          = !([].keys && 'next' in [].keys()) // Safari has buggy iterators w/o `next`
   , FF_ITERATOR    = '@@iterator'
@@ -12821,41 +12716,41 @@ module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED
 };
 
 /***/ }),
-/* 97 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = !__webpack_require__(10) && !__webpack_require__(33)(function(){
-  return Object.defineProperty(__webpack_require__(66)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+module.exports = !__webpack_require__(10) && !__webpack_require__(32)(function(){
+  return Object.defineProperty(__webpack_require__(64)('div'), 'a', {get: function(){ return 7; }}).a != 7;
 });
 
 /***/ }),
-/* 98 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(15);
+module.exports = __webpack_require__(14);
 
 /***/ }),
-/* 99 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject    = __webpack_require__(9)
-  , dPs         = __webpack_require__(147)
-  , enumBugKeys = __webpack_require__(71)
-  , IE_PROTO    = __webpack_require__(69)('IE_PROTO')
+  , dPs         = __webpack_require__(138)
+  , enumBugKeys = __webpack_require__(69)
+  , IE_PROTO    = __webpack_require__(67)('IE_PROTO')
   , Empty       = function(){ /* empty */ }
   , PROTOTYPE   = 'prototype';
 
 // Create object with fake `null` prototype: use iframe Object with cleared prototype
 var createDict = function(){
   // Thrash, waste and sodomy: IE GC bug
-  var iframe = __webpack_require__(66)('iframe')
+  var iframe = __webpack_require__(64)('iframe')
     , i      = enumBugKeys.length
     , lt     = '<'
     , gt     = '>'
     , iframeDocument;
   iframe.style.display = 'none';
-  __webpack_require__(101).appendChild(iframe);
+  __webpack_require__(97).appendChild(iframe);
   iframe.src = 'javascript:'; // eslint-disable-line no-script-url
   // createDict = iframe.contentWindow.Object;
   // html.removeChild(iframe);
@@ -12882,13 +12777,13 @@ module.exports = Object.create || function create(O, Properties){
 
 
 /***/ }),
-/* 100 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var has          = __webpack_require__(16)
+var has          = __webpack_require__(15)
   , toIObject    = __webpack_require__(11)
-  , arrayIndexOf = __webpack_require__(149)(false)
-  , IE_PROTO     = __webpack_require__(69)('IE_PROTO');
+  , arrayIndexOf = __webpack_require__(140)(false)
+  , IE_PROTO     = __webpack_require__(67)('IE_PROTO');
 
 module.exports = function(object, names){
   var O      = toIObject(object)
@@ -12904,37 +12799,37 @@ module.exports = function(object, names){
 };
 
 /***/ }),
-/* 101 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(5).document && document.documentElement;
 
 /***/ }),
-/* 102 */
+/* 98 */
 /***/ (function(module, exports) {
 
 exports.f = Object.getOwnPropertySymbols;
 
 /***/ }),
-/* 103 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
-var $keys      = __webpack_require__(100)
-  , hiddenKeys = __webpack_require__(71).concat('length', 'prototype');
+var $keys      = __webpack_require__(96)
+  , hiddenKeys = __webpack_require__(69).concat('length', 'prototype');
 
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
   return $keys(O, hiddenKeys);
 };
 
 /***/ }),
-/* 104 */
+/* 100 */
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
-/* 105 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // call something on iterator step with safe closing on error
@@ -12951,11 +12846,11 @@ module.exports = function(iterator, fn, value, entries){
 };
 
 /***/ }),
-/* 106 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // check on default Array iterator
-var Iterators  = __webpack_require__(20)
+var Iterators  = __webpack_require__(18)
   , ITERATOR   = __webpack_require__(4)('iterator')
   , ArrayProto = Array.prototype;
 
@@ -12964,7 +12859,7 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 107 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var ITERATOR     = __webpack_require__(4)('iterator')
@@ -12990,13 +12885,13 @@ module.exports = function(exec, skipClosing){
 };
 
 /***/ }),
-/* 108 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ctx                = __webpack_require__(31)
-  , invoke             = __webpack_require__(184)
-  , html               = __webpack_require__(101)
-  , cel                = __webpack_require__(66)
+var ctx                = __webpack_require__(30)
+  , invoke             = __webpack_require__(175)
+  , html               = __webpack_require__(97)
+  , cel                = __webpack_require__(64)
   , global             = __webpack_require__(5)
   , process            = global.process
   , setTask            = global.setImmediate
@@ -13032,7 +12927,7 @@ if(!setTask || !clearTask){
     delete queue[id];
   };
   // Node.js 0.8-
-  if(__webpack_require__(35)(process) == 'process'){
+  if(__webpack_require__(34)(process) == 'process'){
     defer = function(id){
       process.nextTick(ctx(run, id, 1));
     };
@@ -13070,80 +12965,11 @@ module.exports = {
 };
 
 /***/ }),
-/* 109 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var apply = __webpack_require__(81);
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeMax = Math.max;
-
-/**
- * A specialized version of `baseRest` which transforms the rest array.
- *
- * @private
- * @param {Function} func The function to apply a rest parameter to.
- * @param {number} [start=func.length-1] The start position of the rest parameter.
- * @param {Function} transform The rest array transform.
- * @returns {Function} Returns the new function.
- */
-function overRest(func, start, transform) {
-  start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
-  return function() {
-    var args = arguments,
-        index = -1,
-        length = nativeMax(args.length - start, 0),
-        array = Array(length);
-
-    while (++index < length) {
-      array[index] = args[start + index];
-    }
-    index = -1;
-    var otherArgs = Array(start + 1);
-    while (++index < start) {
-      otherArgs[index] = args[index];
-    }
-    otherArgs[start] = transform(array);
-    return apply(func, this, otherArgs);
-  };
-}
-
-module.exports = overRest;
-
-
-/***/ }),
-/* 110 */
-/***/ (function(module, exports) {
-
-/**
- * This method returns the first argument it receives.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Util
- * @param {*} value Any value.
- * @returns {*} Returns `value`.
- * @example
- *
- * var object = { 'a': 1 };
- *
- * console.log(_.identity(object) === object);
- * // => true
- */
-function identity(value) {
-  return value;
-}
-
-module.exports = identity;
-
-
-/***/ }),
-/* 111 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isFunction = __webpack_require__(82),
-    isLength = __webpack_require__(112);
+var isFunction = __webpack_require__(81),
+    isLength = __webpack_require__(191);
 
 /**
  * Checks if `value` is array-like. A value is considered array-like if it's
@@ -13178,48 +13004,7 @@ module.exports = isArrayLike;
 
 
 /***/ }),
-/* 112 */
-/***/ (function(module, exports) {
-
-/** Used as references for various `Number` constants. */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/**
- * Checks if `value` is a valid array-like length.
- *
- * **Note:** This method is loosely based on
- * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
- * @example
- *
- * _.isLength(3);
- * // => true
- *
- * _.isLength(Number.MIN_VALUE);
- * // => false
- *
- * _.isLength(Infinity);
- * // => false
- *
- * _.isLength('3');
- * // => false
- */
-function isLength(value) {
-  return typeof value == 'number' &&
-    value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
-}
-
-module.exports = isLength;
-
-
-/***/ }),
-/* 113 */
+/* 106 */
 /***/ (function(module, exports) {
 
 /**
@@ -13243,11 +13028,11 @@ module.exports = stubFalse;
 
 
 /***/ }),
-/* 114 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseForOwn = __webpack_require__(198),
-    castFunction = __webpack_require__(200);
+var baseForOwn = __webpack_require__(192),
+    castFunction = __webpack_require__(194);
 
 /**
  * Iterates over own enumerable string keyed properties of an object and
@@ -13285,10 +13070,10 @@ module.exports = forOwn;
 
 
 /***/ }),
-/* 115 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var createBaseFor = __webpack_require__(199);
+var createBaseFor = __webpack_require__(193);
 
 /**
  * The base implementation of `baseForOwn` which iterates over `object`
@@ -13307,58 +13092,38 @@ module.exports = baseFor;
 
 
 /***/ }),
-/* 116 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayPush = __webpack_require__(202),
-    isFlattenable = __webpack_require__(203);
+/* 109 */
+/***/ (function(module, exports) {
 
 /**
- * The base implementation of `_.flatten` with support for restricting flattening.
+ * This method returns `false`.
  *
- * @private
- * @param {Array} array The array to flatten.
- * @param {number} depth The maximum recursion depth.
- * @param {boolean} [predicate=isFlattenable] The function invoked per iteration.
- * @param {boolean} [isStrict] Restrict to values that pass `predicate` checks.
- * @param {Array} [result=[]] The initial result value.
- * @returns {Array} Returns the new flattened array.
+ * @static
+ * @memberOf _
+ * @since 4.13.0
+ * @category Util
+ * @returns {boolean} Returns `false`.
+ * @example
+ *
+ * _.times(2, _.stubFalse);
+ * // => [false, false]
  */
-function baseFlatten(array, depth, predicate, isStrict, result) {
-  var index = -1,
-      length = array.length;
-
-  predicate || (predicate = isFlattenable);
-  result || (result = []);
-
-  while (++index < length) {
-    var value = array[index];
-    if (depth > 0 && predicate(value)) {
-      if (depth > 1) {
-        // Recursively flatten arrays (susceptible to call stack limits).
-        baseFlatten(value, depth - 1, predicate, isStrict, result);
-      } else {
-        arrayPush(result, value);
-      }
-    } else if (!isStrict) {
-      result[result.length] = value;
-    }
-  }
-  return result;
+function stubFalse() {
+  return false;
 }
 
-module.exports = baseFlatten;
+module.exports = stubFalse;
 
 
 /***/ }),
-/* 117 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Stack = __webpack_require__(118),
-    assignMergeValue = __webpack_require__(119),
-    baseFor = __webpack_require__(115),
-    baseMergeDeep = __webpack_require__(216),
-    isObject = __webpack_require__(18),
+var Stack = __webpack_require__(111),
+    assignMergeValue = __webpack_require__(112),
+    baseFor = __webpack_require__(108),
+    baseMergeDeep = __webpack_require__(211),
+    isObject = __webpack_require__(20),
     keysIn = __webpack_require__(39);
 
 /**
@@ -13398,14 +13163,14 @@ module.exports = baseMerge;
 
 
 /***/ }),
-/* 118 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var listCacheClear = __webpack_require__(211),
-    listCacheDelete = __webpack_require__(212),
-    listCacheGet = __webpack_require__(213),
-    listCacheHas = __webpack_require__(214),
-    listCacheSet = __webpack_require__(215);
+var listCacheClear = __webpack_require__(206),
+    listCacheDelete = __webpack_require__(207),
+    listCacheGet = __webpack_require__(208),
+    listCacheHas = __webpack_require__(209),
+    listCacheSet = __webpack_require__(210);
 
 /**
  * Creates an list cache object.
@@ -13436,11 +13201,11 @@ module.exports = ListCache;
 
 
 /***/ }),
-/* 119 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseAssignValue = __webpack_require__(78),
-    eq = __webpack_require__(54);
+var baseAssignValue = __webpack_require__(77),
+    eq = __webpack_require__(53);
 
 /**
  * This function is like `assignValue` except that it doesn't assign
@@ -13462,10 +13227,10 @@ module.exports = assignMergeValue;
 
 
 /***/ }),
-/* 120 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(84);
+/* WEBPACK VAR INJECTION */(function(module) {var root = __webpack_require__(83);
 
 /** Detect free variable `exports`. */
 var freeExports = typeof exports == 'object' && exports && !exports.nodeType && exports;
@@ -13501,10 +13266,10 @@ function cloneBuffer(buffer, isDeep) {
 
 module.exports = cloneBuffer;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)(module)))
 
 /***/ }),
-/* 121 */
+/* 114 */
 /***/ (function(module, exports) {
 
 /**
@@ -13530,12 +13295,12 @@ module.exports = copyArray;
 
 
 /***/ }),
-/* 122 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseCreate = __webpack_require__(220),
-    getPrototype = __webpack_require__(123),
-    isPrototype = __webpack_require__(113);
+var baseCreate = __webpack_require__(215),
+    getPrototype = __webpack_require__(116),
+    isPrototype = __webpack_require__(106);
 
 /**
  * Initializes an object clone.
@@ -13554,10 +13319,10 @@ module.exports = initCloneObject;
 
 
 /***/ }),
-/* 123 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var overArg = __webpack_require__(83);
+var overArg = __webpack_require__(82);
 
 /** Built-in value references. */
 var getPrototype = overArg(Object.getPrototypeOf, Object);
@@ -13566,7 +13331,7 @@ module.exports = getPrototype;
 
 
 /***/ }),
-/* 124 */
+/* 117 */
 /***/ (function(module, exports) {
 
 /**
@@ -13590,7 +13355,7 @@ module.exports = stubFalse;
 
 
 /***/ }),
-/* 125 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -14355,13 +14120,13 @@ module.exports = stubFalse;
 }));
 
 /***/ }),
-/* 126 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var util = __webpack_require__(24);
+var util = __webpack_require__(23);
 
 module.exports = SchemaObject;
 
@@ -14371,10 +14136,10 @@ function SchemaObject(obj) {
 
 
 /***/ }),
-/* 127 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var json = typeof JSON !== 'undefined' ? JSON : __webpack_require__(241);
+var json = typeof JSON !== 'undefined' ? JSON : __webpack_require__(236);
 
 module.exports = function (obj, opts) {
     if (!opts) opts = {};
@@ -14461,7 +14226,7 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 128 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14926,7 +14691,7 @@ module.exports = function generate_validate(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 129 */
+/* 122 */
 /***/ (function(module, exports) {
 
 
@@ -15169,7 +14934,7 @@ function isObject(val) {
 
 
 /***/ }),
-/* 130 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15325,7 +15090,7 @@ module.exports = function generate__limit(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 131 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15408,7 +15173,7 @@ module.exports = function generate__limitItems(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 132 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15496,7 +15261,7 @@ module.exports = function generate__limitLength(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 133 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15579,7 +15344,7 @@ module.exports = function generate__limitProperties(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 134 */
+/* 127 */
 /***/ (function(module, exports) {
 
 /*
@@ -15670,7 +15435,7 @@ module.exports = Jsonrpc;
 
 
 /***/ }),
-/* 135 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -15874,13 +15639,13 @@ module.exports = Jsonrpc;
 }));
 
 /***/ }),
-/* 136 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(57));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(56));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -16202,13 +15967,13 @@ module.exports = Jsonrpc;
 }));
 
 /***/ }),
-/* 137 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(57));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(56));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -16530,7 +16295,7 @@ module.exports = Jsonrpc;
 }));
 
 /***/ }),
-/* 138 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -16688,7 +16453,7 @@ module.exports = SolidityParam;
 
 
 /***/ }),
-/* 139 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -16714,11 +16479,11 @@ module.exports = SolidityParam;
  */
 
 var utils = __webpack_require__(1);
-var coder = __webpack_require__(92);
-var formatters = __webpack_require__(13);
+var coder = __webpack_require__(90);
+var formatters = __webpack_require__(12);
 var sha3 = __webpack_require__(42);
-var Filter = __webpack_require__(60);
-var watches = __webpack_require__(61);
+var Filter = __webpack_require__(59);
+var watches = __webpack_require__(60);
 
 /**
  * This prototype should be used to create event filters
@@ -16902,80 +16667,7 @@ module.exports = SolidityEvent;
 
 
 /***/ }),
-/* 140 */
-/***/ (function(module, exports) {
-
-/** Used as references for various `Number` constants. */
-var MAX_SAFE_INTEGER = 9007199254740991;
-
-/** Used to detect unsigned integer values. */
-var reIsUint = /^(?:0|[1-9]\d*)$/;
-
-/**
- * Checks if `value` is a valid array-like index.
- *
- * @private
- * @param {*} value The value to check.
- * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
- * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
- */
-function isIndex(value, length) {
-  length = length == null ? MAX_SAFE_INTEGER : length;
-  return !!length &&
-    (typeof value == 'number' || reIsUint.test(value)) &&
-    (value > -1 && value % 1 == 0 && value < length);
-}
-
-module.exports = isIndex;
-
-
-/***/ }),
-/* 141 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var castPath = __webpack_require__(62),
-    isArguments = __webpack_require__(85),
-    isArray = __webpack_require__(12),
-    isIndex = __webpack_require__(140),
-    isLength = __webpack_require__(112),
-    toKey = __webpack_require__(94);
-
-/**
- * Checks if `path` exists on `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {Array|string} path The path to check.
- * @param {Function} hasFunc The function to check properties.
- * @returns {boolean} Returns `true` if `path` exists, else `false`.
- */
-function hasPath(object, path, hasFunc) {
-  path = castPath(path, object);
-
-  var index = -1,
-      length = path.length,
-      result = false;
-
-  while (++index < length) {
-    var key = toKey(path[index]);
-    if (!(result = object != null && hasFunc(object, key))) {
-      break;
-    }
-    object = object[key];
-  }
-  if (result || ++index != length) {
-    return result;
-  }
-  length = object == null ? 0 : object.length;
-  return !!length && isLength(length) && isIndex(key, length) &&
-    (isArray(object) || isArguments(object));
-}
-
-module.exports = hasPath;
-
-
-/***/ }),
-/* 142 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16985,19 +16677,19 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _typeof2 = __webpack_require__(95);
+var _typeof2 = __webpack_require__(91);
 
 var _typeof3 = _interopRequireDefault(_typeof2);
 
-var _keys = __webpack_require__(166);
+var _keys = __webpack_require__(157);
 
 var _keys2 = _interopRequireDefault(_keys);
 
-var _values = __webpack_require__(170);
+var _values = __webpack_require__(161);
 
 var _values2 = _interopRequireDefault(_values);
 
-var _toConsumableArray2 = __webpack_require__(75);
+var _toConsumableArray2 = __webpack_require__(73);
 
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
@@ -17009,11 +16701,11 @@ var _asyncToGenerator2 = __webpack_require__(51);
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
-var _classCallCheck2 = __webpack_require__(188);
+var _classCallCheck2 = __webpack_require__(179);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = __webpack_require__(189);
+var _createClass2 = __webpack_require__(180);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
@@ -17021,43 +16713,43 @@ var _promise = __webpack_require__(52);
 
 var _promise2 = _interopRequireDefault(_promise);
 
-var _assign2 = __webpack_require__(193);
+var _assign2 = __webpack_require__(184);
 
 var _assign3 = _interopRequireDefault(_assign2);
 
-var _forOwn2 = __webpack_require__(114);
+var _forOwn2 = __webpack_require__(107);
 
 var _forOwn3 = _interopRequireDefault(_forOwn2);
 
-var _flatMap2 = __webpack_require__(201);
+var _flatMap2 = __webpack_require__(195);
 
 var _flatMap3 = _interopRequireDefault(_flatMap2);
 
-var _forEach2 = __webpack_require__(207);
+var _forEach2 = __webpack_require__(202);
 
 var _forEach3 = _interopRequireDefault(_forEach2);
 
-var _fromPairs2 = __webpack_require__(208);
+var _fromPairs2 = __webpack_require__(203);
 
 var _fromPairs3 = _interopRequireDefault(_fromPairs2);
 
-var _defaultsDeep2 = __webpack_require__(209);
+var _defaultsDeep2 = __webpack_require__(204);
 
 var _defaultsDeep3 = _interopRequireDefault(_defaultsDeep2);
 
-var _truffleContract = __webpack_require__(226);
+var _truffleContract = __webpack_require__(221);
 
 var _truffleContract2 = _interopRequireDefault(_truffleContract);
 
-var _web = __webpack_require__(89);
+var _web = __webpack_require__(87);
 
 var _web2 = _interopRequireDefault(_web);
 
-var _ipfsMini = __webpack_require__(347);
+var _ipfsMini = __webpack_require__(342);
 
 var _ipfsMini2 = _interopRequireDefault(_ipfsMini);
 
-var _lmsr = __webpack_require__(349);
+var _lmsr = __webpack_require__(344);
 
 var lmsr = _interopRequireWildcard(_lmsr);
 
@@ -17065,15 +16757,15 @@ var _utils = __webpack_require__(44);
 
 var utils = _interopRequireWildcard(_utils);
 
-var _oracles = __webpack_require__(396);
+var _oracles = __webpack_require__(377);
 
 var oracles = _interopRequireWildcard(_oracles);
 
-var _events = __webpack_require__(397);
+var _events = __webpack_require__(378);
 
 var events = _interopRequireWildcard(_events);
 
-var _markets = __webpack_require__(398);
+var _markets = __webpack_require__(379);
 
 var markets = _interopRequireWildcard(_markets);
 
@@ -17092,7 +16784,7 @@ var windowLoaded = new _promise2.default(function (accept, reject) {
     }, false);
 });
 
-var gasStatsData = __webpack_require__(399);
+var gasStatsData = __webpack_require__(380);
 var gasLimit = 4e6;
 var gasDefaultMaxMultiplier = 1.5;
 
@@ -17101,10 +16793,10 @@ var implementationInterfaceMap = {
 };
 
 var contractArtifacts = ['Math', 'Event', 'CategoricalEvent', 'ScalarEvent', 'EventFactory', 'Token', 'HumanFriendlyToken', 'EtherToken', 'CentralizedOracle', 'CentralizedOracleFactory', 'UltimateOracle', 'UltimateOracleFactory', 'LMSRMarketMaker', 'Market', 'StandardMarket', 'StandardMarketFactory'].map(function (name) {
-    return __webpack_require__(400)("./" + name + '.json');
+    return __webpack_require__(381)("./" + name + '.json');
 });
 
-contractArtifacts.push(__webpack_require__(434));
+contractArtifacts.push(__webpack_require__(415));
 
 var instanceModules = [oracles, events, markets];
 
@@ -17474,25 +17166,25 @@ exports.default = Gnosis;
 module.exports = exports['default'];
 
 /***/ }),
-/* 143 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(144), __esModule: true };
+module.exports = { "default": __webpack_require__(135), __esModule: true };
 
 /***/ }),
-/* 144 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(30);
+__webpack_require__(29);
 __webpack_require__(48);
-module.exports = __webpack_require__(73).f('iterator');
+module.exports = __webpack_require__(71).f('iterator');
 
 /***/ }),
-/* 145 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(63)
-  , defined   = __webpack_require__(64);
+var toInteger = __webpack_require__(61)
+  , defined   = __webpack_require__(62);
 // true  -> String#at
 // false -> String#codePointAt
 module.exports = function(TO_STRING){
@@ -17510,18 +17202,18 @@ module.exports = function(TO_STRING){
 };
 
 /***/ }),
-/* 146 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var create         = __webpack_require__(99)
-  , descriptor     = __webpack_require__(34)
+var create         = __webpack_require__(95)
+  , descriptor     = __webpack_require__(33)
   , setToStringTag = __webpack_require__(47)
   , IteratorPrototype = {};
 
 // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-__webpack_require__(15)(IteratorPrototype, __webpack_require__(4)('iterator'), function(){ return this; });
+__webpack_require__(14)(IteratorPrototype, __webpack_require__(4)('iterator'), function(){ return this; });
 
 module.exports = function(Constructor, NAME, next){
   Constructor.prototype = create(IteratorPrototype, {next: descriptor(1, next)});
@@ -17529,12 +17221,12 @@ module.exports = function(Constructor, NAME, next){
 };
 
 /***/ }),
-/* 147 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP       = __webpack_require__(7)
   , anObject = __webpack_require__(9)
-  , getKeys  = __webpack_require__(21);
+  , getKeys  = __webpack_require__(19);
 
 module.exports = __webpack_require__(10) ? Object.defineProperties : function defineProperties(O, Properties){
   anObject(O);
@@ -17547,24 +17239,24 @@ module.exports = __webpack_require__(10) ? Object.defineProperties : function de
 };
 
 /***/ }),
-/* 148 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
-var cof = __webpack_require__(35);
+var cof = __webpack_require__(34);
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
 
 /***/ }),
-/* 149 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = __webpack_require__(11)
-  , toLength  = __webpack_require__(68)
-  , toIndex   = __webpack_require__(150);
+  , toLength  = __webpack_require__(66)
+  , toIndex   = __webpack_require__(141);
 module.exports = function(IS_INCLUDES){
   return function($this, el, fromIndex){
     var O      = toIObject($this)
@@ -17583,10 +17275,10 @@ module.exports = function(IS_INCLUDES){
 };
 
 /***/ }),
-/* 150 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(63)
+var toInteger = __webpack_require__(61)
   , max       = Math.max
   , min       = Math.min;
 module.exports = function(index, length){
@@ -17595,13 +17287,13 @@ module.exports = function(index, length){
 };
 
 /***/ }),
-/* 151 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
-var has         = __webpack_require__(16)
-  , toObject    = __webpack_require__(72)
-  , IE_PROTO    = __webpack_require__(69)('IE_PROTO')
+var has         = __webpack_require__(15)
+  , toObject    = __webpack_require__(70)
+  , IE_PROTO    = __webpack_require__(67)('IE_PROTO')
   , ObjectProto = Object.prototype;
 
 module.exports = Object.getPrototypeOf || function(O){
@@ -17613,21 +17305,21 @@ module.exports = Object.getPrototypeOf || function(O){
 };
 
 /***/ }),
-/* 152 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var addToUnscopables = __webpack_require__(153)
-  , step             = __webpack_require__(154)
-  , Iterators        = __webpack_require__(20)
+var addToUnscopables = __webpack_require__(144)
+  , step             = __webpack_require__(145)
+  , Iterators        = __webpack_require__(18)
   , toIObject        = __webpack_require__(11);
 
 // 22.1.3.4 Array.prototype.entries()
 // 22.1.3.13 Array.prototype.keys()
 // 22.1.3.29 Array.prototype.values()
 // 22.1.3.30 Array.prototype[@@iterator]()
-module.exports = __webpack_require__(96)(Array, 'Array', function(iterated, kind){
+module.exports = __webpack_require__(92)(Array, 'Array', function(iterated, kind){
   this._t = toIObject(iterated); // target
   this._i = 0;                   // next index
   this._k = kind;                // kind
@@ -17653,13 +17345,13 @@ addToUnscopables('values');
 addToUnscopables('entries');
 
 /***/ }),
-/* 153 */
+/* 144 */
 /***/ (function(module, exports) {
 
 module.exports = function(){ /* empty */ };
 
 /***/ }),
-/* 154 */
+/* 145 */
 /***/ (function(module, exports) {
 
 module.exports = function(done, value){
@@ -17667,53 +17359,53 @@ module.exports = function(done, value){
 };
 
 /***/ }),
-/* 155 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(156), __esModule: true };
+module.exports = { "default": __webpack_require__(147), __esModule: true };
 
 /***/ }),
-/* 156 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(157);
-__webpack_require__(104);
-__webpack_require__(164);
-__webpack_require__(165);
+__webpack_require__(148);
+__webpack_require__(100);
+__webpack_require__(155);
+__webpack_require__(156);
 module.exports = __webpack_require__(3).Symbol;
 
 /***/ }),
-/* 157 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 // ECMAScript 6 symbols shim
 var global         = __webpack_require__(5)
-  , has            = __webpack_require__(16)
+  , has            = __webpack_require__(15)
   , DESCRIPTORS    = __webpack_require__(10)
-  , $export        = __webpack_require__(14)
-  , redefine       = __webpack_require__(98)
-  , META           = __webpack_require__(158).KEY
-  , $fails         = __webpack_require__(33)
-  , shared         = __webpack_require__(70)
+  , $export        = __webpack_require__(13)
+  , redefine       = __webpack_require__(94)
+  , META           = __webpack_require__(149).KEY
+  , $fails         = __webpack_require__(32)
+  , shared         = __webpack_require__(68)
   , setToStringTag = __webpack_require__(47)
   , uid            = __webpack_require__(46)
   , wks            = __webpack_require__(4)
-  , wksExt         = __webpack_require__(73)
-  , wksDefine      = __webpack_require__(74)
-  , keyOf          = __webpack_require__(159)
-  , enumKeys       = __webpack_require__(160)
-  , isArray        = __webpack_require__(161)
+  , wksExt         = __webpack_require__(71)
+  , wksDefine      = __webpack_require__(72)
+  , keyOf          = __webpack_require__(150)
+  , enumKeys       = __webpack_require__(151)
+  , isArray        = __webpack_require__(152)
   , anObject       = __webpack_require__(9)
   , toIObject      = __webpack_require__(11)
-  , toPrimitive    = __webpack_require__(67)
-  , createDesc     = __webpack_require__(34)
-  , _create        = __webpack_require__(99)
-  , gOPNExt        = __webpack_require__(162)
-  , $GOPD          = __webpack_require__(163)
+  , toPrimitive    = __webpack_require__(65)
+  , createDesc     = __webpack_require__(33)
+  , _create        = __webpack_require__(95)
+  , gOPNExt        = __webpack_require__(153)
+  , $GOPD          = __webpack_require__(154)
   , $DP            = __webpack_require__(7)
-  , $keys          = __webpack_require__(21)
+  , $keys          = __webpack_require__(19)
   , gOPD           = $GOPD.f
   , dP             = $DP.f
   , gOPN           = gOPNExt.f
@@ -17836,9 +17528,9 @@ if(!USE_NATIVE){
 
   $GOPD.f = $getOwnPropertyDescriptor;
   $DP.f   = $defineProperty;
-  __webpack_require__(103).f = gOPNExt.f = $getOwnPropertyNames;
+  __webpack_require__(99).f = gOPNExt.f = $getOwnPropertyNames;
   __webpack_require__(49).f  = $propertyIsEnumerable;
-  __webpack_require__(102).f = $getOwnPropertySymbols;
+  __webpack_require__(98).f = $getOwnPropertySymbols;
 
   if(DESCRIPTORS && !__webpack_require__(45)){
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
@@ -17915,7 +17607,7 @@ $JSON && $export($export.S + $export.F * (!USE_NATIVE || $fails(function(){
 });
 
 // 19.4.3.4 Symbol.prototype[@@toPrimitive](hint)
-$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(15)($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
+$Symbol[PROTOTYPE][TO_PRIMITIVE] || __webpack_require__(14)($Symbol[PROTOTYPE], TO_PRIMITIVE, $Symbol[PROTOTYPE].valueOf);
 // 19.4.3.5 Symbol.prototype[@@toStringTag]
 setToStringTag($Symbol, 'Symbol');
 // 20.2.1.9 Math[@@toStringTag]
@@ -17924,18 +17616,18 @@ setToStringTag(Math, 'Math', true);
 setToStringTag(global.JSON, 'JSON', true);
 
 /***/ }),
-/* 158 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var META     = __webpack_require__(46)('meta')
-  , isObject = __webpack_require__(32)
-  , has      = __webpack_require__(16)
+  , isObject = __webpack_require__(31)
+  , has      = __webpack_require__(15)
   , setDesc  = __webpack_require__(7).f
   , id       = 0;
 var isExtensible = Object.isExtensible || function(){
   return true;
 };
-var FREEZE = !__webpack_require__(33)(function(){
+var FREEZE = !__webpack_require__(32)(function(){
   return isExtensible(Object.preventExtensions({}));
 });
 var setMeta = function(it){
@@ -17982,10 +17674,10 @@ var meta = module.exports = {
 };
 
 /***/ }),
-/* 159 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getKeys   = __webpack_require__(21)
+var getKeys   = __webpack_require__(19)
   , toIObject = __webpack_require__(11);
 module.exports = function(object, el){
   var O      = toIObject(object)
@@ -17997,12 +17689,12 @@ module.exports = function(object, el){
 };
 
 /***/ }),
-/* 160 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
-var getKeys = __webpack_require__(21)
-  , gOPS    = __webpack_require__(102)
+var getKeys = __webpack_require__(19)
+  , gOPS    = __webpack_require__(98)
   , pIE     = __webpack_require__(49);
 module.exports = function(it){
   var result     = getKeys(it)
@@ -18017,22 +17709,22 @@ module.exports = function(it){
 };
 
 /***/ }),
-/* 161 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
-var cof = __webpack_require__(35);
+var cof = __webpack_require__(34);
 module.exports = Array.isArray || function isArray(arg){
   return cof(arg) == 'Array';
 };
 
 /***/ }),
-/* 162 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
 var toIObject = __webpack_require__(11)
-  , gOPN      = __webpack_require__(103).f
+  , gOPN      = __webpack_require__(99).f
   , toString  = {}.toString;
 
 var windowNames = typeof window == 'object' && window && Object.getOwnPropertyNames
@@ -18052,15 +17744,15 @@ module.exports.f = function getOwnPropertyNames(it){
 
 
 /***/ }),
-/* 163 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var pIE            = __webpack_require__(49)
-  , createDesc     = __webpack_require__(34)
+  , createDesc     = __webpack_require__(33)
   , toIObject      = __webpack_require__(11)
-  , toPrimitive    = __webpack_require__(67)
-  , has            = __webpack_require__(16)
-  , IE8_DOM_DEFINE = __webpack_require__(97)
+  , toPrimitive    = __webpack_require__(65)
+  , has            = __webpack_require__(15)
+  , IE8_DOM_DEFINE = __webpack_require__(93)
   , gOPD           = Object.getOwnPropertyDescriptor;
 
 exports.f = __webpack_require__(10) ? gOPD : function getOwnPropertyDescriptor(O, P){
@@ -18073,52 +17765,52 @@ exports.f = __webpack_require__(10) ? gOPD : function getOwnPropertyDescriptor(O
 };
 
 /***/ }),
-/* 164 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(74)('asyncIterator');
+__webpack_require__(72)('asyncIterator');
 
 /***/ }),
-/* 165 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(74)('observable');
+__webpack_require__(72)('observable');
 
 /***/ }),
-/* 166 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(167), __esModule: true };
+module.exports = { "default": __webpack_require__(158), __esModule: true };
 
 /***/ }),
-/* 167 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(168);
+__webpack_require__(159);
 module.exports = __webpack_require__(3).Object.keys;
 
 /***/ }),
-/* 168 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 Object.keys(O)
-var toObject = __webpack_require__(72)
-  , $keys    = __webpack_require__(21);
+var toObject = __webpack_require__(70)
+  , $keys    = __webpack_require__(19);
 
-__webpack_require__(169)('keys', function(){
+__webpack_require__(160)('keys', function(){
   return function keys(it){
     return $keys(toObject(it));
   };
 });
 
 /***/ }),
-/* 169 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // most Object methods by ES6 should accept primitives
-var $export = __webpack_require__(14)
+var $export = __webpack_require__(13)
   , core    = __webpack_require__(3)
-  , fails   = __webpack_require__(33);
+  , fails   = __webpack_require__(32);
 module.exports = function(KEY, exec){
   var fn  = (core.Object || {})[KEY] || Object[KEY]
     , exp = {};
@@ -18127,25 +17819,25 @@ module.exports = function(KEY, exec){
 };
 
 /***/ }),
-/* 170 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(171), __esModule: true };
+module.exports = { "default": __webpack_require__(162), __esModule: true };
 
 /***/ }),
-/* 171 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(172);
+__webpack_require__(163);
 module.exports = __webpack_require__(3).Object.values;
 
 /***/ }),
-/* 172 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // https://github.com/tc39/proposal-object-values-entries
-var $export = __webpack_require__(14)
-  , $values = __webpack_require__(173)(false);
+var $export = __webpack_require__(13)
+  , $values = __webpack_require__(164)(false);
 
 $export($export.S, 'Object', {
   values: function values(it){
@@ -18154,10 +17846,10 @@ $export($export.S, 'Object', {
 });
 
 /***/ }),
-/* 173 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getKeys   = __webpack_require__(21)
+var getKeys   = __webpack_require__(19)
   , toIObject = __webpack_require__(11)
   , isEnum    = __webpack_require__(49).f;
 module.exports = function(isEntries){
@@ -18175,29 +17867,29 @@ module.exports = function(isEntries){
 };
 
 /***/ }),
-/* 174 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(30);
-__webpack_require__(175);
+__webpack_require__(29);
+__webpack_require__(166);
 module.exports = __webpack_require__(3).Array.from;
 
 /***/ }),
-/* 175 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var ctx            = __webpack_require__(31)
-  , $export        = __webpack_require__(14)
-  , toObject       = __webpack_require__(72)
-  , call           = __webpack_require__(105)
-  , isArrayIter    = __webpack_require__(106)
-  , toLength       = __webpack_require__(68)
-  , createProperty = __webpack_require__(176)
-  , getIterFn      = __webpack_require__(76);
+var ctx            = __webpack_require__(30)
+  , $export        = __webpack_require__(13)
+  , toObject       = __webpack_require__(70)
+  , call           = __webpack_require__(101)
+  , isArrayIter    = __webpack_require__(102)
+  , toLength       = __webpack_require__(66)
+  , createProperty = __webpack_require__(167)
+  , getIterFn      = __webpack_require__(74);
 
-$export($export.S + $export.F * !__webpack_require__(107)(function(iter){ Array.from(iter); }), 'Array', {
+$export($export.S + $export.F * !__webpack_require__(103)(function(iter){ Array.from(iter); }), 'Array', {
   // 22.1.2.1 Array.from(arrayLike, mapfn = undefined, thisArg = undefined)
   from: function from(arrayLike/*, mapfn = undefined, thisArg = undefined*/){
     var O       = toObject(arrayLike)
@@ -18227,13 +17919,13 @@ $export($export.S + $export.F * !__webpack_require__(107)(function(iter){ Array.
 
 
 /***/ }),
-/* 176 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var $defineProperty = __webpack_require__(7)
-  , createDesc      = __webpack_require__(34);
+  , createDesc      = __webpack_require__(33);
 
 module.exports = function(object, index, value){
   if(index in object)$defineProperty.f(object, index, createDesc(0, value));
@@ -18241,7 +17933,7 @@ module.exports = function(object, index, value){
 };
 
 /***/ }),
-/* 177 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // This method of obtaining a reference to the global object needs to be
@@ -18259,7 +17951,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(178);
+module.exports = __webpack_require__(169);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -18275,7 +17967,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 178 */
+/* 169 */
 /***/ (function(module, exports) {
 
 /**
@@ -19011,33 +18703,33 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 179 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(104);
-__webpack_require__(30);
+__webpack_require__(100);
+__webpack_require__(29);
 __webpack_require__(48);
-__webpack_require__(180);
+__webpack_require__(171);
 module.exports = __webpack_require__(3).Promise;
 
 /***/ }),
-/* 180 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var LIBRARY            = __webpack_require__(45)
   , global             = __webpack_require__(5)
-  , ctx                = __webpack_require__(31)
-  , classof            = __webpack_require__(77)
-  , $export            = __webpack_require__(14)
-  , isObject           = __webpack_require__(32)
-  , aFunction          = __webpack_require__(65)
-  , anInstance         = __webpack_require__(181)
-  , forOf              = __webpack_require__(182)
-  , speciesConstructor = __webpack_require__(183)
-  , task               = __webpack_require__(108).set
-  , microtask          = __webpack_require__(185)()
+  , ctx                = __webpack_require__(30)
+  , classof            = __webpack_require__(75)
+  , $export            = __webpack_require__(13)
+  , isObject           = __webpack_require__(31)
+  , aFunction          = __webpack_require__(63)
+  , anInstance         = __webpack_require__(172)
+  , forOf              = __webpack_require__(173)
+  , speciesConstructor = __webpack_require__(174)
+  , task               = __webpack_require__(104).set
+  , microtask          = __webpack_require__(176)()
   , PROMISE            = 'Promise'
   , TypeError          = global.TypeError
   , process            = global.process
@@ -19229,7 +18921,7 @@ if(!USE_NATIVE){
     this._h = 0;              // <- rejection state, 0 - default, 1 - handled, 2 - unhandled
     this._n = false;          // <- notify
   };
-  Internal.prototype = __webpack_require__(186)($Promise.prototype, {
+  Internal.prototype = __webpack_require__(177)($Promise.prototype, {
     // 25.4.5.3 Promise.prototype.then(onFulfilled, onRejected)
     then: function then(onFulfilled, onRejected){
       var reaction    = newPromiseCapability(speciesConstructor(this, $Promise));
@@ -19256,7 +18948,7 @@ if(!USE_NATIVE){
 
 $export($export.G + $export.W + $export.F * !USE_NATIVE, {Promise: $Promise});
 __webpack_require__(47)($Promise, PROMISE);
-__webpack_require__(187)(PROMISE);
+__webpack_require__(178)(PROMISE);
 Wrapper = __webpack_require__(3)[PROMISE];
 
 // statics
@@ -19280,7 +18972,7 @@ $export($export.S + $export.F * (LIBRARY || !USE_NATIVE), PROMISE, {
     return capability.promise;
   }
 });
-$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(107)(function(iter){
+$export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(103)(function(iter){
   $Promise.all(iter)['catch'](empty);
 })), PROMISE, {
   // 25.4.4.1 Promise.all(iterable)
@@ -19326,7 +19018,7 @@ $export($export.S + $export.F * !(USE_NATIVE && __webpack_require__(107)(functio
 });
 
 /***/ }),
-/* 181 */
+/* 172 */
 /***/ (function(module, exports) {
 
 module.exports = function(it, Constructor, name, forbiddenField){
@@ -19336,15 +19028,15 @@ module.exports = function(it, Constructor, name, forbiddenField){
 };
 
 /***/ }),
-/* 182 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ctx         = __webpack_require__(31)
-  , call        = __webpack_require__(105)
-  , isArrayIter = __webpack_require__(106)
+var ctx         = __webpack_require__(30)
+  , call        = __webpack_require__(101)
+  , isArrayIter = __webpack_require__(102)
   , anObject    = __webpack_require__(9)
-  , toLength    = __webpack_require__(68)
-  , getIterFn   = __webpack_require__(76)
+  , toLength    = __webpack_require__(66)
+  , getIterFn   = __webpack_require__(74)
   , BREAK       = {}
   , RETURN      = {};
 var exports = module.exports = function(iterable, entries, fn, that, ITERATOR){
@@ -19366,12 +19058,12 @@ exports.BREAK  = BREAK;
 exports.RETURN = RETURN;
 
 /***/ }),
-/* 183 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.3.20 SpeciesConstructor(O, defaultConstructor)
 var anObject  = __webpack_require__(9)
-  , aFunction = __webpack_require__(65)
+  , aFunction = __webpack_require__(63)
   , SPECIES   = __webpack_require__(4)('species');
 module.exports = function(O, D){
   var C = anObject(O).constructor, S;
@@ -19379,7 +19071,7 @@ module.exports = function(O, D){
 };
 
 /***/ }),
-/* 184 */
+/* 175 */
 /***/ (function(module, exports) {
 
 // fast apply, http://jsperf.lnkit.com/fast-apply/5
@@ -19400,15 +19092,15 @@ module.exports = function(fn, args, that){
 };
 
 /***/ }),
-/* 185 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var global    = __webpack_require__(5)
-  , macrotask = __webpack_require__(108).set
+  , macrotask = __webpack_require__(104).set
   , Observer  = global.MutationObserver || global.WebKitMutationObserver
   , process   = global.process
   , Promise   = global.Promise
-  , isNode    = __webpack_require__(35)(process) == 'process';
+  , isNode    = __webpack_require__(34)(process) == 'process';
 
 module.exports = function(){
   var head, last, notify;
@@ -19473,10 +19165,10 @@ module.exports = function(){
 };
 
 /***/ }),
-/* 186 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var hide = __webpack_require__(15);
+var hide = __webpack_require__(14);
 module.exports = function(target, src, safe){
   for(var key in src){
     if(safe && target[key])target[key] = src[key];
@@ -19485,7 +19177,7 @@ module.exports = function(target, src, safe){
 };
 
 /***/ }),
-/* 187 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19505,7 +19197,7 @@ module.exports = function(KEY){
 };
 
 /***/ }),
-/* 188 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19520,7 +19212,7 @@ exports.default = function (instance, Constructor) {
 };
 
 /***/ }),
-/* 189 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19528,7 +19220,7 @@ exports.default = function (instance, Constructor) {
 
 exports.__esModule = true;
 
-var _defineProperty = __webpack_require__(190);
+var _defineProperty = __webpack_require__(181);
 
 var _defineProperty2 = _interopRequireDefault(_defineProperty);
 
@@ -19553,39 +19245,39 @@ exports.default = function () {
 }();
 
 /***/ }),
-/* 190 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(191), __esModule: true };
+module.exports = { "default": __webpack_require__(182), __esModule: true };
 
 /***/ }),
-/* 191 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(192);
+__webpack_require__(183);
 var $Object = __webpack_require__(3).Object;
 module.exports = function defineProperty(it, key, desc){
   return $Object.defineProperty(it, key, desc);
 };
 
 /***/ }),
-/* 192 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var $export = __webpack_require__(14);
+var $export = __webpack_require__(13);
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
 $export($export.S + $export.F * !__webpack_require__(10), 'Object', {defineProperty: __webpack_require__(7).f});
 
 /***/ }),
-/* 193 */
+/* 184 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assignValue = __webpack_require__(53),
-    copyObject = __webpack_require__(17),
-    createAssigner = __webpack_require__(79),
-    isArrayLike = __webpack_require__(111),
-    isPrototype = __webpack_require__(113),
-    keys = __webpack_require__(55);
+var assignValue = __webpack_require__(76),
+    copyObject = __webpack_require__(16),
+    createAssigner = __webpack_require__(78),
+    isArrayLike = __webpack_require__(105),
+    isPrototype = __webpack_require__(106),
+    keys = __webpack_require__(54);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -19641,10 +19333,10 @@ module.exports = assign;
 
 
 /***/ }),
-/* 194 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var getNative = __webpack_require__(195);
+var getNative = __webpack_require__(186);
 
 var defineProperty = (function() {
   try {
@@ -19658,7 +19350,7 @@ module.exports = defineProperty;
 
 
 /***/ }),
-/* 195 */
+/* 186 */
 /***/ (function(module, exports) {
 
 /**
@@ -19677,7 +19369,7 @@ module.exports = getValue;
 
 
 /***/ }),
-/* 196 */
+/* 187 */
 /***/ (function(module, exports) {
 
 /**
@@ -19704,7 +19396,76 @@ module.exports = identity;
 
 
 /***/ }),
-/* 197 */
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var apply = __webpack_require__(80);
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMax = Math.max;
+
+/**
+ * A specialized version of `baseRest` which transforms the rest array.
+ *
+ * @private
+ * @param {Function} func The function to apply a rest parameter to.
+ * @param {number} [start=func.length-1] The start position of the rest parameter.
+ * @param {Function} transform The rest array transform.
+ * @returns {Function} Returns the new function.
+ */
+function overRest(func, start, transform) {
+  start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
+  return function() {
+    var args = arguments,
+        index = -1,
+        length = nativeMax(args.length - start, 0),
+        array = Array(length);
+
+    while (++index < length) {
+      array[index] = args[start + index];
+    }
+    index = -1;
+    var otherArgs = Array(start + 1);
+    while (++index < start) {
+      otherArgs[index] = args[index];
+    }
+    otherArgs[start] = transform(array);
+    return apply(func, this, otherArgs);
+  };
+}
+
+module.exports = overRest;
+
+
+/***/ }),
+/* 189 */
+/***/ (function(module, exports) {
+
+/**
+ * This method returns the first argument it receives.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Util
+ * @param {*} value Any value.
+ * @returns {*} Returns `value`.
+ * @example
+ *
+ * var object = { 'a': 1 };
+ *
+ * console.log(_.identity(object) === object);
+ * // => true
+ */
+function identity(value) {
+  return value;
+}
+
+module.exports = identity;
+
+
+/***/ }),
+/* 190 */
 /***/ (function(module, exports) {
 
 /**
@@ -19728,11 +19489,52 @@ module.exports = stubFalse;
 
 
 /***/ }),
-/* 198 */
+/* 191 */
+/***/ (function(module, exports) {
+
+/** Used as references for various `Number` constants. */
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/**
+ * Checks if `value` is a valid array-like length.
+ *
+ * **Note:** This method is loosely based on
+ * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+ * @example
+ *
+ * _.isLength(3);
+ * // => true
+ *
+ * _.isLength(Number.MIN_VALUE);
+ * // => false
+ *
+ * _.isLength(Infinity);
+ * // => false
+ *
+ * _.isLength('3');
+ * // => false
+ */
+function isLength(value) {
+  return typeof value == 'number' &&
+    value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+}
+
+module.exports = isLength;
+
+
+/***/ }),
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseFor = __webpack_require__(115),
-    keys = __webpack_require__(55);
+var baseFor = __webpack_require__(108),
+    keys = __webpack_require__(54);
 
 /**
  * The base implementation of `_.forOwn` without support for iteratee shorthands.
@@ -19750,7 +19552,7 @@ module.exports = baseForOwn;
 
 
 /***/ }),
-/* 199 */
+/* 193 */
 /***/ (function(module, exports) {
 
 /**
@@ -19781,7 +19583,7 @@ module.exports = createBaseFor;
 
 
 /***/ }),
-/* 200 */
+/* 194 */
 /***/ (function(module, exports) {
 
 /**
@@ -19808,11 +19610,11 @@ module.exports = identity;
 
 
 /***/ }),
-/* 201 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseFlatten = __webpack_require__(116),
-    map = __webpack_require__(206);
+var baseFlatten = __webpack_require__(196),
+    map = __webpack_require__(201);
 
 /**
  * Creates a flattened array of values by running each element in `collection`
@@ -19843,7 +19645,51 @@ module.exports = flatMap;
 
 
 /***/ }),
-/* 202 */
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayPush = __webpack_require__(197),
+    isFlattenable = __webpack_require__(198);
+
+/**
+ * The base implementation of `_.flatten` with support for restricting flattening.
+ *
+ * @private
+ * @param {Array} array The array to flatten.
+ * @param {number} depth The maximum recursion depth.
+ * @param {boolean} [predicate=isFlattenable] The function invoked per iteration.
+ * @param {boolean} [isStrict] Restrict to values that pass `predicate` checks.
+ * @param {Array} [result=[]] The initial result value.
+ * @returns {Array} Returns the new flattened array.
+ */
+function baseFlatten(array, depth, predicate, isStrict, result) {
+  var index = -1,
+      length = array.length;
+
+  predicate || (predicate = isFlattenable);
+  result || (result = []);
+
+  while (++index < length) {
+    var value = array[index];
+    if (depth > 0 && predicate(value)) {
+      if (depth > 1) {
+        // Recursively flatten arrays (susceptible to call stack limits).
+        baseFlatten(value, depth - 1, predicate, isStrict, result);
+      } else {
+        arrayPush(result, value);
+      }
+    } else if (!isStrict) {
+      result[result.length] = value;
+    }
+  }
+  return result;
+}
+
+module.exports = baseFlatten;
+
+
+/***/ }),
+/* 197 */
 /***/ (function(module, exports) {
 
 /**
@@ -19869,12 +19715,12 @@ module.exports = arrayPush;
 
 
 /***/ }),
-/* 203 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(204),
-    isArguments = __webpack_require__(85),
-    isArray = __webpack_require__(12);
+var Symbol = __webpack_require__(199),
+    isArguments = __webpack_require__(109),
+    isArray = __webpack_require__(37);
 
 /** Built-in value references. */
 var spreadableSymbol = Symbol ? Symbol.isConcatSpreadable : undefined;
@@ -19895,10 +19741,10 @@ module.exports = isFlattenable;
 
 
 /***/ }),
-/* 204 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(84);
+var root = __webpack_require__(83);
 
 /** Built-in value references. */
 var Symbol = root.Symbol;
@@ -19907,7 +19753,7 @@ module.exports = Symbol;
 
 
 /***/ }),
-/* 205 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/** Detect free variable `global` from Node.js. */
@@ -19915,10 +19761,10 @@ var freeGlobal = typeof global == 'object' && global && global.Object === Object
 
 module.exports = freeGlobal;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
 
 /***/ }),
-/* 206 */
+/* 201 */
 /***/ (function(module, exports) {
 
 /**
@@ -19945,7 +19791,7 @@ module.exports = arrayMap;
 
 
 /***/ }),
-/* 207 */
+/* 202 */
 /***/ (function(module, exports) {
 
 /**
@@ -19973,7 +19819,7 @@ module.exports = arrayEach;
 
 
 /***/ }),
-/* 208 */
+/* 203 */
 /***/ (function(module, exports) {
 
 /**
@@ -20007,13 +19853,13 @@ module.exports = fromPairs;
 
 
 /***/ }),
-/* 209 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var apply = __webpack_require__(81),
-    baseRest = __webpack_require__(80),
-    customDefaultsMerge = __webpack_require__(210),
-    mergeWith = __webpack_require__(225);
+var apply = __webpack_require__(80),
+    baseRest = __webpack_require__(79),
+    customDefaultsMerge = __webpack_require__(205),
+    mergeWith = __webpack_require__(220);
 
 /**
  * This method is like `_.defaults` except that it recursively assigns
@@ -20043,11 +19889,11 @@ module.exports = defaultsDeep;
 
 
 /***/ }),
-/* 210 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseMerge = __webpack_require__(117),
-    isObject = __webpack_require__(18);
+var baseMerge = __webpack_require__(110),
+    isObject = __webpack_require__(20);
 
 /**
  * Used by `_.defaultsDeep` to customize its `_.merge` use to merge source
@@ -20077,7 +19923,7 @@ module.exports = customDefaultsMerge;
 
 
 /***/ }),
-/* 211 */
+/* 206 */
 /***/ (function(module, exports) {
 
 /**
@@ -20096,10 +19942,10 @@ module.exports = listCacheClear;
 
 
 /***/ }),
-/* 212 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(56);
+var assocIndexOf = __webpack_require__(55);
 
 /** Used for built-in method references. */
 var arrayProto = Array.prototype;
@@ -20137,10 +19983,10 @@ module.exports = listCacheDelete;
 
 
 /***/ }),
-/* 213 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(56);
+var assocIndexOf = __webpack_require__(55);
 
 /**
  * Gets the list cache value for `key`.
@@ -20162,10 +20008,10 @@ module.exports = listCacheGet;
 
 
 /***/ }),
-/* 214 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(56);
+var assocIndexOf = __webpack_require__(55);
 
 /**
  * Checks if a list cache value for `key` exists.
@@ -20184,10 +20030,10 @@ module.exports = listCacheHas;
 
 
 /***/ }),
-/* 215 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assocIndexOf = __webpack_require__(56);
+var assocIndexOf = __webpack_require__(55);
 
 /**
  * Sets the list cache `key` to `value`.
@@ -20216,23 +20062,23 @@ module.exports = listCacheSet;
 
 
 /***/ }),
-/* 216 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var assignMergeValue = __webpack_require__(119),
-    cloneBuffer = __webpack_require__(120),
-    cloneTypedArray = __webpack_require__(217),
-    copyArray = __webpack_require__(121),
-    initCloneObject = __webpack_require__(122),
-    isArguments = __webpack_require__(85),
-    isArray = __webpack_require__(12),
-    isArrayLikeObject = __webpack_require__(221),
-    isBuffer = __webpack_require__(124),
-    isFunction = __webpack_require__(82),
-    isObject = __webpack_require__(18),
-    isPlainObject = __webpack_require__(222),
-    isTypedArray = __webpack_require__(223),
-    toPlainObject = __webpack_require__(224);
+var assignMergeValue = __webpack_require__(112),
+    cloneBuffer = __webpack_require__(113),
+    cloneTypedArray = __webpack_require__(212),
+    copyArray = __webpack_require__(114),
+    initCloneObject = __webpack_require__(115),
+    isArguments = __webpack_require__(109),
+    isArray = __webpack_require__(37),
+    isArrayLikeObject = __webpack_require__(216),
+    isBuffer = __webpack_require__(117),
+    isFunction = __webpack_require__(81),
+    isObject = __webpack_require__(20),
+    isPlainObject = __webpack_require__(217),
+    isTypedArray = __webpack_require__(218),
+    toPlainObject = __webpack_require__(219);
 
 /**
  * A specialized version of `baseMerge` for arrays and objects which performs
@@ -20315,10 +20161,10 @@ module.exports = baseMergeDeep;
 
 
 /***/ }),
-/* 217 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var cloneArrayBuffer = __webpack_require__(218);
+var cloneArrayBuffer = __webpack_require__(213);
 
 /**
  * Creates a clone of `typedArray`.
@@ -20337,10 +20183,10 @@ module.exports = cloneTypedArray;
 
 
 /***/ }),
-/* 218 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Uint8Array = __webpack_require__(219);
+var Uint8Array = __webpack_require__(214);
 
 /**
  * Creates a clone of `arrayBuffer`.
@@ -20359,10 +20205,10 @@ module.exports = cloneArrayBuffer;
 
 
 /***/ }),
-/* 219 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var root = __webpack_require__(84);
+var root = __webpack_require__(83);
 
 /** Built-in value references. */
 var Uint8Array = root.Uint8Array;
@@ -20371,10 +20217,10 @@ module.exports = Uint8Array;
 
 
 /***/ }),
-/* 220 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(18);
+var isObject = __webpack_require__(20);
 
 /** Built-in value references. */
 var objectCreate = Object.create;
@@ -20407,10 +20253,10 @@ module.exports = baseCreate;
 
 
 /***/ }),
-/* 221 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isArrayLike = __webpack_require__(111),
+var isArrayLike = __webpack_require__(105),
     isObjectLike = __webpack_require__(38);
 
 /**
@@ -20446,11 +20292,11 @@ module.exports = isArrayLikeObject;
 
 
 /***/ }),
-/* 222 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(37),
-    getPrototype = __webpack_require__(123),
+var baseGetTag = __webpack_require__(36),
+    getPrototype = __webpack_require__(116),
     isObjectLike = __webpack_require__(38);
 
 /** `Object#toString` result references. */
@@ -20514,7 +20360,7 @@ module.exports = isPlainObject;
 
 
 /***/ }),
-/* 223 */
+/* 218 */
 /***/ (function(module, exports) {
 
 /**
@@ -20538,10 +20384,10 @@ module.exports = stubFalse;
 
 
 /***/ }),
-/* 224 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(17),
+var copyObject = __webpack_require__(16),
     keysIn = __webpack_require__(39);
 
 /**
@@ -20576,11 +20422,11 @@ module.exports = toPlainObject;
 
 
 /***/ }),
-/* 225 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseMerge = __webpack_require__(117),
-    createAssigner = __webpack_require__(79);
+var baseMerge = __webpack_require__(110),
+    createAssigner = __webpack_require__(78);
 
 /**
  * This method is like `_.merge` except that it accepts `customizer` which
@@ -20621,11 +20467,11 @@ module.exports = mergeWith;
 
 
 /***/ }),
-/* 226 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Schema = __webpack_require__(227);
-var Contract = __webpack_require__(275);
+var Schema = __webpack_require__(222);
+var Contract = __webpack_require__(270);
 
 var contract = function(options) {
   var binary = Schema.normalize(options || {});
@@ -20690,16 +20536,16 @@ if (typeof window !== "undefined") {
 
 
 /***/ }),
-/* 227 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var sha3 = __webpack_require__(228);
-var pkgVersion = __webpack_require__(230).version;
-var Ajv = __webpack_require__(231);
+var sha3 = __webpack_require__(223);
+var pkgVersion = __webpack_require__(225).version;
+var Ajv = __webpack_require__(226);
 
-var contractObjectSchema = __webpack_require__(272);
-var networkObjectSchema = __webpack_require__(273);
-var abiSchema = __webpack_require__(274);
+var contractObjectSchema = __webpack_require__(267);
+var networkObjectSchema = __webpack_require__(268);
+var abiSchema = __webpack_require__(269);
 
 
 /**
@@ -20919,13 +20765,13 @@ module.exports = TruffleContractSchema;
 
 
 /***/ }),
-/* 228 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(125), __webpack_require__(229));
+		module.exports = exports = factory(__webpack_require__(118), __webpack_require__(224));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -21247,13 +21093,13 @@ module.exports = TruffleContractSchema;
 }));
 
 /***/ }),
-/* 229 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(125));
+		module.exports = exports = factory(__webpack_require__(118));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -21556,29 +21402,29 @@ module.exports = TruffleContractSchema;
 }));
 
 /***/ }),
-/* 230 */
+/* 225 */
 /***/ (function(module, exports) {
 
 module.exports = {"_args":[["truffle-contract-schema@1.0.1","/home/alan/src/github.com/gnosis/gnosis.js"]],"_from":"truffle-contract-schema@1.0.1","_id":"truffle-contract-schema@1.0.1","_inBundle":false,"_integrity":"sha512-37ZO9FVvmW/PZz/sh00LAz7HN2U4FHERuxI4mCbUR6h3r2cRgZ4YBfzHuAHOnZlrVzM1qx/Dx/1Ng3UyfWseEA==","_location":"/truffle-contract-schema","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"truffle-contract-schema@1.0.1","name":"truffle-contract-schema","escapedName":"truffle-contract-schema","rawSpec":"1.0.1","saveSpec":null,"fetchSpec":"1.0.1"},"_requiredBy":["/truffle-contract"],"_resolved":"https://registry.npmjs.org/truffle-contract-schema/-/truffle-contract-schema-1.0.1.tgz","_spec":"1.0.1","_where":"/home/alan/src/github.com/gnosis/gnosis.js","author":{"name":"Tim Coulter","email":"tim.coulter@consensys.net"},"bugs":{"url":"https://github.com/trufflesuite/truffle-schema/issues"},"dependencies":{"ajv":"^5.1.1","crypto-js":"^3.1.9-1"},"description":"JSON schema for contract artifacts","devDependencies":{"mocha":"^3.2.0","solc":"^0.4.16"},"homepage":"https://github.com/trufflesuite/truffle-schema#readme","keywords":["ethereum","json","schema","contract","artifacts"],"license":"MIT","main":"index.js","name":"truffle-contract-schema","repository":{"type":"git","url":"git+https://github.com/trufflesuite/truffle-schema.git"},"scripts":{"test":"mocha"},"version":"1.0.1"}
 
 /***/ }),
-/* 231 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var compileSchema = __webpack_require__(232)
-  , resolve = __webpack_require__(86)
-  , Cache = __webpack_require__(244)
-  , SchemaObject = __webpack_require__(126)
-  , stableStringify = __webpack_require__(127)
-  , formats = __webpack_require__(245)
-  , rules = __webpack_require__(246)
-  , $dataMetaSchema = __webpack_require__(265)
-  , patternGroups = __webpack_require__(266)
-  , util = __webpack_require__(24)
-  , co = __webpack_require__(129);
+var compileSchema = __webpack_require__(227)
+  , resolve = __webpack_require__(84)
+  , Cache = __webpack_require__(239)
+  , SchemaObject = __webpack_require__(119)
+  , stableStringify = __webpack_require__(120)
+  , formats = __webpack_require__(240)
+  , rules = __webpack_require__(241)
+  , $dataMetaSchema = __webpack_require__(260)
+  , patternGroups = __webpack_require__(261)
+  , util = __webpack_require__(23)
+  , co = __webpack_require__(122);
 
 module.exports = Ajv;
 
@@ -21595,13 +21441,13 @@ Ajv.prototype.errorsText = errorsText;
 Ajv.prototype._addSchema = _addSchema;
 Ajv.prototype._compile = _compile;
 
-Ajv.prototype.compileAsync = __webpack_require__(267);
-var customKeyword = __webpack_require__(268);
+Ajv.prototype.compileAsync = __webpack_require__(262);
+var customKeyword = __webpack_require__(263);
 Ajv.prototype.addKeyword = customKeyword.add;
 Ajv.prototype.getKeyword = customKeyword.get;
 Ajv.prototype.removeKeyword = customKeyword.remove;
 
-var errorClasses = __webpack_require__(88);
+var errorClasses = __webpack_require__(86);
 Ajv.ValidationError = errorClasses.Validation;
 Ajv.MissingRefError = errorClasses.MissingRef;
 Ajv.$dataMetaSchema = $dataMetaSchema;
@@ -22004,11 +21850,11 @@ function addFormat(name, format) {
 function addDraft6MetaSchema(self) {
   var $dataSchema;
   if (self._opts.$data) {
-    $dataSchema = __webpack_require__(270);
+    $dataSchema = __webpack_require__(265);
     self.addMetaSchema($dataSchema, $dataSchema.$id, true);
   }
   if (self._opts.meta === false) return;
-  var metaSchema = __webpack_require__(271);
+  var metaSchema = __webpack_require__(266);
   if (self._opts.$data) metaSchema = $dataMetaSchema(metaSchema, META_SUPPORT_DATA);
   self.addMetaSchema(metaSchema, META_SCHEMA_ID, true);
   self._refs['http://json-schema.org/schema'] = META_SCHEMA_ID;
@@ -22046,26 +21892,26 @@ function getMetaSchemaOptions(self) {
 
 
 /***/ }),
-/* 232 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var resolve = __webpack_require__(86)
-  , util = __webpack_require__(24)
-  , errorClasses = __webpack_require__(88)
-  , stableStringify = __webpack_require__(127);
+var resolve = __webpack_require__(84)
+  , util = __webpack_require__(23)
+  , errorClasses = __webpack_require__(86)
+  , stableStringify = __webpack_require__(120);
 
-var validateGenerator = __webpack_require__(128);
+var validateGenerator = __webpack_require__(121);
 
 /**
  * Functions below are used inside compiled validations function
  */
 
-var co = __webpack_require__(129);
+var co = __webpack_require__(122);
 var ucs2length = util.ucs2length;
-var equal = __webpack_require__(87);
+var equal = __webpack_require__(85);
 
 // this error is thrown by async schemas to return validation errors via exception
 var ValidationError = errorClasses.Validation;
@@ -22432,7 +22278,7 @@ function vars(arr, statement) {
 
 
 /***/ }),
-/* 233 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22459,8 +22305,8 @@ function vars(arr, statement) {
 
 
 
-var punycode = __webpack_require__(234);
-var util = __webpack_require__(235);
+var punycode = __webpack_require__(229);
+var util = __webpack_require__(230);
 
 exports.parse = urlParse;
 exports.resolve = urlResolve;
@@ -22535,7 +22381,7 @@ var protocolPattern = /^([a-z0-9.+-]+:)/i,
       'gopher:': true,
       'file:': true
     },
-    querystring = __webpack_require__(236);
+    querystring = __webpack_require__(231);
 
 function urlParse(url, parseQueryString, slashesDenoteHost) {
   if (url && util.isObject(url) && url instanceof Url) return url;
@@ -23171,7 +23017,7 @@ Url.prototype.parseHost = function() {
 
 
 /***/ }),
-/* 234 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/punycode v1.4.1 by @mathias */
@@ -23707,10 +23553,10 @@ Url.prototype.parseHost = function() {
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23)(module), __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)(module), __webpack_require__(21)))
 
 /***/ }),
-/* 235 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23733,18 +23579,18 @@ module.exports = {
 
 
 /***/ }),
-/* 236 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.decode = exports.parse = __webpack_require__(237);
-exports.encode = exports.stringify = __webpack_require__(238);
+exports.decode = exports.parse = __webpack_require__(232);
+exports.encode = exports.stringify = __webpack_require__(233);
 
 
 /***/ }),
-/* 237 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23835,7 +23681,7 @@ var isArray = Array.isArray || function (xs) {
 
 
 /***/ }),
-/* 238 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23927,7 +23773,7 @@ var objectKeys = Object.keys || function (obj) {
 
 
 /***/ }),
-/* 239 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23954,7 +23800,7 @@ module.exports = function ucs2length(str) {
 
 
 /***/ }),
-/* 240 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24042,15 +23888,15 @@ function escapeJsonPtr(str) {
 
 
 /***/ }),
-/* 241 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports.parse = __webpack_require__(242);
-exports.stringify = __webpack_require__(243);
+exports.parse = __webpack_require__(237);
+exports.stringify = __webpack_require__(238);
 
 
 /***/ }),
-/* 242 */
+/* 237 */
 /***/ (function(module, exports) {
 
 var at, // The index of the current character
@@ -24329,7 +24175,7 @@ module.exports = function (source, reviver) {
 
 
 /***/ }),
-/* 243 */
+/* 238 */
 /***/ (function(module, exports) {
 
 var cx = /[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,
@@ -24489,7 +24335,7 @@ module.exports = function (value, replacer, space) {
 
 
 /***/ }),
-/* 244 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24522,13 +24368,13 @@ Cache.prototype.clear = function Cache_clear() {
 
 
 /***/ }),
-/* 245 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var util = __webpack_require__(24);
+var util = __webpack_require__(23);
 
 var DATE = /^\d\d\d\d-(\d\d)-(\d\d)$/;
 var DAYS = [0,31,29,31,30,31,30,31,31,30,31,30,31];
@@ -24664,14 +24510,14 @@ function regex(str) {
 
 
 /***/ }),
-/* 246 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var ruleModules = __webpack_require__(247)
-  , toHash = __webpack_require__(24).toHash;
+var ruleModules = __webpack_require__(242)
+  , toHash = __webpack_require__(23).toHash;
 
 module.exports = function rules() {
   var RULES = [
@@ -24729,7 +24575,7 @@ module.exports = function rules() {
 
 
 /***/ }),
-/* 247 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24737,37 +24583,37 @@ module.exports = function rules() {
 
 //all requires must be explicit because browserify won't work with dynamic requires
 module.exports = {
-  '$ref': __webpack_require__(248),
-  allOf: __webpack_require__(249),
-  anyOf: __webpack_require__(250),
-  const: __webpack_require__(251),
-  contains: __webpack_require__(252),
-  dependencies: __webpack_require__(253),
-  'enum': __webpack_require__(254),
-  format: __webpack_require__(255),
-  items: __webpack_require__(256),
-  maximum: __webpack_require__(130),
-  minimum: __webpack_require__(130),
-  maxItems: __webpack_require__(131),
-  minItems: __webpack_require__(131),
-  maxLength: __webpack_require__(132),
-  minLength: __webpack_require__(132),
-  maxProperties: __webpack_require__(133),
-  minProperties: __webpack_require__(133),
-  multipleOf: __webpack_require__(257),
-  not: __webpack_require__(258),
-  oneOf: __webpack_require__(259),
-  pattern: __webpack_require__(260),
-  properties: __webpack_require__(261),
-  propertyNames: __webpack_require__(262),
-  required: __webpack_require__(263),
-  uniqueItems: __webpack_require__(264),
-  validate: __webpack_require__(128)
+  '$ref': __webpack_require__(243),
+  allOf: __webpack_require__(244),
+  anyOf: __webpack_require__(245),
+  const: __webpack_require__(246),
+  contains: __webpack_require__(247),
+  dependencies: __webpack_require__(248),
+  'enum': __webpack_require__(249),
+  format: __webpack_require__(250),
+  items: __webpack_require__(251),
+  maximum: __webpack_require__(123),
+  minimum: __webpack_require__(123),
+  maxItems: __webpack_require__(124),
+  minItems: __webpack_require__(124),
+  maxLength: __webpack_require__(125),
+  minLength: __webpack_require__(125),
+  maxProperties: __webpack_require__(126),
+  minProperties: __webpack_require__(126),
+  multipleOf: __webpack_require__(252),
+  not: __webpack_require__(253),
+  oneOf: __webpack_require__(254),
+  pattern: __webpack_require__(255),
+  properties: __webpack_require__(256),
+  propertyNames: __webpack_require__(257),
+  required: __webpack_require__(258),
+  uniqueItems: __webpack_require__(259),
+  validate: __webpack_require__(121)
 };
 
 
 /***/ }),
-/* 248 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24897,7 +24743,7 @@ module.exports = function generate_ref(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 249 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24947,7 +24793,7 @@ module.exports = function generate_allOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 250 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25027,7 +24873,7 @@ module.exports = function generate_anyOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 251 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25089,7 +24935,7 @@ module.exports = function generate_const(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 252 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25177,7 +25023,7 @@ module.exports = function generate_contains(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 253 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25351,7 +25197,7 @@ module.exports = function generate_dependencies(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 254 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25423,7 +25269,7 @@ module.exports = function generate_enum(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 255 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25579,7 +25425,7 @@ module.exports = function generate_format(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 256 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25726,7 +25572,7 @@ module.exports = function generate_items(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 257 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25809,7 +25655,7 @@ module.exports = function generate_multipleOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 258 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25899,7 +25745,7 @@ module.exports = function generate_not(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 259 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25976,7 +25822,7 @@ module.exports = function generate_oneOf(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 260 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26057,7 +25903,7 @@ module.exports = function generate_pattern(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 261 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26532,7 +26378,7 @@ module.exports = function generate_properties(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 262 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26620,7 +26466,7 @@ module.exports = function generate_propertyNames(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 263 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26895,7 +26741,7 @@ module.exports = function generate_required(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 264 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26973,7 +26819,7 @@ module.exports = function generate_uniqueItems(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 265 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27029,7 +26875,7 @@ module.exports = function (metaSchema, keywordsJsonPointers) {
 
 
 /***/ }),
-/* 266 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27072,13 +26918,13 @@ module.exports = function (ajv) {
 
 
 /***/ }),
-/* 267 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var MissingRefError = __webpack_require__(88).MissingRef;
+var MissingRefError = __webpack_require__(86).MissingRef;
 
 module.exports = compileAsync;
 
@@ -27169,14 +27015,14 @@ function compileAsync(schema, meta, callback) {
 
 
 /***/ }),
-/* 268 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var IDENTIFIER = /^[a-z_$][a-z0-9_$-]*$/i;
-var customRuleCode = __webpack_require__(269);
+var customRuleCode = __webpack_require__(264);
 
 module.exports = {
   add: addKeyword,
@@ -27306,7 +27152,7 @@ function removeKeyword(keyword) {
 
 
 /***/ }),
-/* 269 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27539,42 +27385,42 @@ module.exports = function generate_custom(it, $keyword, $ruleType) {
 
 
 /***/ }),
-/* 270 */
+/* 265 */
 /***/ (function(module, exports) {
 
 module.exports = {"$schema":"http://json-schema.org/draft-06/schema#","$id":"https://raw.githubusercontent.com/epoberezkin/ajv/master/lib/refs/$data.json#","description":"Meta-schema for $data reference (JSON-schema extension proposal)","type":"object","required":["$data"],"properties":{"$data":{"type":"string","anyOf":[{"format":"relative-json-pointer"},{"format":"json-pointer"}]}},"additionalProperties":false}
 
 /***/ }),
-/* 271 */
+/* 266 */
 /***/ (function(module, exports) {
 
 module.exports = {"$schema":"http://json-schema.org/draft-06/schema#","$id":"http://json-schema.org/draft-06/schema#","title":"Core schema meta-schema","definitions":{"schemaArray":{"type":"array","minItems":1,"items":{"$ref":"#"}},"nonNegativeInteger":{"type":"integer","minimum":0},"nonNegativeIntegerDefault0":{"allOf":[{"$ref":"#/definitions/nonNegativeInteger"},{"default":0}]},"simpleTypes":{"enum":["array","boolean","integer","null","number","object","string"]},"stringArray":{"type":"array","items":{"type":"string"},"uniqueItems":true,"default":[]}},"type":["object","boolean"],"properties":{"$id":{"type":"string","format":"uri-reference"},"$schema":{"type":"string","format":"uri"},"$ref":{"type":"string","format":"uri-reference"},"title":{"type":"string"},"description":{"type":"string"},"default":{},"multipleOf":{"type":"number","exclusiveMinimum":0},"maximum":{"type":"number"},"exclusiveMaximum":{"type":"number"},"minimum":{"type":"number"},"exclusiveMinimum":{"type":"number"},"maxLength":{"$ref":"#/definitions/nonNegativeInteger"},"minLength":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"pattern":{"type":"string","format":"regex"},"additionalItems":{"$ref":"#"},"items":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/schemaArray"}],"default":{}},"maxItems":{"$ref":"#/definitions/nonNegativeInteger"},"minItems":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"uniqueItems":{"type":"boolean","default":false},"contains":{"$ref":"#"},"maxProperties":{"$ref":"#/definitions/nonNegativeInteger"},"minProperties":{"$ref":"#/definitions/nonNegativeIntegerDefault0"},"required":{"$ref":"#/definitions/stringArray"},"additionalProperties":{"$ref":"#"},"definitions":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"properties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"patternProperties":{"type":"object","additionalProperties":{"$ref":"#"},"default":{}},"dependencies":{"type":"object","additionalProperties":{"anyOf":[{"$ref":"#"},{"$ref":"#/definitions/stringArray"}]}},"propertyNames":{"$ref":"#"},"const":{},"enum":{"type":"array","minItems":1,"uniqueItems":true},"type":{"anyOf":[{"$ref":"#/definitions/simpleTypes"},{"type":"array","items":{"$ref":"#/definitions/simpleTypes"},"minItems":1,"uniqueItems":true}]},"format":{"type":"string"},"allOf":{"$ref":"#/definitions/schemaArray"},"anyOf":{"$ref":"#/definitions/schemaArray"},"oneOf":{"$ref":"#/definitions/schemaArray"},"not":{"$ref":"#"}},"default":{}}
 
 /***/ }),
-/* 272 */
+/* 267 */
 /***/ (function(module, exports) {
 
 module.exports = {"id":"contract-object.spec.json","$schema":"http://json-schema.org/schema#","title":"Contract Object","description":"Describes a contract consumable by Truffle, possibly including deployed instances on networks","type":"object","properties":{"contractName":{"allOf":[{"$ref":"#/definitions/ContractName"},{"description":"Name used to identify the contract","default":"Contract"}]},"abi":{"allOf":[{"$ref":"abi.spec.json#"},{"description":"Interface description returned by compiler for source"}]},"bytecode":{"allOf":[{"$ref":"#/definitions/Bytecode"},{"description":"Bytecode sent as contract-creation transaction data, with unresolved link references"}]},"deployedBytecode":{"allOf":[{"$ref":"#/definitions/Bytecode"},{"description":"On-chain deployed contract bytecode, with unresolved link references"}]},"sourceMap":{"allOf":[{"$ref":"#/definitions/SourceMap"},{"description":"Source mapping for contract-creation transaction data bytecode"}]},"deployedSourceMap":{"allOf":[{"$ref":"#/definitions/SourceMap"},{"description":"Source mapping for contract bytecode"}]},"source":{"$ref":"#/definitions/Source"},"sourcePath":{"$ref":"#/definitions/SourcePath"},"ast":{"$ref":"#/definitions/AST"},"compiler":{"type":"object","properties":{"name":{"type":"string"},"version":{"type":"string"}}},"networks":{"patternProperties":{"^[a-zA-Z0-9]+$":{"$ref":"network-object.spec.json#"}},"additionalProperties":false},"schemaVersion":{"$ref":"#/definitions/SchemaVersion"},"updatedAt":{"type":"string","format":"date-time"}},"required":["abi"],"patternProperties":{"^x-":{"anyOf":[{"type":"string"},{"type":"number"},{"type":"object"},{"type":"array"}]}},"additionalProperties":false,"definitions":{"ContractName":{"type":"string","pattern":"^[a-zA-Z_][a-zA-Z0-9_]*$"},"Bytecode":{"type":"string","pattern":"^0x0$|^0x([a-fA-F0-9]{2}|__.{38})+$"},"Source":{"type":"string"},"SourceMap":{"type":"string","examples":["315:637:1:-;;;452:55;;;;;;;-1:-1:-1;;;;;485:9:1;476:19;:8;:19;;;;;;;;;;498:5;476:27;;452:55;315:637;;;;;;;"]},"SourcePath":{"type":"string"},"AST":{"type":"object"},"SchemaVersion":{"type":"string","pattern":"[0-9]+\\.[0-9]+\\.[0-9]+"}}}
 
 /***/ }),
-/* 273 */
+/* 268 */
 /***/ (function(module, exports) {
 
 module.exports = {"id":"network-object.spec.json","$schema":"http://json-schema.org/schema#","title":"Network Object","type":"object","properties":{"address":{"$ref":"#/definitions/Address"},"events":{"type":"object","patternProperties":{"^0x[a-fA-F0-9]{64}$":{"$ref":"abi.spec.json#/definitions/Event"}},"additionalProperties":false},"links":{"type":"object","patternProperties":{"^[a-zA-Z_][a-zA-Z0-9_]*$":{"$ref":"#/definitions/Link"}},"additionalProperties":false}},"additionalProperties":false,"definitions":{"Address":{"type":"string","pattern":"^0x[a-fA-F0-9]{40}$"},"Link":{"type":"object","properties":{"address":{"$ref":"#/definitions/Address"},"events":{"type":"object","patternProperties":{"^0x[a-fA-F0-9]{64}$":{"$ref":"abi.spec.json#/definitions/Event"}},"additionalProperties":false}}}}}
 
 /***/ }),
-/* 274 */
+/* 269 */
 /***/ (function(module, exports) {
 
 module.exports = {"id":"abi.spec.json","$schema":"http://json-schema.org/schema#","title":"ABI","type":"array","items":{"oneOf":[{"$ref":"#/definitions/Event"},{"$ref":"#/definitions/ConstructorFunction"},{"$ref":"#/definitions/FallbackFunction"},{"$ref":"#/definitions/NormalFunction"}]},"definitions":{"Name":{"type":"string","pattern":"^$|^[a-zA-Z_\\$][a-zA-Z_\\$0-9]*$"},"Type":{"type":"string","oneOf":[{"pattern":"^u?int(8|16|24|32|40|48|56|64|72|80|88|96|104|112|120|128|136|144|152|160|168|176|184|192|200|208|216|224|232|240|248|256)?(\\[[0-9]*\\])?$"},{"pattern":"^address(\\[[0-9]*\\])?$"},{"pattern":"^bool(\\[[0-9]*\\])?$"},{"pattern":"^u?fixed(0x8|8x0|0x16|8x8|16x0|0x24|8x16|16x8|24x0|0x32|8x24|16x16|24x8|32x0|0x40|8x32|16x24|24x16|32x8|40x0|0x48|8x40|16x32|24x24|32x16|40x8|48x0|0x56|8x48|16x40|24x32|32x24|40x16|48x8|56x0|0x64|8x56|16x48|24x40|32x32|40x24|48x16|56x8|64x0|0x72|8x64|16x56|24x48|32x40|40x32|48x24|56x16|64x8|72x0|0x80|8x72|16x64|24x56|32x48|40x40|48x32|56x24|64x16|72x8|80x0|0x88|8x80|16x72|24x64|32x56|40x48|48x40|56x32|64x24|72x16|80x8|88x0|0x96|8x88|16x80|24x72|32x64|40x56|48x48|56x40|64x32|72x24|80x16|88x8|96x0|0x104|8x96|16x88|24x80|32x72|40x64|48x56|56x48|64x40|72x32|80x24|88x16|96x8|104x0|0x112|8x104|16x96|24x88|32x80|40x72|48x64|56x56|64x48|72x40|80x32|88x24|96x16|104x8|112x0|0x120|8x112|16x104|24x96|32x88|40x80|48x72|56x64|64x56|72x48|80x40|88x32|96x24|104x16|112x8|120x0|0x128|8x120|16x112|24x104|32x96|40x88|48x80|56x72|64x64|72x56|80x48|88x40|96x32|104x24|112x16|120x8|128x0|0x136|8x128|16x120|24x112|32x104|40x96|48x88|56x80|64x72|72x64|80x56|88x48|96x40|104x32|112x24|120x16|128x8|136x0|0x144|8x136|16x128|24x120|32x112|40x104|48x96|56x88|64x80|72x72|80x64|88x56|96x48|104x40|112x32|120x24|128x16|136x8|144x0|0x152|8x144|16x136|24x128|32x120|40x112|48x104|56x96|64x88|72x80|80x72|88x64|96x56|104x48|112x40|120x32|128x24|136x16|144x8|152x0|0x160|8x152|16x144|24x136|32x128|40x120|48x112|56x104|64x96|72x88|80x80|88x72|96x64|104x56|112x48|120x40|128x32|136x24|144x16|152x8|160x0|0x168|8x160|16x152|24x144|32x136|40x128|48x120|56x112|64x104|72x96|80x88|88x80|96x72|104x64|112x56|120x48|128x40|136x32|144x24|152x16|160x8|168x0|0x176|8x168|16x160|24x152|32x144|40x136|48x128|56x120|64x112|72x104|80x96|88x88|96x80|104x72|112x64|120x56|128x48|136x40|144x32|152x24|160x16|168x8|176x0|0x184|8x176|16x168|24x160|32x152|40x144|48x136|56x128|64x120|72x112|80x104|88x96|96x88|104x80|112x72|120x64|128x56|136x48|144x40|152x32|160x24|168x16|176x8|184x0|0x192|8x184|16x176|24x168|32x160|40x152|48x144|56x136|64x128|72x120|80x112|88x104|96x96|104x88|112x80|120x72|128x64|136x56|144x48|152x40|160x32|168x24|176x16|184x8|192x0|0x200|8x192|16x184|24x176|32x168|40x160|48x152|56x144|64x136|72x128|80x120|88x112|96x104|104x96|112x88|120x80|128x72|136x64|144x56|152x48|160x40|168x32|176x24|184x16|192x8|200x0|0x208|8x200|16x192|24x184|32x176|40x168|48x160|56x152|64x144|72x136|80x128|88x120|96x112|104x104|112x96|120x88|128x80|136x72|144x64|152x56|160x48|168x40|176x32|184x24|192x16|200x8|208x0|0x216|8x208|16x200|24x192|32x184|40x176|48x168|56x160|64x152|72x144|80x136|88x128|96x120|104x112|112x104|120x96|128x88|136x80|144x72|152x64|160x56|168x48|176x40|184x32|192x24|200x16|208x8|216x0|0x224|8x216|16x208|24x200|32x192|40x184|48x176|56x168|64x160|72x152|80x144|88x136|96x128|104x120|112x112|120x104|128x96|136x88|144x80|152x72|160x64|168x56|176x48|184x40|192x32|200x24|208x16|216x8|224x0|0x232|8x224|16x216|24x208|32x200|40x192|48x184|56x176|64x168|72x160|80x152|88x144|96x136|104x128|112x120|120x112|128x104|136x96|144x88|152x80|160x72|168x64|176x56|184x48|192x40|200x32|208x24|216x16|224x8|232x0|0x240|8x232|16x224|24x216|32x208|40x200|48x192|56x184|64x176|72x168|80x160|88x152|96x144|104x136|112x128|120x120|128x112|136x104|144x96|152x88|160x80|168x72|176x64|184x56|192x48|200x40|208x32|216x24|224x16|232x8|240x0|0x248|8x240|16x232|24x224|32x216|40x208|48x200|56x192|64x184|72x176|80x168|88x160|96x152|104x144|112x136|120x128|128x120|136x112|144x104|152x96|160x88|168x80|176x72|184x64|192x56|200x48|208x40|216x32|224x24|232x16|240x8|248x0|0x256|8x248|16x240|24x232|32x224|40x216|48x208|56x200|64x192|72x184|80x176|88x168|96x160|104x152|112x144|120x136|128x128|136x120|144x112|152x104|160x96|168x88|176x80|184x72|192x64|200x56|208x48|216x40|224x32|232x24|240x16|248x8|256x0)?(\\[[0-9]*\\])?$"},{"pattern":"^bytes(0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31|32)(\\[[0-9]*\\])?"},{"pattern":"^bytes$"},{"pattern":"^function(\\[[0-9]*\\])?$"},{"pattern":"^string$"}]},"StateMutability":{"type":"string","enum":["pure","view","nonpayable","payable"]},"NormalFunction":{"type":"object","properties":{"type":{"type":"string","enum":["function"],"default":"function"},"name":{"$ref":"#/definitions/Name"},"inputs":{"type":"array","items":{"$ref":"#/definitions/Parameter"}},"outputs":{"type":"array","items":{"$ref":"#/definitions/Parameter"},"default":[]},"stateMutability":{"$ref":"#/definitions/StateMutability"},"constant":{"type":"boolean"},"payable":{"type":"boolean","default":false}},"required":["name","inputs","constant"],"additionalProperties":false},"ConstructorFunction":{"type":"object","properties":{"type":{"type":"string","enum":["constructor"]},"inputs":{"type":"array","items":{"$ref":"#/definitions/Parameter"}},"payable":{"type":"boolean","default":false}},"required":["type","inputs"],"additionalProperties":false},"FallbackFunction":{"type":"object","properties":{"type":{"type":"string","enum":["fallback"]},"constant":{"type":"boolean"},"payable":{"type":"boolean","default":false}},"required":["type"],"additionalProperties":false},"Event":{"type":"object","properties":{"type":{"type":"string","enum":["event"]},"name":{"$ref":"#/definitions/Name"},"inputs":{"type":"array","items":{"$ref":"#/definitions/EventParameter"}},"anonymous":{"type":"boolean"}},"required":["type","name","inputs","anonymous"],"additionalProperties":false},"Parameter":{"type":"object","properties":{"name":{"$ref":"#/definitions/Name"},"type":{"$ref":"#/definitions/Type"}},"required":["name","type"]},"EventParameter":{"type":"object","properties":{"name":{"$ref":"#/definitions/Name"},"type":{"$ref":"#/definitions/Type"},"indexed":{"type":"boolean"}},"required":["name","type","indexed"]}}}
 
 /***/ }),
-/* 275 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global, module) {var ethJSABI = __webpack_require__(276);
-var BlockchainUtils = __webpack_require__(288);
-var Web3 = __webpack_require__(89);
+/* WEBPACK VAR INJECTION */(function(global, module) {var ethJSABI = __webpack_require__(271);
+var BlockchainUtils = __webpack_require__(283);
+var Web3 = __webpack_require__(87);
 
 // For browserified version. If browserify gave us an empty version,
 // look for the one provided by the user.
@@ -28469,10 +28315,10 @@ var contract = (function(module) {
   return Contract;
 })(module || {});
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22), __webpack_require__(23)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21), __webpack_require__(22)(module)))
 
 /***/ }),
-/* 276 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28480,7 +28326,7 @@ var contract = (function(module) {
 
 /* eslint-disable */
 
-var utils = __webpack_require__(280);
+var utils = __webpack_require__(275);
 var uint256Coder = utils.uint256Coder;
 var coderBoolean = utils.coderBoolean;
 var coderFixedBytes = utils.coderFixedBytes;
@@ -28612,7 +28458,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40).Buffer))
 
 /***/ }),
-/* 277 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28733,7 +28579,7 @@ function fromByteArray (uint8) {
 
 
 /***/ }),
-/* 278 */
+/* 273 */
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -28823,7 +28669,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 
 /***/ }),
-/* 279 */
+/* 274 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -28834,15 +28680,15 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 280 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(Buffer) {
 
-var BN = __webpack_require__(281);
-var numberToBN = __webpack_require__(282);
-var keccak256 = __webpack_require__(286).keccak_256;
+var BN = __webpack_require__(276);
+var numberToBN = __webpack_require__(277);
+var keccak256 = __webpack_require__(281).keccak_256;
 
 // from ethereumjs-util
 function stripZeros(aInput) {
@@ -29258,7 +29104,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40).Buffer))
 
 /***/ }),
-/* 281 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {(function (module, exports) {
@@ -32689,14 +32535,14 @@ module.exports = {
   };
 })(typeof module === 'undefined' || module, this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)(module)))
 
 /***/ }),
-/* 282 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var BN = __webpack_require__(283);
-var stripHexPrefix = __webpack_require__(284);
+var BN = __webpack_require__(278);
+var stripHexPrefix = __webpack_require__(279);
 
 /**
  * Returns a BN object, converts a number value to a BN
@@ -32736,7 +32582,7 @@ module.exports = function numberToBN(arg) {
 
 
 /***/ }),
-/* 283 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {(function (module, exports) {
@@ -36167,13 +36013,13 @@ module.exports = function numberToBN(arg) {
   };
 })(typeof module === 'undefined' || module, this);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)(module)))
 
 /***/ }),
-/* 284 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isHexPrefixed = __webpack_require__(285);
+var isHexPrefixed = __webpack_require__(280);
 
 /**
  * Removes '0x' from a given `String` is present
@@ -36190,7 +36036,7 @@ module.exports = function stripHexPrefix(str) {
 
 
 /***/ }),
-/* 285 */
+/* 280 */
 /***/ (function(module, exports) {
 
 /**
@@ -36209,7 +36055,7 @@ module.exports = function isHexPrefixed(str) {
 
 
 /***/ }),
-/* 286 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global) {/**
@@ -36684,10 +36530,10 @@ module.exports = function isHexPrefixed(str) {
   }
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(287), __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(282), __webpack_require__(21)))
 
 /***/ }),
-/* 287 */
+/* 282 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -36877,12 +36723,12 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 288 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // TODO: remove web3 requirement
 // Call functions directly on the provider.
-var Web3 = __webpack_require__(89);
+var Web3 = __webpack_require__(87);
 
 var Blockchain = {
   parse: function(uri) {
@@ -36944,7 +36790,7 @@ module.exports = Blockchain;
 
 
 /***/ }),
-/* 289 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -36974,23 +36820,23 @@ module.exports = Blockchain;
  * @date 2014
  */
 
-var RequestManager = __webpack_require__(290);
-var Iban = __webpack_require__(59);
-var Eth = __webpack_require__(315);
-var DB = __webpack_require__(334);
-var Shh = __webpack_require__(335);
-var Net = __webpack_require__(336);
-var Personal = __webpack_require__(337);
-var Swarm = __webpack_require__(338);
-var Settings = __webpack_require__(339);
-var version = __webpack_require__(340);
+var RequestManager = __webpack_require__(285);
+var Iban = __webpack_require__(58);
+var Eth = __webpack_require__(310);
+var DB = __webpack_require__(329);
+var Shh = __webpack_require__(330);
+var Net = __webpack_require__(331);
+var Personal = __webpack_require__(332);
+var Swarm = __webpack_require__(333);
+var Settings = __webpack_require__(334);
+var version = __webpack_require__(335);
 var utils = __webpack_require__(1);
 var sha3 = __webpack_require__(42);
-var extend = __webpack_require__(341);
-var Batch = __webpack_require__(342);
-var Property = __webpack_require__(29);
-var HttpProvider = __webpack_require__(343);
-var IpcProvider = __webpack_require__(346);
+var extend = __webpack_require__(336);
+var Batch = __webpack_require__(337);
+var Property = __webpack_require__(28);
+var HttpProvider = __webpack_require__(338);
+var IpcProvider = __webpack_require__(341);
 var BigNumber = __webpack_require__(41);
 
 
@@ -37102,7 +36948,7 @@ module.exports = Web3;
 
 
 /***/ }),
-/* 290 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -37131,10 +36977,10 @@ module.exports = Web3;
  * @date 2014
  */
 
-var Jsonrpc = __webpack_require__(134);
+var Jsonrpc = __webpack_require__(127);
 var utils = __webpack_require__(1);
-var c = __webpack_require__(58);
-var errors = __webpack_require__(28);
+var c = __webpack_require__(57);
+var errors = __webpack_require__(27);
 
 /**
  * It's responsible for passing messages to providers
@@ -37373,13 +37219,13 @@ module.exports = RequestManager;
 
 
 /***/ }),
-/* 291 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(57), __webpack_require__(292), __webpack_require__(293), __webpack_require__(25), __webpack_require__(26), __webpack_require__(90), __webpack_require__(135), __webpack_require__(294), __webpack_require__(136), __webpack_require__(295), __webpack_require__(137), __webpack_require__(296), __webpack_require__(91), __webpack_require__(297), __webpack_require__(27), __webpack_require__(2), __webpack_require__(298), __webpack_require__(299), __webpack_require__(300), __webpack_require__(301), __webpack_require__(302), __webpack_require__(303), __webpack_require__(304), __webpack_require__(305), __webpack_require__(306), __webpack_require__(307), __webpack_require__(308), __webpack_require__(309), __webpack_require__(310), __webpack_require__(311), __webpack_require__(312), __webpack_require__(313));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(56), __webpack_require__(287), __webpack_require__(288), __webpack_require__(24), __webpack_require__(25), __webpack_require__(88), __webpack_require__(128), __webpack_require__(289), __webpack_require__(129), __webpack_require__(290), __webpack_require__(130), __webpack_require__(291), __webpack_require__(89), __webpack_require__(292), __webpack_require__(26), __webpack_require__(2), __webpack_require__(293), __webpack_require__(294), __webpack_require__(295), __webpack_require__(296), __webpack_require__(297), __webpack_require__(298), __webpack_require__(299), __webpack_require__(300), __webpack_require__(301), __webpack_require__(302), __webpack_require__(303), __webpack_require__(304), __webpack_require__(305), __webpack_require__(306), __webpack_require__(307), __webpack_require__(308));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -37396,7 +37242,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 292 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -37477,7 +37323,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 293 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -37631,13 +37477,13 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 294 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(135));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(128));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -37716,13 +37562,13 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 295 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(57), __webpack_require__(136));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(56), __webpack_require__(129));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -37804,7 +37650,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 296 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory) {
@@ -38076,13 +37922,13 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 297 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(90), __webpack_require__(91));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(88), __webpack_require__(89));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -38226,7 +38072,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 298 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -38309,7 +38155,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 299 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -38372,7 +38218,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 300 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -38493,7 +38339,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 301 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -38552,7 +38398,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 302 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -38597,7 +38443,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 303 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -38651,7 +38497,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 304 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -38700,7 +38546,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 305 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -38745,7 +38591,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 306 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -38795,7 +38641,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 307 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -38830,7 +38676,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 308 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
@@ -38901,13 +38747,13 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 309 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(25), __webpack_require__(26), __webpack_require__(27), __webpack_require__(2));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(24), __webpack_require__(25), __webpack_require__(26), __webpack_require__(2));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -39138,13 +38984,13 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 310 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(25), __webpack_require__(26), __webpack_require__(27), __webpack_require__(2));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(24), __webpack_require__(25), __webpack_require__(26), __webpack_require__(2));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -39913,13 +39759,13 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 311 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(25), __webpack_require__(26), __webpack_require__(27), __webpack_require__(2));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(24), __webpack_require__(25), __webpack_require__(26), __webpack_require__(2));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -40057,13 +39903,13 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 312 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(25), __webpack_require__(26), __webpack_require__(27), __webpack_require__(2));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(24), __webpack_require__(25), __webpack_require__(26), __webpack_require__(2));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -40254,13 +40100,13 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 313 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 ;(function (root, factory, undef) {
 	if (true) {
 		// CommonJS
-		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(25), __webpack_require__(26), __webpack_require__(27), __webpack_require__(2));
+		module.exports = exports = factory(__webpack_require__(0), __webpack_require__(24), __webpack_require__(25), __webpack_require__(26), __webpack_require__(2));
 	}
 	else if (typeof define === "function" && define.amd) {
 		// AMD
@@ -40449,7 +40295,7 @@ module.exports = RequestManager;
 }));
 
 /***/ }),
-/* 314 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module, global) {var __WEBPACK_AMD_DEFINE_RESULT__;/*! https://mths.be/utf8js v2.1.2 by @mathias */
@@ -40696,10 +40542,10 @@ module.exports = RequestManager;
 
 }(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(23)(module), __webpack_require__(22)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(22)(module), __webpack_require__(21)))
 
 /***/ }),
-/* 315 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -40728,18 +40574,18 @@ module.exports = RequestManager;
 
 
 
-var formatters = __webpack_require__(13);
+var formatters = __webpack_require__(12);
 var utils = __webpack_require__(1);
-var Method = __webpack_require__(19);
-var Property = __webpack_require__(29);
-var c = __webpack_require__(58);
-var Contract = __webpack_require__(316);
-var watches = __webpack_require__(61);
-var Filter = __webpack_require__(60);
-var IsSyncing = __webpack_require__(328);
-var namereg = __webpack_require__(329);
-var Iban = __webpack_require__(59);
-var transfer = __webpack_require__(332);
+var Method = __webpack_require__(17);
+var Property = __webpack_require__(28);
+var c = __webpack_require__(57);
+var Contract = __webpack_require__(311);
+var watches = __webpack_require__(60);
+var Filter = __webpack_require__(59);
+var IsSyncing = __webpack_require__(323);
+var namereg = __webpack_require__(324);
+var Iban = __webpack_require__(58);
+var transfer = __webpack_require__(327);
 
 var blockCall = function (args) {
     return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? "eth_getBlockByHash" : "eth_getBlockByNumber";
@@ -41060,7 +40906,7 @@ module.exports = Eth;
 
 
 /***/ }),
-/* 316 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -41086,10 +40932,10 @@ module.exports = Eth;
  */
 
 var utils = __webpack_require__(1);
-var coder = __webpack_require__(92);
-var SolidityEvent = __webpack_require__(139);
-var SolidityFunction = __webpack_require__(326);
-var AllEvents = __webpack_require__(327);
+var coder = __webpack_require__(90);
+var SolidityEvent = __webpack_require__(132);
+var SolidityFunction = __webpack_require__(321);
+var AllEvents = __webpack_require__(322);
 
 /**
  * Should be called to encode constructor params
@@ -41376,7 +41222,7 @@ module.exports = ContractFactory;
 
 
 /***/ }),
-/* 317 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(6);
@@ -41408,7 +41254,7 @@ module.exports = SolidityTypeAddress;
 
 
 /***/ }),
-/* 318 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(6);
@@ -41440,7 +41286,7 @@ module.exports = SolidityTypeBool;
 
 
 /***/ }),
-/* 319 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(6);
@@ -41478,7 +41324,7 @@ module.exports = SolidityTypeInt;
 
 
 /***/ }),
-/* 320 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(6);
@@ -41516,7 +41362,7 @@ module.exports = SolidityTypeUInt;
 
 
 /***/ }),
-/* 321 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(6);
@@ -41542,7 +41388,7 @@ module.exports = SolidityTypeDynamicBytes;
 
 
 /***/ }),
-/* 322 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(6);
@@ -41568,7 +41414,7 @@ module.exports = SolidityTypeString;
 
 
 /***/ }),
-/* 323 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(6);
@@ -41606,7 +41452,7 @@ module.exports = SolidityTypeReal;
 
 
 /***/ }),
-/* 324 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(6);
@@ -41644,7 +41490,7 @@ module.exports = SolidityTypeUReal;
 
 
 /***/ }),
-/* 325 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var f = __webpack_require__(6);
@@ -41679,7 +41525,7 @@ module.exports = SolidityTypeBytes;
 
 
 /***/ }),
-/* 326 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -41704,10 +41550,10 @@ module.exports = SolidityTypeBytes;
  * @date 2015
  */
 
-var coder = __webpack_require__(92);
+var coder = __webpack_require__(90);
 var utils = __webpack_require__(1);
-var errors = __webpack_require__(28);
-var formatters = __webpack_require__(13);
+var errors = __webpack_require__(27);
+var formatters = __webpack_require__(12);
 var sha3 = __webpack_require__(42);
 
 /**
@@ -41968,7 +41814,7 @@ module.exports = SolidityFunction;
 
 
 /***/ }),
-/* 327 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -41994,11 +41840,11 @@ module.exports = SolidityFunction;
  */
 
 var sha3 = __webpack_require__(42);
-var SolidityEvent = __webpack_require__(139);
-var formatters = __webpack_require__(13);
+var SolidityEvent = __webpack_require__(132);
+var formatters = __webpack_require__(12);
 var utils = __webpack_require__(1);
-var Filter = __webpack_require__(60);
-var watches = __webpack_require__(61);
+var Filter = __webpack_require__(59);
+var watches = __webpack_require__(60);
 
 var AllSolidityEvents = function (requestManager, json, address) {
     this._requestManager = requestManager;
@@ -42062,7 +41908,7 @@ module.exports = AllSolidityEvents;
 
 
 /***/ }),
-/* 328 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -42087,7 +41933,7 @@ module.exports = AllSolidityEvents;
  * @date 2015
  */
 
-var formatters = __webpack_require__(13);
+var formatters = __webpack_require__(12);
 var utils = __webpack_require__(1);
 
 var count = 1;
@@ -42161,7 +42007,7 @@ module.exports = IsSyncing;
 
 
 /***/ }),
-/* 329 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -42186,8 +42032,8 @@ module.exports = IsSyncing;
  * @date 2015
  */
 
-var globalRegistrarAbi = __webpack_require__(330);
-var icapRegistrarAbi= __webpack_require__(331);
+var globalRegistrarAbi = __webpack_require__(325);
+var icapRegistrarAbi= __webpack_require__(326);
 
 var globalNameregAddress = '0xc6d9d2cd449a754c494264e1809c50e34d64562b';
 var icapNameregAddress = '0xa1a111bc074c9cfa781f0c38e63bd51c91b8af00';
@@ -42206,19 +42052,19 @@ module.exports = {
 
 
 /***/ }),
-/* 330 */
+/* 325 */
 /***/ (function(module, exports) {
 
 module.exports = [{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"name","outputs":[{"name":"o_name","type":"bytes32"}],"type":"function"},{"constant":true,"inputs":[{"name":"_name","type":"bytes32"}],"name":"owner","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":true,"inputs":[{"name":"_name","type":"bytes32"}],"name":"content","outputs":[{"name":"","type":"bytes32"}],"type":"function"},{"constant":true,"inputs":[{"name":"_name","type":"bytes32"}],"name":"addr","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"}],"name":"reserve","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"_name","type":"bytes32"}],"name":"subRegistrar","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_newOwner","type":"address"}],"name":"transfer","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_registrar","type":"address"}],"name":"setSubRegistrar","outputs":[],"type":"function"},{"constant":false,"inputs":[],"name":"Registrar","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_a","type":"address"},{"name":"_primary","type":"bool"}],"name":"setAddress","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_content","type":"bytes32"}],"name":"setContent","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"}],"name":"disown","outputs":[],"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_name","type":"bytes32"},{"indexed":false,"name":"_winner","type":"address"}],"name":"AuctionEnded","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_name","type":"bytes32"},{"indexed":false,"name":"_bidder","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"NewBid","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"name","type":"bytes32"}],"name":"Changed","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"name","type":"bytes32"},{"indexed":true,"name":"addr","type":"address"}],"name":"PrimaryChanged","type":"event"}]
 
 /***/ }),
-/* 331 */
+/* 326 */
 /***/ (function(module, exports) {
 
 module.exports = [{"constant":true,"inputs":[{"name":"_name","type":"bytes32"}],"name":"owner","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_refund","type":"address"}],"name":"disown","outputs":[],"type":"function"},{"constant":true,"inputs":[{"name":"_name","type":"bytes32"}],"name":"addr","outputs":[{"name":"","type":"address"}],"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"}],"name":"reserve","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_newOwner","type":"address"}],"name":"transfer","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"_name","type":"bytes32"},{"name":"_a","type":"address"}],"name":"setAddr","outputs":[],"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"name","type":"bytes32"}],"name":"Changed","type":"event"}]
 
 /***/ }),
-/* 332 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -42243,8 +42089,8 @@ module.exports = [{"constant":true,"inputs":[{"name":"_name","type":"bytes32"}],
  * @date 2015
  */
 
-var Iban = __webpack_require__(59);
-var exchangeAbi = __webpack_require__(333);
+var Iban = __webpack_require__(58);
+var exchangeAbi = __webpack_require__(328);
 
 /**
  * Should be used to make Iban transfer
@@ -42316,13 +42162,13 @@ module.exports = transfer;
 
 
 /***/ }),
-/* 333 */
+/* 328 */
 /***/ (function(module, exports) {
 
 module.exports = [{"constant":false,"inputs":[{"name":"from","type":"bytes32"},{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transfer","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"from","type":"bytes32"},{"name":"to","type":"address"},{"name":"indirectId","type":"bytes32"},{"name":"value","type":"uint256"}],"name":"icapTransfer","outputs":[],"type":"function"},{"constant":false,"inputs":[{"name":"to","type":"bytes32"}],"name":"deposit","outputs":[],"payable":true,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"AnonymousDeposit","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"bytes32"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Deposit","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"bytes32"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"bytes32"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"indirectId","type":"bytes32"},{"indexed":false,"name":"value","type":"uint256"}],"name":"IcapTransfer","type":"event"}]
 
 /***/ }),
-/* 334 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -42347,7 +42193,7 @@ module.exports = [{"constant":false,"inputs":[{"name":"from","type":"bytes32"},{
  * @date 2015
  */
 
-var Method = __webpack_require__(19);
+var Method = __webpack_require__(17);
 
 var DB = function (web3) {
     this._requestManager = web3._requestManager;
@@ -42394,7 +42240,7 @@ module.exports = DB;
 
 
 /***/ }),
-/* 335 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -42420,9 +42266,9 @@ module.exports = DB;
  * @date 2017
  */
 
-var Method = __webpack_require__(19);
-var Filter = __webpack_require__(60);
-var watches = __webpack_require__(61);
+var Method = __webpack_require__(17);
+var Filter = __webpack_require__(59);
+var watches = __webpack_require__(60);
 
 var Shh = function (web3) {
     this._requestManager = web3._requestManager;
@@ -42544,7 +42390,7 @@ module.exports = Shh;
 
 
 /***/ }),
-/* 336 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -42570,7 +42416,7 @@ module.exports = Shh;
  */
 
 var utils = __webpack_require__(1);
-var Property = __webpack_require__(29);
+var Property = __webpack_require__(28);
 
 var Net = function (web3) {
     this._requestManager = web3._requestManager;
@@ -42602,7 +42448,7 @@ module.exports = Net;
 
 
 /***/ }),
-/* 337 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42631,9 +42477,9 @@ module.exports = Net;
 
 
 
-var Method = __webpack_require__(19);
-var Property = __webpack_require__(29);
-var formatters = __webpack_require__(13);
+var Method = __webpack_require__(17);
+var Property = __webpack_require__(28);
+var formatters = __webpack_require__(12);
 
 function Personal(web3) {
     this._requestManager = web3._requestManager;
@@ -42724,7 +42570,7 @@ module.exports = Personal;
 
 
 /***/ }),
-/* 338 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -42754,8 +42600,8 @@ module.exports = Personal;
 
 
 
-var Method = __webpack_require__(19);
-var Property = __webpack_require__(29);
+var Method = __webpack_require__(17);
+var Property = __webpack_require__(28);
 
 function Swarm(web3) {
     this._requestManager = web3._requestManager;
@@ -42876,7 +42722,7 @@ module.exports = Swarm;
 
 
 /***/ }),
-/* 339 */
+/* 334 */
 /***/ (function(module, exports) {
 
 
@@ -42891,19 +42737,19 @@ module.exports = Settings;
 
 
 /***/ }),
-/* 340 */
+/* 335 */
 /***/ (function(module, exports) {
 
 module.exports = {"version":"0.20.2"}
 
 /***/ }),
-/* 341 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var formatters = __webpack_require__(13);
+var formatters = __webpack_require__(12);
 var utils = __webpack_require__(1);
-var Method = __webpack_require__(19);
-var Property = __webpack_require__(29);
+var Method = __webpack_require__(17);
+var Property = __webpack_require__(28);
 
 // TODO: refactor, so the input params are not altered.
 // it's necessary to make same 'extension' work with multiple providers
@@ -42951,7 +42797,7 @@ module.exports = extend;
 
 
 /***/ }),
-/* 342 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -42976,8 +42822,8 @@ module.exports = extend;
  * @date 2015
  */
 
-var Jsonrpc = __webpack_require__(134);
-var errors = __webpack_require__(28);
+var Jsonrpc = __webpack_require__(127);
+var errors = __webpack_require__(27);
 
 var Batch = function (web3) {
     this.requestManager = web3._requestManager;
@@ -43023,7 +42869,7 @@ module.exports = Batch;
 
 
 /***/ }),
-/* 343 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {/*
@@ -43050,7 +42896,7 @@ module.exports = Batch;
  * @date 2015
  */
 
-var errors = __webpack_require__(28);
+var errors = __webpack_require__(27);
 
 // workaround to use httpprovider in different envs
 
@@ -43059,10 +42905,10 @@ if (typeof window !== 'undefined' && window.XMLHttpRequest) {
   XMLHttpRequest = window.XMLHttpRequest; // jshint ignore: line
 // node
 } else {
-  XMLHttpRequest = __webpack_require__(344).XMLHttpRequest; // jshint ignore: line
+  XMLHttpRequest = __webpack_require__(339).XMLHttpRequest; // jshint ignore: line
 }
 
-var XHR2 = __webpack_require__(345); // jshint ignore: line
+var XHR2 = __webpack_require__(340); // jshint ignore: line
 
 /**
  * HttpProvider should be used to send rpc calls over http
@@ -43187,7 +43033,7 @@ module.exports = HttpProvider;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(40).Buffer))
 
 /***/ }),
-/* 344 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43203,14 +43049,14 @@ if (typeof XMLHttpRequest === 'undefined') {
 
 
 /***/ }),
-/* 345 */
+/* 340 */
 /***/ (function(module, exports) {
 
 module.exports = XMLHttpRequest;
 
 
 /***/ }),
-/* 346 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43239,7 +43085,7 @@ module.exports = XMLHttpRequest;
 
 
 var utils = __webpack_require__(1);
-var errors = __webpack_require__(28);
+var errors = __webpack_require__(27);
 
 
 var IpcProvider = function (path, net) {
@@ -43424,13 +43270,13 @@ module.exports = IpcProvider;
 
 
 /***/ }),
-/* 347 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var XMLHttpRequest = __webpack_require__(348);
+var XMLHttpRequest = __webpack_require__(343);
 
 module.exports = IPFS;
 
@@ -43604,7 +43450,7 @@ IPFS.prototype.catJSON = function cat(ipfsHash, callback) {
 };
 
 /***/ }),
-/* 348 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43615,7 +43461,7 @@ var XMLHttpRequest = window.XMLHttpRequest; // eslint-disable-line
 module.exports = XMLHttpRequest;
 
 /***/ }),
-/* 349 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43625,11 +43471,11 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _toConsumableArray2 = __webpack_require__(75);
+var _toConsumableArray2 = __webpack_require__(73);
 
 var _toConsumableArray3 = _interopRequireDefault(_toConsumableArray2);
 
-var _from = __webpack_require__(36);
+var _from = __webpack_require__(35);
 
 var _from2 = _interopRequireDefault(_from);
 
@@ -43786,26 +43632,26 @@ function calcLMSRMarginalPrice() {
 }
 
 /***/ }),
-/* 350 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(351), __esModule: true };
+module.exports = { "default": __webpack_require__(346), __esModule: true };
 
 /***/ }),
-/* 351 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(48);
-__webpack_require__(30);
-module.exports = __webpack_require__(352);
+__webpack_require__(29);
+module.exports = __webpack_require__(347);
 
 /***/ }),
-/* 352 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var classof   = __webpack_require__(77)
+var classof   = __webpack_require__(75)
   , ITERATOR  = __webpack_require__(4)('iterator')
-  , Iterators = __webpack_require__(20);
+  , Iterators = __webpack_require__(18);
 module.exports = __webpack_require__(3).isIterable = function(it){
   var O = Object(it);
   return O[ITERATOR] !== undefined
@@ -43814,25 +43660,25 @@ module.exports = __webpack_require__(3).isIterable = function(it){
 };
 
 /***/ }),
-/* 353 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(354), __esModule: true };
+module.exports = { "default": __webpack_require__(349), __esModule: true };
 
 /***/ }),
-/* 354 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(48);
-__webpack_require__(30);
-module.exports = __webpack_require__(355);
+__webpack_require__(29);
+module.exports = __webpack_require__(350);
 
 /***/ }),
-/* 355 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var anObject = __webpack_require__(9)
-  , get      = __webpack_require__(76);
+  , get      = __webpack_require__(74);
 module.exports = __webpack_require__(3).getIterator = function(it){
   var iterFn = get(it);
   if(typeof iterFn != 'function')throw TypeError(it + ' is not iterable!');
@@ -43840,10 +43686,10 @@ module.exports = __webpack_require__(3).getIterator = function(it){
 };
 
 /***/ }),
-/* 356 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseFunctions = __webpack_require__(357),
+var baseFunctions = __webpack_require__(352),
     keysIn = __webpack_require__(39);
 
 /**
@@ -43877,11 +43723,11 @@ module.exports = functionsIn;
 
 
 /***/ }),
-/* 357 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayFilter = __webpack_require__(358),
-    isFunction = __webpack_require__(82);
+var arrayFilter = __webpack_require__(353),
+    isFunction = __webpack_require__(81);
 
 /**
  * The base implementation of `_.functions` which creates an array of
@@ -43902,7 +43748,7 @@ module.exports = baseFunctions;
 
 
 /***/ }),
-/* 358 */
+/* 353 */
 /***/ (function(module, exports) {
 
 /**
@@ -43933,7 +43779,7 @@ module.exports = arrayFilter;
 
 
 /***/ }),
-/* 359 */
+/* 354 */
 /***/ (function(module, exports) {
 
 /**
@@ -43964,413 +43810,13 @@ module.exports = arrayFilter;
 
 
 /***/ }),
-/* 360 */
+/* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var basePickBy = __webpack_require__(361),
-    hasIn = __webpack_require__(369);
-
-/**
- * The base implementation of `_.pick` without support for individual
- * property identifiers.
- *
- * @private
- * @param {Object} object The source object.
- * @param {string[]} paths The property paths to pick.
- * @returns {Object} Returns the new object.
- */
-function basePick(object, paths) {
-  return basePickBy(object, paths, function(value, path) {
-    return hasIn(object, path);
-  });
-}
-
-module.exports = basePick;
-
-
-/***/ }),
-/* 361 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseGet = __webpack_require__(362),
-    baseSet = __webpack_require__(368),
-    castPath = __webpack_require__(62);
-
-/**
- * The base implementation of  `_.pickBy` without support for iteratee shorthands.
- *
- * @private
- * @param {Object} object The source object.
- * @param {string[]} paths The property paths to pick.
- * @param {Function} predicate The function invoked per property.
- * @returns {Object} Returns the new object.
- */
-function basePickBy(object, paths, predicate) {
-  var index = -1,
-      length = paths.length,
-      result = {};
-
-  while (++index < length) {
-    var path = paths[index],
-        value = baseGet(object, path);
-
-    if (predicate(value, path)) {
-      baseSet(result, castPath(path, object), value);
-    }
-  }
-  return result;
-}
-
-module.exports = basePickBy;
-
-
-/***/ }),
-/* 362 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var castPath = __webpack_require__(62),
-    toKey = __webpack_require__(94);
-
-/**
- * The base implementation of `_.get` without support for default values.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {Array|string} path The path of the property to get.
- * @returns {*} Returns the resolved value.
- */
-function baseGet(object, path) {
-  path = castPath(path, object);
-
-  var index = 0,
-      length = path.length;
-
-  while (object != null && index < length) {
-    object = object[toKey(path[index++])];
-  }
-  return (index && index == length) ? object : undefined;
-}
-
-module.exports = baseGet;
-
-
-/***/ }),
-/* 363 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var isArray = __webpack_require__(12),
-    isSymbol = __webpack_require__(364);
-
-/** Used to match property names within property paths. */
-var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
-    reIsPlainProp = /^\w*$/;
-
-/**
- * Checks if `value` is a property name and not a property path.
- *
- * @private
- * @param {*} value The value to check.
- * @param {Object} [object] The object to query keys on.
- * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
- */
-function isKey(value, object) {
-  if (isArray(value)) {
-    return false;
-  }
-  var type = typeof value;
-  if (type == 'number' || type == 'symbol' || type == 'boolean' ||
-      value == null || isSymbol(value)) {
-    return true;
-  }
-  return reIsPlainProp.test(value) || !reIsDeepProp.test(value) ||
-    (object != null && value in Object(object));
-}
-
-module.exports = isKey;
-
-
-/***/ }),
-/* 364 */
-/***/ (function(module, exports) {
-
-/**
- * This method returns `false`.
- *
- * @static
- * @memberOf _
- * @since 4.13.0
- * @category Util
- * @returns {boolean} Returns `false`.
- * @example
- *
- * _.times(2, _.stubFalse);
- * // => [false, false]
- */
-function stubFalse() {
-  return false;
-}
-
-module.exports = stubFalse;
-
-
-/***/ }),
-/* 365 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var memoizeCapped = __webpack_require__(366);
-
-/** Used to match property names within property paths. */
-var reLeadingDot = /^\./,
-    rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
-
-/** Used to match backslashes in property paths. */
-var reEscapeChar = /\\(\\)?/g;
-
-/**
- * Converts `string` to a property path array.
- *
- * @private
- * @param {string} string The string to convert.
- * @returns {Array} Returns the property path array.
- */
-var stringToPath = memoizeCapped(function(string) {
-  var result = [];
-  if (reLeadingDot.test(string)) {
-    result.push('');
-  }
-  string.replace(rePropName, function(match, number, quote, string) {
-    result.push(quote ? string.replace(reEscapeChar, '$1') : (number || match));
-  });
-  return result;
-});
-
-module.exports = stringToPath;
-
-
-/***/ }),
-/* 366 */
-/***/ (function(module, exports) {
-
-/**
- * This method returns the first argument it receives.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Util
- * @param {*} value Any value.
- * @returns {*} Returns `value`.
- * @example
- *
- * var object = { 'a': 1 };
- *
- * console.log(_.identity(object) === object);
- * // => true
- */
-function identity(value) {
-  return value;
-}
-
-module.exports = identity;
-
-
-/***/ }),
-/* 367 */
-/***/ (function(module, exports) {
-
-/**
- * This method returns the first argument it receives.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Util
- * @param {*} value Any value.
- * @returns {*} Returns `value`.
- * @example
- *
- * var object = { 'a': 1 };
- *
- * console.log(_.identity(object) === object);
- * // => true
- */
-function identity(value) {
-  return value;
-}
-
-module.exports = identity;
-
-
-/***/ }),
-/* 368 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var assignValue = __webpack_require__(53),
-    castPath = __webpack_require__(62),
-    isIndex = __webpack_require__(140),
-    isObject = __webpack_require__(18),
-    toKey = __webpack_require__(94);
-
-/**
- * The base implementation of `_.set`.
- *
- * @private
- * @param {Object} object The object to modify.
- * @param {Array|string} path The path of the property to set.
- * @param {*} value The value to set.
- * @param {Function} [customizer] The function to customize path creation.
- * @returns {Object} Returns `object`.
- */
-function baseSet(object, path, value, customizer) {
-  if (!isObject(object)) {
-    return object;
-  }
-  path = castPath(path, object);
-
-  var index = -1,
-      length = path.length,
-      lastIndex = length - 1,
-      nested = object;
-
-  while (nested != null && ++index < length) {
-    var key = toKey(path[index]),
-        newValue = value;
-
-    if (index != lastIndex) {
-      var objValue = nested[key];
-      newValue = customizer ? customizer(objValue, key, nested) : undefined;
-      if (newValue === undefined) {
-        newValue = isObject(objValue)
-          ? objValue
-          : (isIndex(path[index + 1]) ? [] : {});
-      }
-    }
-    assignValue(nested, key, newValue);
-    nested = nested[key];
-  }
-  return object;
-}
-
-module.exports = baseSet;
-
-
-/***/ }),
-/* 369 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseHasIn = __webpack_require__(370),
-    hasPath = __webpack_require__(141);
-
-/**
- * Checks if `path` is a direct or inherited property of `object`.
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Object
- * @param {Object} object The object to query.
- * @param {Array|string} path The path to check.
- * @returns {boolean} Returns `true` if `path` exists, else `false`.
- * @example
- *
- * var object = _.create({ 'a': _.create({ 'b': 2 }) });
- *
- * _.hasIn(object, 'a');
- * // => true
- *
- * _.hasIn(object, 'a.b');
- * // => true
- *
- * _.hasIn(object, ['a', 'b']);
- * // => true
- *
- * _.hasIn(object, 'b');
- * // => false
- */
-function hasIn(object, path) {
-  return object != null && hasPath(object, path, baseHasIn);
-}
-
-module.exports = hasIn;
-
-
-/***/ }),
-/* 370 */
-/***/ (function(module, exports) {
-
-/**
- * The base implementation of `_.hasIn` without support for deep paths.
- *
- * @private
- * @param {Object} [object] The object to query.
- * @param {Array|string} key The key to check.
- * @returns {boolean} Returns `true` if `key` exists, else `false`.
- */
-function baseHasIn(object, key) {
-  return object != null && key in Object(object);
-}
-
-module.exports = baseHasIn;
-
-
-/***/ }),
-/* 371 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var flatten = __webpack_require__(372),
-    overRest = __webpack_require__(109),
-    setToString = __webpack_require__(110);
-
-/**
- * A specialized version of `baseRest` which flattens the rest array.
- *
- * @private
- * @param {Function} func The function to apply a rest parameter to.
- * @returns {Function} Returns the new function.
- */
-function flatRest(func) {
-  return setToString(overRest(func, undefined, flatten), func + '');
-}
-
-module.exports = flatRest;
-
-
-/***/ }),
-/* 372 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseFlatten = __webpack_require__(116);
-
-/**
- * Flattens `array` a single level deep.
- *
- * @static
- * @memberOf _
- * @since 0.1.0
- * @category Array
- * @param {Array} array The array to flatten.
- * @returns {Array} Returns the new flattened array.
- * @example
- *
- * _.flatten([1, [2, [3, [4]], 5]]);
- * // => [1, 2, [3, [4]], 5]
- */
-function flatten(array) {
-  var length = array == null ? 0 : array.length;
-  return length ? baseFlatten(array, 1) : [];
-}
-
-module.exports = flatten;
-
-
-/***/ }),
-/* 373 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var apply = __webpack_require__(81),
-    assignInWith = __webpack_require__(374),
-    baseRest = __webpack_require__(80),
-    customDefaultsAssignIn = __webpack_require__(375);
+var apply = __webpack_require__(80),
+    assignInWith = __webpack_require__(356),
+    baseRest = __webpack_require__(79),
+    customDefaultsAssignIn = __webpack_require__(357);
 
 /**
  * Assigns own and inherited enumerable string keyed properties of source
@@ -44402,11 +43848,11 @@ module.exports = defaults;
 
 
 /***/ }),
-/* 374 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(17),
-    createAssigner = __webpack_require__(79),
+var copyObject = __webpack_require__(16),
+    createAssigner = __webpack_require__(78),
     keysIn = __webpack_require__(39);
 
 /**
@@ -44446,10 +43892,10 @@ module.exports = assignInWith;
 
 
 /***/ }),
-/* 375 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var eq = __webpack_require__(54);
+var eq = __webpack_require__(53);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -44481,10 +43927,10 @@ module.exports = customDefaultsAssignIn;
 
 
 /***/ }),
-/* 376 */
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseClone = __webpack_require__(377);
+var baseClone = __webpack_require__(359);
 
 /** Used to compose bitmasks for cloning. */
 var CLONE_SYMBOLS_FLAG = 4;
@@ -44523,28 +43969,28 @@ module.exports = clone;
 
 
 /***/ }),
-/* 377 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Stack = __webpack_require__(118),
-    arrayEach = __webpack_require__(378),
-    assignValue = __webpack_require__(53),
-    baseAssign = __webpack_require__(379),
-    baseAssignIn = __webpack_require__(380),
-    cloneBuffer = __webpack_require__(120),
-    copyArray = __webpack_require__(121),
-    copySymbols = __webpack_require__(381),
-    copySymbolsIn = __webpack_require__(383),
-    getAllKeys = __webpack_require__(385),
-    getAllKeysIn = __webpack_require__(386),
-    getTag = __webpack_require__(387),
-    initCloneArray = __webpack_require__(388),
-    initCloneByTag = __webpack_require__(389),
-    initCloneObject = __webpack_require__(122),
-    isArray = __webpack_require__(12),
-    isBuffer = __webpack_require__(124),
-    isObject = __webpack_require__(18),
-    keys = __webpack_require__(55);
+var Stack = __webpack_require__(111),
+    arrayEach = __webpack_require__(360),
+    assignValue = __webpack_require__(76),
+    baseAssign = __webpack_require__(361),
+    baseAssignIn = __webpack_require__(362),
+    cloneBuffer = __webpack_require__(113),
+    copyArray = __webpack_require__(114),
+    copySymbols = __webpack_require__(363),
+    copySymbolsIn = __webpack_require__(365),
+    getAllKeys = __webpack_require__(367),
+    getAllKeysIn = __webpack_require__(368),
+    getTag = __webpack_require__(369),
+    initCloneArray = __webpack_require__(370),
+    initCloneByTag = __webpack_require__(371),
+    initCloneObject = __webpack_require__(115),
+    isArray = __webpack_require__(37),
+    isBuffer = __webpack_require__(117),
+    isObject = __webpack_require__(20),
+    keys = __webpack_require__(54);
 
 /** Used to compose bitmasks for cloning. */
 var CLONE_DEEP_FLAG = 1,
@@ -44682,7 +44128,7 @@ module.exports = baseClone;
 
 
 /***/ }),
-/* 378 */
+/* 360 */
 /***/ (function(module, exports) {
 
 /**
@@ -44710,11 +44156,11 @@ module.exports = arrayEach;
 
 
 /***/ }),
-/* 379 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(17),
-    keys = __webpack_require__(55);
+var copyObject = __webpack_require__(16),
+    keys = __webpack_require__(54);
 
 /**
  * The base implementation of `_.assign` without support for multiple sources
@@ -44733,10 +44179,10 @@ module.exports = baseAssign;
 
 
 /***/ }),
-/* 380 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(17),
+var copyObject = __webpack_require__(16),
     keysIn = __webpack_require__(39);
 
 /**
@@ -44756,11 +44202,11 @@ module.exports = baseAssignIn;
 
 
 /***/ }),
-/* 381 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(17),
-    getSymbols = __webpack_require__(382);
+var copyObject = __webpack_require__(16),
+    getSymbols = __webpack_require__(364);
 
 /**
  * Copies own symbols of `source` to `object`.
@@ -44778,7 +44224,7 @@ module.exports = copySymbols;
 
 
 /***/ }),
-/* 382 */
+/* 364 */
 /***/ (function(module, exports) {
 
 /**
@@ -44807,11 +44253,11 @@ module.exports = stubArray;
 
 
 /***/ }),
-/* 383 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(17),
-    getSymbolsIn = __webpack_require__(384);
+var copyObject = __webpack_require__(16),
+    getSymbolsIn = __webpack_require__(366);
 
 /**
  * Copies own and inherited symbols of `source` to `object`.
@@ -44829,7 +44275,7 @@ module.exports = copySymbolsIn;
 
 
 /***/ }),
-/* 384 */
+/* 366 */
 /***/ (function(module, exports) {
 
 /**
@@ -44858,10 +44304,10 @@ module.exports = stubArray;
 
 
 /***/ }),
-/* 385 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var overArg = __webpack_require__(83);
+var overArg = __webpack_require__(82);
 
 /* Built-in method references for those with the same name as other `lodash` methods. */
 var nativeKeys = overArg(Object.keys, Object);
@@ -44870,7 +44316,7 @@ module.exports = nativeKeys;
 
 
 /***/ }),
-/* 386 */
+/* 368 */
 /***/ (function(module, exports) {
 
 /**
@@ -44896,7 +44342,7 @@ module.exports = nativeKeysIn;
 
 
 /***/ }),
-/* 387 */
+/* 369 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -44924,7 +44370,7 @@ module.exports = objectToString;
 
 
 /***/ }),
-/* 388 */
+/* 370 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -44956,7 +44402,7 @@ module.exports = initCloneArray;
 
 
 /***/ }),
-/* 389 */
+/* 371 */
 /***/ (function(module, exports) {
 
 /**
@@ -44983,10 +44429,10 @@ module.exports = identity;
 
 
 /***/ }),
-/* 390 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(37),
+var baseGetTag = __webpack_require__(36),
     isObjectLike = __webpack_require__(38);
 
 /** `Object#toString` result references. */
@@ -45027,10 +44473,10 @@ module.exports = isNumber;
 
 
 /***/ }),
-/* 391 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(37),
+var baseGetTag = __webpack_require__(36),
     isObjectLike = __webpack_require__(38);
 
 /** `Object#toString` result references. */
@@ -45062,11 +44508,11 @@ module.exports = isBoolean;
 
 
 /***/ }),
-/* 392 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(37),
-    isArray = __webpack_require__(12),
+var baseGetTag = __webpack_require__(36),
+    isArray = __webpack_require__(37),
     isObjectLike = __webpack_require__(38);
 
 /** `Object#toString` result references. */
@@ -45098,48 +44544,7 @@ module.exports = isString;
 
 
 /***/ }),
-/* 393 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var baseHas = __webpack_require__(394),
-    hasPath = __webpack_require__(141);
-
-/**
- * Checks if `path` is a direct property of `object`.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Object
- * @param {Object} object The object to query.
- * @param {Array|string} path The path to check.
- * @returns {boolean} Returns `true` if `path` exists, else `false`.
- * @example
- *
- * var object = { 'a': { 'b': 2 } };
- * var other = _.create({ 'a': _.create({ 'b': 2 }) });
- *
- * _.has(object, 'a');
- * // => true
- *
- * _.has(object, 'a.b');
- * // => true
- *
- * _.has(object, ['a', 'b']);
- * // => true
- *
- * _.has(other, 'a');
- * // => false
- */
-function has(object, path) {
-  return object != null && hasPath(object, path, baseHas);
-}
-
-module.exports = has;
-
-
-/***/ }),
-/* 394 */
+/* 375 */
 /***/ (function(module, exports) {
 
 /** Used for built-in method references. */
@@ -45164,7 +44569,7 @@ module.exports = baseHas;
 
 
 /***/ }),
-/* 395 */
+/* 376 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49956,7 +49361,7 @@ PI = new Decimal(pi);
 
 
 /***/ }),
-/* 396 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50032,7 +49437,7 @@ var createUltimateOracle = exports.createUltimateOracle = (0, _utils.wrapWeb3Fun
 });
 
 /***/ }),
-/* 397 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50043,7 +49448,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.resolveEvent = exports.loadEventDescription = exports.publishEventDescription = exports.createScalarEvent = exports.createCategoricalEvent = undefined;
 
-var _from = __webpack_require__(36);
+var _from = __webpack_require__(35);
 
 var _from2 = _interopRequireDefault(_from);
 
@@ -50058,10 +49463,6 @@ var _regenerator2 = _interopRequireDefault(_regenerator);
 var _asyncToGenerator2 = __webpack_require__(51);
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
-
-var _pick2 = __webpack_require__(93);
-
-var _pick3 = _interopRequireDefault(_pick2);
 
 /**
  * Publishes an event description onto IPFS.
@@ -50156,7 +49557,6 @@ var resolveEvent = exports.resolveEvent = function () {
             eventAddress,
             outcome,
             opts,
-            txOpts,
             event,
             oracle,
             _args3 = arguments;
@@ -50169,39 +49569,38 @@ var resolveEvent = exports.resolveEvent = function () {
                             methodName: 'resolveEvent',
                             functionInputs: [{ name: 'event', type: 'address' }, { name: 'outcome', type: 'int256' }]
                         }), _normalizeWeb3Args2 = (0, _slicedToArray3.default)(_normalizeWeb3Args, 2), _normalizeWeb3Args2$ = (0, _slicedToArray3.default)(_normalizeWeb3Args2[0], 2), eventAddress = _normalizeWeb3Args2$[0], outcome = _normalizeWeb3Args2$[1], opts = _normalizeWeb3Args2[1];
-                        txOpts = (0, _pick3.default)(opts, ['from', 'to', 'value', 'gas', 'gasPrice']);
-                        _context3.next = 4;
+                        _context3.next = 3;
                         return this.contracts.Event.at(eventAddress);
 
-                    case 4:
+                    case 3:
                         event = _context3.sent;
                         _context3.t0 = this.contracts.CentralizedOracle;
-                        _context3.next = 8;
-                        return event.oracle(txOpts);
+                        _context3.next = 7;
+                        return event.oracle(opts);
 
-                    case 8:
+                    case 7:
                         _context3.t1 = _context3.sent;
-                        _context3.next = 11;
+                        _context3.next = 10;
                         return _context3.t0.at.call(_context3.t0, _context3.t1);
 
-                    case 11:
+                    case 10:
                         oracle = _context3.sent;
                         _context3.t2 = _utils.requireEventFromTXResult;
-                        _context3.next = 15;
-                        return oracle.setOutcome(outcome, txOpts);
+                        _context3.next = 14;
+                        return oracle.setOutcome(outcome, opts);
 
-                    case 15:
+                    case 14:
                         _context3.t3 = _context3.sent;
                         (0, _context3.t2)(_context3.t3, 'OutcomeAssignment');
                         _context3.t4 = _utils.requireEventFromTXResult;
-                        _context3.next = 20;
-                        return event.setOutcome(txOpts);
+                        _context3.next = 19;
+                        return event.setOutcome(opts);
 
-                    case 20:
+                    case 19:
                         _context3.t5 = _context3.sent;
                         (0, _context3.t4)(_context3.t5, 'OutcomeAssignment');
 
-                    case 22:
+                    case 21:
                     case 'end':
                         return _context3.stop();
                 }
@@ -50294,7 +49693,7 @@ resolveEvent.estimateGas = function () {
 }();
 
 /***/ }),
-/* 398 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -50313,7 +49712,7 @@ var _promise = __webpack_require__(52);
 
 var _promise2 = _interopRequireDefault(_promise);
 
-var _from = __webpack_require__(36);
+var _from = __webpack_require__(35);
 
 var _from2 = _interopRequireDefault(_from);
 
@@ -50324,10 +49723,6 @@ var _slicedToArray3 = _interopRequireDefault(_slicedToArray2);
 var _asyncToGenerator2 = __webpack_require__(51);
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
-
-var _pick2 = __webpack_require__(93);
-
-var _pick3 = _interopRequireDefault(_pick2);
 
 /**
  * Buys outcome tokens. If you have ether and plan on transacting with a market on an event which
@@ -50356,7 +49751,6 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
             outcomeTokenIndex,
             outcomeTokenCount,
             opts,
-            txOpts,
             _ref2,
             approvalAmount,
             approvalResetAmount,
@@ -50381,33 +49775,32 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
                             methodName: 'buyOutcomeTokens',
                             functionInputs: [{ name: 'market', type: 'address' }, { name: 'outcomeTokenIndex', type: 'uint8' }, { name: 'outcomeTokenCount', type: 'uint256' }]
                         }), _normalizeWeb3Args2 = (0, _slicedToArray3.default)(_normalizeWeb3Args, 2), _normalizeWeb3Args2$ = (0, _slicedToArray3.default)(_normalizeWeb3Args2[0], 3), marketAddress = _normalizeWeb3Args2$[0], outcomeTokenIndex = _normalizeWeb3Args2$[1], outcomeTokenCount = _normalizeWeb3Args2$[2], opts = _normalizeWeb3Args2[1];
-                        txOpts = (0, _pick3.default)(opts, ['from', 'to', 'value', 'gas', 'gasPrice']);
                         _ref2 = opts || {}, approvalAmount = _ref2.approvalAmount, approvalResetAmount = _ref2.approvalResetAmount, limitMargin = _ref2.limitMargin, cost = _ref2.cost;
-                        _context.next = 5;
+                        _context.next = 4;
                         return this.contracts.Market.at(marketAddress);
 
-                    case 5:
+                    case 4:
                         market = _context.sent;
                         _context.t0 = this.contracts.Token;
                         _context.t1 = this.contracts.Event;
-                        _context.next = 10;
-                        return market.eventContract(txOpts);
+                        _context.next = 9;
+                        return market.eventContract(opts);
 
-                    case 10:
+                    case 9:
                         _context.t2 = _context.sent;
-                        _context.next = 13;
+                        _context.next = 12;
                         return _context.t1.at.call(_context.t1, _context.t2).collateralToken();
 
-                    case 13:
+                    case 12:
                         _context.t3 = _context.sent;
-                        _context.next = 16;
+                        _context.next = 15;
                         return _context.t0.at.call(_context.t0, _context.t3);
 
-                    case 16:
+                    case 15:
                         collateralToken = _context.sent;
 
                         if (!(cost == null)) {
-                            _context.next = 28;
+                            _context.next = 27;
                             break;
                         }
 
@@ -50415,22 +49808,22 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
                             limitMargin = 0;
                         }
 
-                        _context.next = 21;
-                        return this.lmsrMarketMaker.calcCost(marketAddress, outcomeTokenIndex, outcomeTokenCount, txOpts);
+                        _context.next = 20;
+                        return this.lmsrMarketMaker.calcCost(marketAddress, outcomeTokenIndex, outcomeTokenCount, opts);
 
-                    case 21:
+                    case 20:
                         baseCost = _context.sent;
                         _context.t4 = baseCost;
-                        _context.next = 25;
-                        return market.calcMarketFee(baseCost, txOpts);
+                        _context.next = 24;
+                        return market.calcMarketFee(baseCost, opts);
 
-                    case 25:
+                    case 24:
                         _context.t5 = _context.sent;
                         baseCostWithFee = _context.t4.add.call(_context.t4, _context.t5);
 
                         cost = baseCostWithFee.mul(this.web3.toBigNumber(1).add(limitMargin)).round();
 
-                    case 28:
+                    case 27:
 
                         if (approvalResetAmount == null) {
                             approvalResetAmount = cost;
@@ -50439,27 +49832,27 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
                         txInfo = [];
 
                         if (!(approvalAmount == null)) {
-                            _context.next = 45;
+                            _context.next = 44;
                             break;
                         }
 
-                        buyer = txOpts.from || this.defaultAccount;
-                        _context.next = 34;
-                        return collateralToken.allowance(buyer, marketAddress, txOpts);
+                        buyer = opts.from || this.defaultAccount;
+                        _context.next = 33;
+                        return collateralToken.allowance(buyer, marketAddress, opts);
 
-                    case 34:
+                    case 33:
                         marketAllowance = _context.sent;
 
                         if (!marketAllowance.lt(cost)) {
-                            _context.next = 43;
+                            _context.next = 42;
                             break;
                         }
 
                         _context.t6 = txInfo;
-                        _context.next = 39;
-                        return collateralToken.approve.sendTransaction(marketAddress, approvalResetAmount, txOpts);
+                        _context.next = 38;
+                        return collateralToken.approve.sendTransaction(marketAddress, approvalResetAmount, opts);
 
-                    case 39:
+                    case 38:
                         _context.t7 = _context.sent;
                         _context.t8 = this.contracts.Token;
                         _context.t9 = {
@@ -50470,21 +49863,21 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
 
                         _context.t6.push.call(_context.t6, _context.t9);
 
-                    case 43:
-                        _context.next = 53;
+                    case 42:
+                        _context.next = 52;
                         break;
 
-                    case 45:
+                    case 44:
                         if (!this.web3.toBigNumber(0).lt(approvalAmount)) {
-                            _context.next = 53;
+                            _context.next = 52;
                             break;
                         }
 
                         _context.t10 = txInfo;
-                        _context.next = 49;
-                        return collateralToken.approve.sendTransaction(marketAddress, approvalAmount, txOpts);
+                        _context.next = 48;
+                        return collateralToken.approve.sendTransaction(marketAddress, approvalAmount, opts);
 
-                    case 49:
+                    case 48:
                         _context.t11 = _context.sent;
                         _context.t12 = this.contracts.Token;
                         _context.t13 = {
@@ -50495,12 +49888,12 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
 
                         _context.t10.push.call(_context.t10, _context.t13);
 
-                    case 53:
+                    case 52:
                         _context.t14 = txInfo;
-                        _context.next = 56;
-                        return market.buy.sendTransaction(outcomeTokenIndex, outcomeTokenCount, cost, txOpts);
+                        _context.next = 55;
+                        return market.buy.sendTransaction(outcomeTokenIndex, outcomeTokenCount, cost, opts);
 
-                    case 56:
+                    case 55:
                         _context.t15 = _context.sent;
                         _context.t16 = this.contracts.Market;
                         _context.t17 = {
@@ -50511,14 +49904,14 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
 
                         _context.t14.push.call(_context.t14, _context.t17);
 
-                        _context.next = 62;
+                        _context.next = 61;
                         return _promise2.default.all(txInfo.map(function (_ref3, i) {
                             var tx = _ref3.tx,
                                 contract = _ref3.contract;
                             return contract.syncTransaction(tx);
                         }));
 
-                    case 62:
+                    case 61:
                         _context.t18 = function (res, i) {
                             return (0, _utils.requireEventFromTXResult)(res, txInfo[i].requiredEventName);
                         };
@@ -50527,7 +49920,7 @@ var buyOutcomeTokens = exports.buyOutcomeTokens = function () {
                         purchaseEvent = txRequiredEvents[txRequiredEvents.length - 1];
                         return _context.abrupt('return', purchaseEvent.args.outcomeTokenCost.plus(purchaseEvent.args.marketFees));
 
-                    case 66:
+                    case 65:
                     case 'end':
                         return _context.stop();
                 }
@@ -50566,7 +49959,6 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
             outcomeTokenIndex,
             outcomeTokenCount,
             opts,
-            txOpts,
             _ref7,
             approvalAmount,
             approvalResetAmount,
@@ -50591,34 +49983,33 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
                             methodName: 'sellOutcomeTokens',
                             functionInputs: [{ name: 'market', type: 'address' }, { name: 'outcomeTokenIndex', type: 'uint8' }, { name: 'outcomeTokenCount', type: 'uint256' }]
                         }), _normalizeWeb3Args4 = (0, _slicedToArray3.default)(_normalizeWeb3Args3, 2), _normalizeWeb3Args4$ = (0, _slicedToArray3.default)(_normalizeWeb3Args4[0], 3), marketAddress = _normalizeWeb3Args4$[0], outcomeTokenIndex = _normalizeWeb3Args4$[1], outcomeTokenCount = _normalizeWeb3Args4$[2], opts = _normalizeWeb3Args4[1];
-                        txOpts = (0, _pick3.default)(opts, ['from', 'to', 'value', 'gas', 'gasPrice']);
                         _ref7 = opts || {}, approvalAmount = _ref7.approvalAmount, approvalResetAmount = _ref7.approvalResetAmount, limitMargin = _ref7.limitMargin, minProfit = _ref7.minProfit;
-                        _context3.next = 5;
+                        _context3.next = 4;
                         return this.contracts.Market.at(marketAddress);
 
-                    case 5:
+                    case 4:
                         market = _context3.sent;
                         _context3.t0 = this.contracts.Token;
                         _context3.t1 = this.contracts.Event;
-                        _context3.next = 10;
-                        return market.eventContract(txOpts);
+                        _context3.next = 9;
+                        return market.eventContract(opts);
 
-                    case 10:
+                    case 9:
                         _context3.t2 = _context3.sent;
                         _context3.t3 = outcomeTokenIndex;
-                        _context3.next = 14;
+                        _context3.next = 13;
                         return _context3.t1.at.call(_context3.t1, _context3.t2).outcomeTokens(_context3.t3);
 
-                    case 14:
+                    case 13:
                         _context3.t4 = _context3.sent;
-                        _context3.next = 17;
+                        _context3.next = 16;
                         return _context3.t0.at.call(_context3.t0, _context3.t4);
 
-                    case 17:
+                    case 16:
                         outcomeToken = _context3.sent;
 
                         if (!(minProfit == null)) {
-                            _context3.next = 29;
+                            _context3.next = 28;
                             break;
                         }
 
@@ -50626,22 +50017,22 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
                             limitMargin = 0;
                         }
 
-                        _context3.next = 22;
-                        return this.lmsrMarketMaker.calcProfit(marketAddress, outcomeTokenIndex, outcomeTokenCount, txOpts);
+                        _context3.next = 21;
+                        return this.lmsrMarketMaker.calcProfit(marketAddress, outcomeTokenIndex, outcomeTokenCount, opts);
 
-                    case 22:
+                    case 21:
                         baseProfit = _context3.sent;
                         _context3.t5 = baseProfit;
-                        _context3.next = 26;
-                        return market.calcMarketFee(baseProfit, txOpts);
+                        _context3.next = 25;
+                        return market.calcMarketFee(baseProfit, opts);
 
-                    case 26:
+                    case 25:
                         _context3.t6 = _context3.sent;
                         baseProfitWithFee = _context3.t5.sub.call(_context3.t5, _context3.t6);
 
                         minProfit = baseProfitWithFee.mul(this.web3.toBigNumber(1).sub(limitMargin)).round();
 
-                    case 29:
+                    case 28:
 
                         if (approvalResetAmount == null) {
                             approvalResetAmount = outcomeTokenCount;
@@ -50650,27 +50041,27 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
                         txInfo = [];
 
                         if (!(approvalAmount == null)) {
-                            _context3.next = 46;
+                            _context3.next = 45;
                             break;
                         }
 
-                        seller = txOpts.from || this.defaultAccount;
-                        _context3.next = 35;
-                        return outcomeToken.allowance(seller, marketAddress, txOpts);
+                        seller = opts.from || this.defaultAccount;
+                        _context3.next = 34;
+                        return outcomeToken.allowance(seller, marketAddress, opts);
 
-                    case 35:
+                    case 34:
                         marketAllowance = _context3.sent;
 
                         if (!marketAllowance.lt(outcomeTokenCount)) {
-                            _context3.next = 44;
+                            _context3.next = 43;
                             break;
                         }
 
                         _context3.t7 = txInfo;
-                        _context3.next = 40;
-                        return outcomeToken.approve.sendTransaction(marketAddress, approvalResetAmount, txOpts);
+                        _context3.next = 39;
+                        return outcomeToken.approve.sendTransaction(marketAddress, approvalResetAmount, opts);
 
-                    case 40:
+                    case 39:
                         _context3.t8 = _context3.sent;
                         _context3.t9 = this.contracts.Token;
                         _context3.t10 = {
@@ -50681,21 +50072,21 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
 
                         _context3.t7.push.call(_context3.t7, _context3.t10);
 
-                    case 44:
-                        _context3.next = 54;
+                    case 43:
+                        _context3.next = 53;
                         break;
 
-                    case 46:
+                    case 45:
                         if (!this.web3.toBigNumber(0).lt(approvalAmount)) {
-                            _context3.next = 54;
+                            _context3.next = 53;
                             break;
                         }
 
                         _context3.t11 = txInfo;
-                        _context3.next = 50;
-                        return outcomeToken.approve.sendTransaction(marketAddress, approvalAmount, txOpts);
+                        _context3.next = 49;
+                        return outcomeToken.approve.sendTransaction(marketAddress, approvalAmount, opts);
 
-                    case 50:
+                    case 49:
                         _context3.t12 = _context3.sent;
                         _context3.t13 = this.contracts.Token;
                         _context3.t14 = {
@@ -50706,12 +50097,12 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
 
                         _context3.t11.push.call(_context3.t11, _context3.t14);
 
-                    case 54:
+                    case 53:
                         _context3.t15 = txInfo;
-                        _context3.next = 57;
-                        return market.sell.sendTransaction(outcomeTokenIndex, outcomeTokenCount, minProfit, txOpts);
+                        _context3.next = 56;
+                        return market.sell.sendTransaction(outcomeTokenIndex, outcomeTokenCount, minProfit, opts);
 
-                    case 57:
+                    case 56:
                         _context3.t16 = _context3.sent;
                         _context3.t17 = this.contracts.Market;
                         _context3.t18 = {
@@ -50722,14 +50113,14 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
 
                         _context3.t15.push.call(_context3.t15, _context3.t18);
 
-                        _context3.next = 63;
+                        _context3.next = 62;
                         return _promise2.default.all(txInfo.map(function (_ref8, i) {
                             var tx = _ref8.tx,
                                 contract = _ref8.contract;
                             return contract.syncTransaction(tx);
                         }));
 
-                    case 63:
+                    case 62:
                         _context3.t19 = function (res, i) {
                             return (0, _utils.requireEventFromTXResult)(res, txInfo[i].requiredEventName);
                         };
@@ -50738,7 +50129,7 @@ var sellOutcomeTokens = exports.sellOutcomeTokens = function () {
                         saleEvent = txRequiredEvents[txRequiredEvents.length - 1];
                         return _context3.abrupt('return', saleEvent.args.outcomeTokenProfit.minus(saleEvent.args.marketFees));
 
-                    case 67:
+                    case 66:
                     case 'end':
                         return _context3.stop();
                 }
@@ -50843,49 +50234,49 @@ sellOutcomeTokens.estimateGas = function () {
 }();
 
 /***/ }),
-/* 399 */
+/* 380 */
 /***/ (function(module, exports) {
 
 module.exports = {"Event":{"buyAllOutcomes":{"averageGasUsed":126726,"min":{"args":[],"gasUsed":90982},"max":{"args":[],"gasUsed":135662},"median":{"args":[],"gasUsed":135662}},"sellAllOutcomes":{"averageGasUsed":45366,"min":{"args":[],"gasUsed":41616},"max":{"args":[],"gasUsed":49116},"median":{"args":[],"gasUsed":49116}},"setOutcome":{"averageGasUsed":47842,"min":{"args":[],"gasUsed":37758},"max":{"args":[],"gasUsed":52884},"median":{"args":[],"gasUsed":52884}},"redeemWinnings":{"averageGasUsed":48526.5,"min":{"args":[{"from":"0xdb90f4031ebf90e8318921e29107585989a8efc2"}],"gasUsed":40809},"max":{"args":[{"from":"0xb1577573abcb143d5bd4141dfa6b571b2cc576e4"}],"gasUsed":56244},"median":{"args":[{"from":"0xb1577573abcb143d5bd4141dfa6b571b2cc576e4"}],"gasUsed":56244}}},"EventFactory":{"createCategoricalEvent":{"averageGasUsed":1976503.2307692308,"min":{"args":["0x0ab1f296b8c260e50e950fa48904bba434dc8111"],"gasUsed":1976454},"max":{"args":["0x0ab1f296b8c260e50e950fa48904bba434dc8111"],"gasUsed":1976518},"median":{"args":["0x0ab1f296b8c260e50e950fa48904bba434dc8111"],"gasUsed":1976518}},"createScalarEvent":{"averageGasUsed":2245471,"min":{"args":["0x0ab1f296b8c260e50e950fa48904bba434dc8111"],"gasUsed":2245471},"max":{"args":["0x0ab1f296b8c260e50e950fa48904bba434dc8111"],"gasUsed":2245471},"median":{"args":["0x0ab1f296b8c260e50e950fa48904bba434dc8111"],"gasUsed":2245471}}},"Token":{"approve":{"averageGasUsed":45594,"min":{"args":["0xece632f7723cf76427dfa7ff67407d85195a4154"],"gasUsed":45586},"max":{"args":["0xe13d6fd62c3d2f3ad9fb8933702851c7f4572985"],"gasUsed":45650},"median":{"args":["0xece632f7723cf76427dfa7ff67407d85195a4154"],"gasUsed":45586}}},"EtherToken":{"deposit":{"averageGasUsed":52442.28571428572,"min":{"args":[],"gasUsed":37978},"max":{"args":[],"gasUsed":67978},"median":{"args":[],"gasUsed":52978}},"approve":{"averageGasUsed":43574.4,"min":{"args":["0xde7c563d34e717ca2dd2f064e611159675f7f697"],"gasUsed":30608},"max":{"args":["0x42b6cf841b405329a4993ef1cd170374e45f2e86"],"gasUsed":45672},"median":{"args":["0xe80a318af738910cf503bb5a75b059949767e075"],"gasUsed":45288}}},"CentralizedOracle":{"setOutcome":{"averageGasUsed":61986.666666666664,"min":{"args":[],"gasUsed":48376},"max":{"args":[],"gasUsed":65424},"median":{"args":[],"gasUsed":63440}},"replaceOwner":{"averageGasUsed":29970,"min":{"args":[],"gasUsed":29970},"max":{"args":[],"gasUsed":29970},"median":{"args":[],"gasUsed":29970}}},"CentralizedOracleFactory":{"createCentralizedOracle":{"averageGasUsed":350373,"min":{"args":["QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG"],"gasUsed":350373},"max":{"args":["QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG"],"gasUsed":350373},"median":{"args":["QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG"],"gasUsed":350373}}},"StandardMarketFactory":{"createMarket":{"averageGasUsed":1660105.5714285714,"min":{"args":["0xbfe08be596c84109a8fcacd478815c4fe6d2e4ba"],"gasUsed":1660069},"max":{"args":["0x2dd33a9189a2a8d54864ba12da6d03d757891478"],"gasUsed":1660197},"median":{"args":["0x42b6cf841b405329a4993ef1cd170374e45f2e86"],"gasUsed":1660069}}},"LMSRMarketMaker":{},"Market":{"fund":{"averageGasUsed":222766.85714285713,"min":{"args":[],"gasUsed":222584},"max":{"args":[],"gasUsed":222904},"median":{"args":[],"gasUsed":222904}},"sell":{"averageGasUsed":260341.42857142858,"min":{"args":[0],"gasUsed":243302},"max":{"args":[1],"gasUsed":288430},"median":{"args":[1],"gasUsed":258110}},"buy":{"averageGasUsed":283468.125,"min":{"args":[1],"gasUsed":271452},"max":{"args":[1],"gasUsed":323219},"median":{"args":[1],"gasUsed":277514}},"close":{"averageGasUsed":87469,"min":{"args":[],"gasUsed":87469},"max":{"args":[],"gasUsed":87469},"median":{"args":[],"gasUsed":87469}},"shortSell":{"averageGasUsed":481186,"min":{"args":[0],"gasUsed":481186},"max":{"args":[0],"gasUsed":481186},"median":{"args":[0],"gasUsed":481186}}},"Campaign":{"fund":{"averageGasUsed":71872,"min":{"args":[],"gasUsed":70124},"max":{"args":[],"gasUsed":75368},"median":{"args":[],"gasUsed":70124}},"createMarket":{"averageGasUsed":1903625,"min":{"args":[],"gasUsed":1903625},"max":{"args":[],"gasUsed":1903625},"median":{"args":[],"gasUsed":1903625}},"closeMarket":{"averageGasUsed":157749,"min":{"args":[],"gasUsed":157749},"max":{"args":[],"gasUsed":157749},"median":{"args":[],"gasUsed":157749}},"withdrawFees":{"averageGasUsed":50194,"min":{"args":[{"from":"0xb1577573abcb143d5bd4141dfa6b571b2cc576e4"}],"gasUsed":38969},"max":{"args":[{"from":"0xdb90f4031ebf90e8318921e29107585989a8efc2"}],"gasUsed":53969},"median":{"args":[{"from":"0xb1577573abcb143d5bd4141dfa6b571b2cc576e4"}],"gasUsed":53919}},"refund":{"averageGasUsed":54150,"min":{"args":[{"from":"0x63880a201a3a8aa5488f2050375aecda3180d43a"}],"gasUsed":51423},"max":{"args":[{"from":"0x63880a201a3a8aa5488f2050375aecda3180d43a"}],"gasUsed":56877},"median":{"args":[{"from":"0x63880a201a3a8aa5488f2050375aecda3180d43a"}],"gasUsed":56877}}},"CampaignFactory":{"createCampaign":{"averageGasUsed":1066303,"min":{"args":["0x42b6cf841b405329a4993ef1cd170374e45f2e86"],"gasUsed":1066303},"max":{"args":["0xa23ad3cac9f79c4df97ec10a08ac7ea3381055fe"],"gasUsed":1066303},"median":{"args":["0xa23ad3cac9f79c4df97ec10a08ac7ea3381055fe"],"gasUsed":1066303}}},"Math":{},"DifficultyOracle":{},"DifficultyOracleFactory":{"createDifficultyOracle":{"averageGasUsed":163589,"min":{"args":[117],"gasUsed":163589},"max":{"args":[117],"gasUsed":163589},"median":{"args":[117],"gasUsed":163589}}},"MajorityOracle":{},"MajorityOracleFactory":{"createMajorityOracle":{"averageGasUsed":374286,"min":{"args":[["0xf1ee3ff97c62ccf6ac72cd838704646fb7b227e7","0xa63ec704379bd79a06f83a1c0cfbce1e0c09a75c","0xff2a2f46319b5d7414321266a7ef1b68083eb449"]],"gasUsed":374286},"max":{"args":[["0xf1ee3ff97c62ccf6ac72cd838704646fb7b227e7","0xa63ec704379bd79a06f83a1c0cfbce1e0c09a75c","0xff2a2f46319b5d7414321266a7ef1b68083eb449"]],"gasUsed":374286},"median":{"args":[["0xf1ee3ff97c62ccf6ac72cd838704646fb7b227e7","0xa63ec704379bd79a06f83a1c0cfbce1e0c09a75c","0xff2a2f46319b5d7414321266a7ef1b68083eb449"]],"gasUsed":374286}}},"UltimateOracle":{"setForwardedOutcome":{"averageGasUsed":67994,"min":{"args":[],"gasUsed":67994},"max":{"args":[],"gasUsed":67994},"median":{"args":[],"gasUsed":67994}},"challengeOutcome":{"averageGasUsed":155190,"min":{"args":[],"gasUsed":155190},"max":{"args":[],"gasUsed":155190},"median":{"args":[],"gasUsed":155190}},"voteForOutcome":{"averageGasUsed":84903.66666666667,"min":{"args":[],"gasUsed":81137},"max":{"args":[],"gasUsed":92157},"median":{"args":[],"gasUsed":81417}},"withdraw":{"averageGasUsed":27354,"min":{"args":[{"from":"0xd6e281924e1540fd49d1dad33d8f19854df542c9"}],"gasUsed":27354},"max":{"args":[{"from":"0xd6e281924e1540fd49d1dad33d8f19854df542c9"}],"gasUsed":27354},"median":{"args":[{"from":"0xd6e281924e1540fd49d1dad33d8f19854df542c9"}],"gasUsed":27354}}},"UltimateOracleFactory":{"createUltimateOracle":{"averageGasUsed":914536,"min":{"args":["0x2b8344fc800509a6b2771553350fa93cec793245"],"gasUsed":914536},"max":{"args":["0xc9777c83937e38307607bdeff3061165fde975a5"],"gasUsed":914536},"median":{"args":["0xc9777c83937e38307607bdeff3061165fde975a5"],"gasUsed":914536}}},"FutarchyOracle":{"fund":{"averageGasUsed":649515,"min":{"args":[],"gasUsed":649515},"max":{"args":[],"gasUsed":649515},"median":{"args":[],"gasUsed":649515}},"setOutcome":{"averageGasUsed":74665,"min":{"args":[],"gasUsed":74665},"max":{"args":[],"gasUsed":74665},"median":{"args":[],"gasUsed":74665}},"close":{"averageGasUsed":261420,"min":{"args":[],"gasUsed":261420},"max":{"args":[],"gasUsed":261420},"median":{"args":[],"gasUsed":261420}}},"FutarchyOracleFactory":{"createFutarchyOracle":{"averageGasUsed":11074663,"min":{"args":["0x0ab1f296b8c260e50e950fa48904bba434dc8111"],"gasUsed":11074548},"max":{"args":["0x0ab1f296b8c260e50e950fa48904bba434dc8111"],"gasUsed":11074778},"median":{"args":["0x0ab1f296b8c260e50e950fa48904bba434dc8111"],"gasUsed":11074778}}},"StandardMarketWithPriceLogger":{"buy":{"averageGasUsed":399998,"min":{"args":[1],"gasUsed":399998},"max":{"args":[1],"gasUsed":399998},"median":{"args":[1],"gasUsed":399998}}},"CategoricalEvent":{"buyAllOutcomes":{"averageGasUsed":91046,"min":{"args":[],"gasUsed":91046},"max":{"args":[],"gasUsed":91046},"median":{"args":[],"gasUsed":91046}},"setOutcome":{"averageGasUsed":53098,"min":{"args":[],"gasUsed":53098},"max":{"args":[],"gasUsed":53098},"median":{"args":[],"gasUsed":53098}}},"ScalarEvent":{"setOutcome":{"averageGasUsed":52758,"min":{"args":[],"gasUsed":52758},"max":{"args":[],"gasUsed":52758},"median":{"args":[],"gasUsed":52758}}}}
 
 /***/ }),
-/* 400 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./Campaign.json": 401,
-	"./CampaignFactory.json": 402,
-	"./CategoricalEvent.json": 403,
-	"./CentralizedOracle.json": 404,
-	"./CentralizedOracleFactory.json": 405,
-	"./DifficultyOracle.json": 406,
-	"./DifficultyOracleFactory.json": 407,
-	"./EtherToken.json": 408,
-	"./Event.json": 409,
-	"./EventFactory.json": 410,
-	"./FutarchyOracle.json": 411,
-	"./FutarchyOracleFactory.json": 412,
-	"./HumanFriendlyToken.json": 413,
-	"./LMSRMarketMaker.json": 414,
-	"./MajorityOracle.json": 415,
-	"./MajorityOracleFactory.json": 416,
-	"./Market.json": 417,
-	"./MarketMaker.json": 418,
-	"./Math.json": 419,
-	"./Migrations.json": 420,
-	"./Oracle.json": 421,
-	"./OutcomeToken.json": 422,
-	"./ScalarEvent.json": 423,
-	"./SignedMessageOracle.json": 424,
-	"./SignedMessageOracleFactory.json": 425,
-	"./StandardMarket.json": 426,
-	"./StandardMarketFactory.json": 427,
-	"./StandardMarketWithPriceLogger.json": 428,
-	"./StandardMarketWithPriceLoggerFactory.json": 429,
-	"./StandardToken.json": 430,
-	"./Token.json": 431,
-	"./UltimateOracle.json": 432,
-	"./UltimateOracleFactory.json": 433
+	"./Campaign.json": 382,
+	"./CampaignFactory.json": 383,
+	"./CategoricalEvent.json": 384,
+	"./CentralizedOracle.json": 385,
+	"./CentralizedOracleFactory.json": 386,
+	"./DifficultyOracle.json": 387,
+	"./DifficultyOracleFactory.json": 388,
+	"./EtherToken.json": 389,
+	"./Event.json": 390,
+	"./EventFactory.json": 391,
+	"./FutarchyOracle.json": 392,
+	"./FutarchyOracleFactory.json": 393,
+	"./HumanFriendlyToken.json": 394,
+	"./LMSRMarketMaker.json": 395,
+	"./MajorityOracle.json": 396,
+	"./MajorityOracleFactory.json": 397,
+	"./Market.json": 398,
+	"./MarketMaker.json": 399,
+	"./Math.json": 400,
+	"./Migrations.json": 401,
+	"./Oracle.json": 402,
+	"./OutcomeToken.json": 403,
+	"./ScalarEvent.json": 404,
+	"./SignedMessageOracle.json": 405,
+	"./SignedMessageOracleFactory.json": 406,
+	"./StandardMarket.json": 407,
+	"./StandardMarketFactory.json": 408,
+	"./StandardMarketWithPriceLogger.json": 409,
+	"./StandardMarketWithPriceLoggerFactory.json": 410,
+	"./StandardToken.json": 411,
+	"./Token.json": 412,
+	"./UltimateOracle.json": 413,
+	"./UltimateOracleFactory.json": 414
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -50901,208 +50292,208 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 400;
+webpackContext.id = 381;
 
 /***/ }),
-/* 401 */
+/* 382 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"Campaign","abi":[{"constant":true,"inputs":[],"name":"marketFactory","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"marketMaker","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"finalBalance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"deadline","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"contributions","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"withdrawFees","outputs":[{"name":"fees","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"refund","outputs":[{"name":"refundAmount","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"market","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"createMarket","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"stage","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"closeMarket","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"amount","type":"uint256"}],"name":"fund","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"funding","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"fee","outputs":[{"name":"","type":"uint24"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"eventContract","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"FEE_RANGE","outputs":[{"name":"","type":"uint24"}],"payable":false,"type":"function"},{"inputs":[{"name":"_eventContract","type":"address"},{"name":"_marketFactory","type":"address"},{"name":"_marketMaker","type":"address"},{"name":"_fee","type":"uint24"},{"name":"_funding","type":"uint256"},{"name":"_deadline","type":"uint256"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"funding","type":"uint256"}],"name":"CampaignFunding","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"refund","type":"uint256"}],"name":"CampaignRefund","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"market","type":"address"}],"name":"MarketCreation","type":"event"},{"anonymous":false,"inputs":[],"name":"MarketClosing","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"receiver","type":"address"},{"indexed":false,"name":"fees","type":"uint256"}],"name":"FeeWithdrawal","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064283}
 
 /***/ }),
-/* 402 */
+/* 383 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"CampaignFactory","abi":[{"constant":false,"inputs":[{"name":"eventContract","type":"address"},{"name":"marketFactory","type":"address"},{"name":"marketMaker","type":"address"},{"name":"fee","type":"uint24"},{"name":"funding","type":"uint256"},{"name":"deadline","type":"uint256"}],"name":"createCampaign","outputs":[{"name":"campaign","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"campaign","type":"address"},{"indexed":false,"name":"eventContract","type":"address"},{"indexed":false,"name":"marketFactory","type":"address"},{"indexed":false,"name":"marketMaker","type":"address"},{"indexed":false,"name":"fee","type":"uint24"},{"indexed":false,"name":"funding","type":"uint256"},{"indexed":false,"name":"deadline","type":"uint256"}],"name":"CampaignCreation","type":"event"}],"networks":{"3":{"address":"0xd19bce9f7693598a9fa1f94c548b20887a33f141","updated_at":1503605014193},"4":{"address":"0x800820aeb972cb886fdd89d340dbe7b3f4769401","updated_at":1503603856239},"42":{"address":"0xf51b1544362ce80a542b76c49cce564497cf1bd0","updated_at":1503602339892},"437894314312":{"address":"0x0290fb167208af455bb137780163b7b7a9a10c16","updated_at":1507361155413}},"schema_version":"0.0.5","updated_at":1510783852230}
+module.exports = {"contract_name":"CampaignFactory","abi":[{"constant":false,"inputs":[{"name":"eventContract","type":"address"},{"name":"marketFactory","type":"address"},{"name":"marketMaker","type":"address"},{"name":"fee","type":"uint24"},{"name":"funding","type":"uint256"},{"name":"deadline","type":"uint256"}],"name":"createCampaign","outputs":[{"name":"campaign","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"campaign","type":"address"},{"indexed":false,"name":"eventContract","type":"address"},{"indexed":false,"name":"marketFactory","type":"address"},{"indexed":false,"name":"marketMaker","type":"address"},{"indexed":false,"name":"fee","type":"uint24"},{"indexed":false,"name":"funding","type":"uint256"},{"indexed":false,"name":"deadline","type":"uint256"}],"name":"CampaignCreation","type":"event"}],"networks":{"3":{"address":"0xd19bce9f7693598a9fa1f94c548b20887a33f141","updated_at":1503605014193},"4":{"address":"0x800820aeb972cb886fdd89d340dbe7b3f4769401","updated_at":1503603856239},"42":{"address":"0xf51b1544362ce80a542b76c49cce564497cf1bd0","updated_at":1503602339892},"437894314312":{"address":"0x0290fb167208af455bb137780163b7b7a9a10c16","updated_at":1507361155413}},"schema_version":"0.0.5","updated_at":1512406486211}
 
 /***/ }),
-/* 403 */
+/* 384 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"CategoricalEvent","abi":[{"constant":false,"inputs":[],"name":"setOutcome","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"outcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"collateralTokenCount","type":"uint256"}],"name":"buyAllOutcomes","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"getOutcomeTokenDistribution","outputs":[{"name":"outcomeTokenDistribution","type":"uint256[]"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenCount","type":"uint256"}],"name":"sellAllOutcomes","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"oracle","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcomeCount","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"outcomeTokens","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"redeemWinnings","outputs":[{"name":"winnings","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"collateralToken","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isOutcomeSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getEventHash","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcomeTokens","outputs":[{"name":"","type":"address[]"}],"payable":false,"type":"function"},{"inputs":[{"name":"_collateralToken","type":"address"},{"name":"_oracle","type":"address"},{"name":"outcomeCount","type":"uint8"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"outcomeToken","type":"address"},{"indexed":false,"name":"index","type":"uint8"}],"name":"OutcomeTokenCreation","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"buyer","type":"address"},{"indexed":false,"name":"collateralTokenCount","type":"uint256"}],"name":"OutcomeTokenSetIssuance","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"seller","type":"address"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"}],"name":"OutcomeTokenSetRevocation","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"outcome","type":"int256"}],"name":"OutcomeAssignment","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"receiver","type":"address"},{"indexed":false,"name":"winnings","type":"uint256"}],"name":"WinningsRedemption","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064282}
 
 /***/ }),
-/* 404 */
+/* 385 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"CentralizedOracle","abi":[{"constant":true,"inputs":[],"name":"outcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_outcome","type":"int256"}],"name":"setOutcome","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"newOwner","type":"address"}],"name":"replaceOwner","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"ipfsHash","outputs":[{"name":"","type":"bytes"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isOutcomeSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"inputs":[{"name":"_owner","type":"address"},{"name":"_ipfsHash","type":"bytes"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"newOwner","type":"address"}],"name":"OwnerReplacement","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"outcome","type":"int256"}],"name":"OutcomeAssignment","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064284}
 
 /***/ }),
-/* 405 */
+/* 386 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"CentralizedOracleFactory","abi":[{"constant":false,"inputs":[{"name":"ipfsHash","type":"bytes"}],"name":"createCentralizedOracle","outputs":[{"name":"centralizedOracle","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"centralizedOracle","type":"address"},{"indexed":false,"name":"ipfsHash","type":"bytes"}],"name":"CentralizedOracleCreation","type":"event"}],"networks":{"3":{"address":"0x472099767cc73a371c1848cbc0d17357e9bba52a","updated_at":1503605014190},"4":{"address":"0xb3289eaac0fe3ed15df177f925c6f8ceeb908b8f","updated_at":1503603856237},"42":{"address":"0xe8d7862d2ad41dd0d4dda98b47523f1238cf2155","updated_at":1503602339889},"437894314312":{"address":"0xcfeb869f69431e42cdb54a4f4f105c19c080a601","updated_at":1507361155407}},"schema_version":"0.0.5","updated_at":1510783852222}
+module.exports = {"contract_name":"CentralizedOracleFactory","abi":[{"constant":false,"inputs":[{"name":"ipfsHash","type":"bytes"}],"name":"createCentralizedOracle","outputs":[{"name":"centralizedOracle","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"centralizedOracle","type":"address"},{"indexed":false,"name":"ipfsHash","type":"bytes"}],"name":"CentralizedOracleCreation","type":"event"}],"networks":{"3":{"address":"0x472099767cc73a371c1848cbc0d17357e9bba52a","updated_at":1503605014190},"4":{"address":"0xb3289eaac0fe3ed15df177f925c6f8ceeb908b8f","updated_at":1503603856237},"42":{"address":"0xe8d7862d2ad41dd0d4dda98b47523f1238cf2155","updated_at":1503602339889},"437894314312":{"address":"0xcfeb869f69431e42cdb54a4f4f105c19c080a601","updated_at":1507361155407}},"schema_version":"0.0.5","updated_at":1512406486185}
 
 /***/ }),
-/* 406 */
+/* 387 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"DifficultyOracle","abi":[{"constant":false,"inputs":[],"name":"setOutcome","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"difficulty","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"blockNumber","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isOutcomeSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"inputs":[{"name":"_blockNumber","type":"uint256"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"difficulty","type":"uint256"}],"name":"OutcomeAssignment","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064284}
 
 /***/ }),
-/* 407 */
+/* 388 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"DifficultyOracleFactory","abi":[{"constant":false,"inputs":[{"name":"blockNumber","type":"uint256"}],"name":"createDifficultyOracle","outputs":[{"name":"difficultyOracle","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"difficultyOracle","type":"address"},{"indexed":false,"name":"blockNumber","type":"uint256"}],"name":"DifficultyOracleCreation","type":"event"}],"networks":{"3":{"address":"0xa2f86534959e83abbade7f5a560ba735bb4de3a3","updated_at":1503605014190},"4":{"address":"0x47c70527aaa5e98ade8da8100aec805e6fda037b","updated_at":1503603856237},"42":{"address":"0x11bcc6eea4ac6415eed82db3c544e7bdb701129e","updated_at":1503602339889},"437894314312":{"address":"0xc89ce4735882c9f0f0fe26686c53074e09b0d550","updated_at":1507361155408}},"schema_version":"0.0.5","updated_at":1510783852225}
+module.exports = {"contract_name":"DifficultyOracleFactory","abi":[{"constant":false,"inputs":[{"name":"blockNumber","type":"uint256"}],"name":"createDifficultyOracle","outputs":[{"name":"difficultyOracle","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"difficultyOracle","type":"address"},{"indexed":false,"name":"blockNumber","type":"uint256"}],"name":"DifficultyOracleCreation","type":"event"}],"networks":{"3":{"address":"0xa2f86534959e83abbade7f5a560ba735bb4de3a3","updated_at":1503605014190},"4":{"address":"0x47c70527aaa5e98ade8da8100aec805e6fda037b","updated_at":1503603856237},"42":{"address":"0x11bcc6eea4ac6415eed82db3c544e7bdb701129e","updated_at":1503602339889},"437894314312":{"address":"0xc89ce4735882c9f0f0fe26686c53074e09b0d550","updated_at":1507361155408}},"schema_version":"0.0.5","updated_at":1512406486189}
 
 /***/ }),
-/* 408 */
+/* 389 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"EtherToken","abi":[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"value","type":"uint256"}],"name":"withdraw","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"deposit","outputs":[],"payable":true,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Deposit","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"receiver","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Withdrawal","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}],"networks":{"3":{"address":"0xeaa325bacae405fd5b45e9cf695d391f1c624a2f","updated_at":1503605014187},"4":{"address":"0xd19bce9f7693598a9fa1f94c548b20887a33f141","updated_at":1503603856233},"42":{"address":"0x9326454039077bcea0705d6b68c8e9b104094a1c","updated_at":1503602339886},"437894314312":{"address":"0x59d3631c86bbe35ef041872d502f218a39fba150","updated_at":1507361155404}},"schema_version":"0.0.5","updated_at":1510783852218}
+module.exports = {"contract_name":"EtherToken","abi":[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"value","type":"uint256"}],"name":"withdraw","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"deposit","outputs":[],"payable":true,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Deposit","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"receiver","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Withdrawal","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}],"networks":{"3":{"address":"0xeaa325bacae405fd5b45e9cf695d391f1c624a2f","updated_at":1503605014187},"4":{"address":"0xd19bce9f7693598a9fa1f94c548b20887a33f141","updated_at":1503603856233},"42":{"address":"0x9326454039077bcea0705d6b68c8e9b104094a1c","updated_at":1503602339886},"437894314312":{"address":"0x59d3631c86bbe35ef041872d502f218a39fba150","updated_at":1507361155404}},"schema_version":"0.0.5","updated_at":1512406486186}
 
 /***/ }),
-/* 409 */
+/* 390 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"Event","abi":[{"constant":false,"inputs":[],"name":"setOutcome","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"outcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"collateralTokenCount","type":"uint256"}],"name":"buyAllOutcomes","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"getOutcomeTokenDistribution","outputs":[{"name":"outcomeTokenDistribution","type":"uint256[]"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenCount","type":"uint256"}],"name":"sellAllOutcomes","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"oracle","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcomeCount","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"outcomeTokens","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"redeemWinnings","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"collateralToken","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isOutcomeSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getEventHash","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcomeTokens","outputs":[{"name":"","type":"address[]"}],"payable":false,"type":"function"},{"inputs":[{"name":"_collateralToken","type":"address"},{"name":"_oracle","type":"address"},{"name":"outcomeCount","type":"uint8"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"outcomeToken","type":"address"},{"indexed":false,"name":"index","type":"uint8"}],"name":"OutcomeTokenCreation","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"buyer","type":"address"},{"indexed":false,"name":"collateralTokenCount","type":"uint256"}],"name":"OutcomeTokenSetIssuance","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"seller","type":"address"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"}],"name":"OutcomeTokenSetRevocation","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"outcome","type":"int256"}],"name":"OutcomeAssignment","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"receiver","type":"address"},{"indexed":false,"name":"winnings","type":"uint256"}],"name":"WinningsRedemption","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064282}
 
 /***/ }),
-/* 410 */
+/* 391 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"EventFactory","abi":[{"constant":false,"inputs":[{"name":"collateralToken","type":"address"},{"name":"oracle","type":"address"},{"name":"lowerBound","type":"int256"},{"name":"upperBound","type":"int256"}],"name":"createScalarEvent","outputs":[{"name":"eventContract","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"categoricalEvents","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"scalarEvents","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"collateralToken","type":"address"},{"name":"oracle","type":"address"},{"name":"outcomeCount","type":"uint8"}],"name":"createCategoricalEvent","outputs":[{"name":"eventContract","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"categoricalEvent","type":"address"},{"indexed":false,"name":"collateralToken","type":"address"},{"indexed":false,"name":"oracle","type":"address"},{"indexed":false,"name":"outcomeCount","type":"uint8"}],"name":"CategoricalEventCreation","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"scalarEvent","type":"address"},{"indexed":false,"name":"collateralToken","type":"address"},{"indexed":false,"name":"oracle","type":"address"},{"indexed":false,"name":"lowerBound","type":"int256"},{"indexed":false,"name":"upperBound","type":"int256"}],"name":"ScalarEventCreation","type":"event"}],"networks":{"3":{"address":"0xc2803221bf9cb3a245a19bb46727f6d797556dfc","updated_at":1503605014183},"4":{"address":"0x0f60faf69f3ac146e1e557247583bc0c84f9f086","updated_at":1503603856229},"42":{"address":"0x5cfc2409a2d601ad3ac0912de1021ddd0cd3e1dc","updated_at":1503602339883},"437894314312":{"address":"0x67b5656d60a809915323bf2c40a8bef15a152e3e","updated_at":1507361155401}},"schema_version":"0.0.5","updated_at":1510783852215}
+module.exports = {"contract_name":"EventFactory","abi":[{"constant":false,"inputs":[{"name":"collateralToken","type":"address"},{"name":"oracle","type":"address"},{"name":"lowerBound","type":"int256"},{"name":"upperBound","type":"int256"}],"name":"createScalarEvent","outputs":[{"name":"eventContract","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"categoricalEvents","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"scalarEvents","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"collateralToken","type":"address"},{"name":"oracle","type":"address"},{"name":"outcomeCount","type":"uint8"}],"name":"createCategoricalEvent","outputs":[{"name":"eventContract","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"categoricalEvent","type":"address"},{"indexed":false,"name":"collateralToken","type":"address"},{"indexed":false,"name":"oracle","type":"address"},{"indexed":false,"name":"outcomeCount","type":"uint8"}],"name":"CategoricalEventCreation","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"scalarEvent","type":"address"},{"indexed":false,"name":"collateralToken","type":"address"},{"indexed":false,"name":"oracle","type":"address"},{"indexed":false,"name":"lowerBound","type":"int256"},{"indexed":false,"name":"upperBound","type":"int256"}],"name":"ScalarEventCreation","type":"event"}],"networks":{"3":{"address":"0xc2803221bf9cb3a245a19bb46727f6d797556dfc","updated_at":1503605014183},"4":{"address":"0x0f60faf69f3ac146e1e557247583bc0c84f9f086","updated_at":1503603856229},"42":{"address":"0x5cfc2409a2d601ad3ac0912de1021ddd0cd3e1dc","updated_at":1503602339883},"437894314312":{"address":"0x67b5656d60a809915323bf2c40a8bef15a152e3e","updated_at":1507361155401}},"schema_version":"0.0.5","updated_at":1512406486182}
 
 /***/ }),
-/* 411 */
+/* 392 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"FutarchyOracle","abi":[{"constant":false,"inputs":[],"name":"setOutcome","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"close","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"LONG","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"winningMarketIndex","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"markets","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"categoricalEvent","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"funding","type":"uint256"}],"name":"fund","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isOutcomeSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"tradingPeriod","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[{"name":"_creator","type":"address"},{"name":"eventFactory","type":"address"},{"name":"collateralToken","type":"address"},{"name":"oracle","type":"address"},{"name":"outcomeCount","type":"uint8"},{"name":"lowerBound","type":"int256"},{"name":"upperBound","type":"int256"},{"name":"marketFactory","type":"address"},{"name":"marketMaker","type":"address"},{"name":"fee","type":"uint24"},{"name":"_tradingPeriod","type":"uint256"},{"name":"startDate","type":"uint256"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"funding","type":"uint256"}],"name":"FutarchyFunding","type":"event"},{"anonymous":false,"inputs":[],"name":"FutarchyClosing","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"winningMarketIndex","type":"uint256"}],"name":"OutcomeAssignment","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064284}
 
 /***/ }),
-/* 412 */
+/* 393 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"FutarchyOracleFactory","abi":[{"constant":false,"inputs":[{"name":"collateralToken","type":"address"},{"name":"oracle","type":"address"},{"name":"outcomeCount","type":"uint8"},{"name":"lowerBound","type":"int256"},{"name":"upperBound","type":"int256"},{"name":"marketMaker","type":"address"},{"name":"fee","type":"uint24"},{"name":"tradingPeriod","type":"uint256"},{"name":"startDate","type":"uint256"}],"name":"createFutarchyOracle","outputs":[{"name":"futarchyOracle","type":"address"}],"payable":false,"type":"function"},{"inputs":[{"name":"_eventFactory","type":"address"},{"name":"_marketFactory","type":"address"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"futarchyOracle","type":"address"},{"indexed":false,"name":"collateralToken","type":"address"},{"indexed":false,"name":"oracle","type":"address"},{"indexed":false,"name":"outcomeCount","type":"uint8"},{"indexed":false,"name":"lowerBound","type":"int256"},{"indexed":false,"name":"upperBound","type":"int256"},{"indexed":false,"name":"marketMaker","type":"address"},{"indexed":false,"name":"fee","type":"uint24"},{"indexed":false,"name":"tradingPeriod","type":"uint256"},{"indexed":false,"name":"startDate","type":"uint256"}],"name":"FutarchyOracleCreation","type":"event"}],"networks":{"3":{"address":"0x0f60faf69f3ac146e1e557247583bc0c84f9f086","updated_at":1503605014191},"4":{"address":"0xd93d5174b346d5037486e40e335fd2edc353bfcc","updated_at":1503603856237},"42":{"address":"0xc55c643d9084df9372c43fc2f4f6cd3f7446d00d","updated_at":1503602339890},"437894314312":{"address":"0x2612af3a521c2df9eaf28422ca335b04adf3ac66","updated_at":1507361155409}},"schema_version":"0.0.5","updated_at":1510783852226}
+module.exports = {"contract_name":"FutarchyOracleFactory","abi":[{"constant":false,"inputs":[{"name":"collateralToken","type":"address"},{"name":"oracle","type":"address"},{"name":"outcomeCount","type":"uint8"},{"name":"lowerBound","type":"int256"},{"name":"upperBound","type":"int256"},{"name":"marketMaker","type":"address"},{"name":"fee","type":"uint24"},{"name":"tradingPeriod","type":"uint256"},{"name":"startDate","type":"uint256"}],"name":"createFutarchyOracle","outputs":[{"name":"futarchyOracle","type":"address"}],"payable":false,"type":"function"},{"inputs":[{"name":"_eventFactory","type":"address"},{"name":"_marketFactory","type":"address"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"futarchyOracle","type":"address"},{"indexed":false,"name":"collateralToken","type":"address"},{"indexed":false,"name":"oracle","type":"address"},{"indexed":false,"name":"outcomeCount","type":"uint8"},{"indexed":false,"name":"lowerBound","type":"int256"},{"indexed":false,"name":"upperBound","type":"int256"},{"indexed":false,"name":"marketMaker","type":"address"},{"indexed":false,"name":"fee","type":"uint24"},{"indexed":false,"name":"tradingPeriod","type":"uint256"},{"indexed":false,"name":"startDate","type":"uint256"}],"name":"FutarchyOracleCreation","type":"event"}],"networks":{"3":{"address":"0x0f60faf69f3ac146e1e557247583bc0c84f9f086","updated_at":1503605014191},"4":{"address":"0xd93d5174b346d5037486e40e335fd2edc353bfcc","updated_at":1503603856237},"42":{"address":"0xc55c643d9084df9372c43fc2f4f6cd3f7446d00d","updated_at":1503602339890},"437894314312":{"address":"0x2612af3a521c2df9eaf28422ca335b04adf3ac66","updated_at":1507361155409}},"schema_version":"0.0.5","updated_at":1512406486190}
 
 /***/ }),
-/* 413 */
+/* 394 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"HumanFriendlyToken","abi":[{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064280}
 
 /***/ }),
-/* 414 */
+/* 395 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"LMSRMarketMaker","abi":[{"constant":true,"inputs":[{"name":"market","type":"address"},{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"}],"name":"calcProfit","outputs":[{"name":"profit","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"market","type":"address"},{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"}],"name":"calcCost","outputs":[{"name":"cost","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"market","type":"address"},{"name":"outcomeTokenIndex","type":"uint8"}],"name":"calcMarginalPrice","outputs":[{"name":"price","type":"uint256"}],"payable":false,"type":"function"}],"networks":{"3":{"address":"0xe81424ffc847919efc5f0156e3799edc60ebf715","updated_at":1503605014192},"4":{"address":"0x11b5257396f156027b9232da7220bd7447282db6","updated_at":1503603856238},"42":{"address":"0xcc9a28a40a25be4d9b8c3134aa6fd8b38f817123","updated_at":1503602339890},"437894314312":{"address":"0x9561c133dd8580860b6b7e504bc5aa500f0f06a7","updated_at":1507361155410}},"schema_version":"0.0.5","updated_at":1510783852226}
+module.exports = {"contract_name":"LMSRMarketMaker","abi":[{"constant":true,"inputs":[{"name":"market","type":"address"},{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"}],"name":"calcProfit","outputs":[{"name":"profit","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"market","type":"address"},{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"}],"name":"calcCost","outputs":[{"name":"cost","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"market","type":"address"},{"name":"outcomeTokenIndex","type":"uint8"}],"name":"calcMarginalPrice","outputs":[{"name":"price","type":"uint256"}],"payable":false,"type":"function"}],"networks":{"3":{"address":"0xe81424ffc847919efc5f0156e3799edc60ebf715","updated_at":1503605014192},"4":{"address":"0x11b5257396f156027b9232da7220bd7447282db6","updated_at":1503603856238},"42":{"address":"0xcc9a28a40a25be4d9b8c3134aa6fd8b38f817123","updated_at":1503602339890},"437894314312":{"address":"0x9561c133dd8580860b6b7e504bc5aa500f0f06a7","updated_at":1507361155410}},"schema_version":"0.0.5","updated_at":1512406486194}
 
 /***/ }),
-/* 415 */
+/* 396 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"MajorityOracle","abi":[{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"oracles","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"getStatusAndOutcome","outputs":[{"name":"outcomeSet","type":"bool"},{"name":"outcome","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isOutcomeSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"inputs":[{"name":"_oracles","type":"address[]"}],"payable":false,"type":"constructor"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064285}
 
 /***/ }),
-/* 416 */
+/* 397 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"MajorityOracleFactory","abi":[{"constant":false,"inputs":[{"name":"oracles","type":"address[]"}],"name":"createMajorityOracle","outputs":[{"name":"majorityOracle","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"majorityOracle","type":"address"},{"indexed":false,"name":"oracles","type":"address[]"}],"name":"MajorityOracleCreation","type":"event"}],"networks":{"3":{"address":"0xb3289eaac0fe3ed15df177f925c6f8ceeb908b8f","updated_at":1503605014190},"4":{"address":"0xa2f86534959e83abbade7f5a560ba735bb4de3a3","updated_at":1503603856237},"42":{"address":"0x4b9d168269dda8630fb4d064dbcbbe90d0286158","updated_at":1503602339890},"437894314312":{"address":"0x254dffcd3277c0b1660f6d42efbb754edababc2b","updated_at":1507361155408}},"schema_version":"0.0.5","updated_at":1510783852224}
+module.exports = {"contract_name":"MajorityOracleFactory","abi":[{"constant":false,"inputs":[{"name":"oracles","type":"address[]"}],"name":"createMajorityOracle","outputs":[{"name":"majorityOracle","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"majorityOracle","type":"address"},{"indexed":false,"name":"oracles","type":"address[]"}],"name":"MajorityOracleCreation","type":"event"}],"networks":{"3":{"address":"0xb3289eaac0fe3ed15df177f925c6f8ceeb908b8f","updated_at":1503605014190},"4":{"address":"0xa2f86534959e83abbade7f5a560ba735bb4de3a3","updated_at":1503603856237},"42":{"address":"0x4b9d168269dda8630fb4d064dbcbbe90d0286158","updated_at":1503602339890},"437894314312":{"address":"0x254dffcd3277c0b1660f6d42efbb754edababc2b","updated_at":1507361155408}},"schema_version":"0.0.5","updated_at":1512406486189}
 
 /***/ }),
-/* 417 */
+/* 398 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"Market","abi":[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"marketMaker","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"},{"name":"minProfit","type":"uint256"}],"name":"shortSell","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"close","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"},{"name":"minProfit","type":"uint256"}],"name":"sell","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"withdrawFees","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"createdAtBlock","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"netOutcomeTokensSold","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"outcomeTokenCost","type":"uint256"}],"name":"calcMarketFee","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"stage","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_funding","type":"uint256"}],"name":"fund","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"funding","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"fee","outputs":[{"name":"","type":"uint24"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"eventContract","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"},{"name":"maxCost","type":"uint256"}],"name":"buy","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"funding","type":"uint256"}],"name":"MarketFunding","type":"event"},{"anonymous":false,"inputs":[],"name":"MarketClosing","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"fees","type":"uint256"}],"name":"FeeWithdrawal","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"buyer","type":"address"},{"indexed":false,"name":"outcomeTokenIndex","type":"uint8"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"},{"indexed":false,"name":"outcomeTokenCost","type":"uint256"},{"indexed":false,"name":"marketFees","type":"uint256"}],"name":"OutcomeTokenPurchase","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"seller","type":"address"},{"indexed":false,"name":"outcomeTokenIndex","type":"uint8"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"},{"indexed":false,"name":"outcomeTokenProfit","type":"uint256"},{"indexed":false,"name":"marketFees","type":"uint256"}],"name":"OutcomeTokenSale","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"buyer","type":"address"},{"indexed":false,"name":"outcomeTokenIndex","type":"uint8"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"},{"indexed":false,"name":"cost","type":"uint256"}],"name":"OutcomeTokenShortSale","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064283}
 
 /***/ }),
-/* 418 */
+/* 399 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"MarketMaker","abi":[{"constant":true,"inputs":[{"name":"market","type":"address"},{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"}],"name":"calcProfit","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"market","type":"address"},{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"}],"name":"calcCost","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"market","type":"address"},{"name":"outcomeTokenIndex","type":"uint8"}],"name":"calcMarginalPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064283}
 
 /***/ }),
-/* 419 */
+/* 400 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"Math","abi":[{"constant":true,"inputs":[],"name":"LN2","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"safeToMul","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"LOG2_E","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"x","type":"uint256"}],"name":"ln","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"x","type":"uint256"}],"name":"floorLog2","outputs":[{"name":"lo","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeToAdd","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"add","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"safeToSub","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"add","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"sub","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"sub","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"mul","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"ONE","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"mul","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeToMul","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"nums","type":"int256[]"}],"name":"max","outputs":[{"name":"max","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"safeToAdd","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeToSub","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"x","type":"int256"}],"name":"exp","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"}],"networks":{"3":{"address":"0xc55c643d9084df9372c43fc2f4f6cd3f7446d00d","updated_at":1503605014183},"4":{"address":"0x472099767cc73a371c1848cbc0d17357e9bba52a","updated_at":1503603856229},"42":{"address":"0x0dd253f644e702346ec67839088ae5954d51e76b","updated_at":1503602339882},"437894314312":{"address":"0x5b1869d9a4c187f2eaa108f3062412ecf0526b24","updated_at":1507361155400}},"schema_version":"0.0.5","updated_at":1510783852215}
+module.exports = {"contract_name":"Math","abi":[{"constant":true,"inputs":[],"name":"LN2","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"safeToMul","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"LOG2_E","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"x","type":"uint256"}],"name":"ln","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"x","type":"uint256"}],"name":"floorLog2","outputs":[{"name":"lo","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeToAdd","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"add","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"safeToSub","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"add","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"sub","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"sub","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"mul","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"ONE","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"mul","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeToMul","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"nums","type":"int256[]"}],"name":"max","outputs":[{"name":"max","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"int256"},{"name":"b","type":"int256"}],"name":"safeToAdd","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"a","type":"uint256"},{"name":"b","type":"uint256"}],"name":"safeToSub","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"x","type":"int256"}],"name":"exp","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"}],"networks":{"3":{"address":"0xc55c643d9084df9372c43fc2f4f6cd3f7446d00d","updated_at":1503605014183},"4":{"address":"0x472099767cc73a371c1848cbc0d17357e9bba52a","updated_at":1503603856229},"42":{"address":"0x0dd253f644e702346ec67839088ae5954d51e76b","updated_at":1503602339882},"437894314312":{"address":"0x5b1869d9a4c187f2eaa108f3062412ecf0526b24","updated_at":1507361155400}},"schema_version":"0.0.5","updated_at":1512406486182}
 
 /***/ }),
-/* 420 */
+/* 401 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"Migrations","abi":[{"constant":false,"inputs":[{"name":"new_address","type":"address"}],"name":"upgrade","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"last_completed_migration","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"completed","type":"uint256"}],"name":"setCompleted","outputs":[],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"}],"networks":{"3":{"updated_at":1503605014193},"4":{"updated_at":1503603856239},"42":{"updated_at":1503602339891},"437894314312":{"updated_at":1507361155414}},"schema_version":"0.0.5","updated_at":1510783852230}
+module.exports = {"contract_name":"Migrations","abi":[{"constant":false,"inputs":[{"name":"new_address","type":"address"}],"name":"upgrade","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"last_completed_migration","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"owner","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"completed","type":"uint256"}],"name":"setCompleted","outputs":[],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"}],"networks":{"3":{"updated_at":1503605014193},"4":{"updated_at":1503603856239},"42":{"updated_at":1503602339891},"437894314312":{"updated_at":1507361155414}},"schema_version":"0.0.5","updated_at":1512406486210}
 
 /***/ }),
-/* 421 */
+/* 402 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"Oracle","abi":[{"constant":true,"inputs":[],"name":"getOutcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isOutcomeSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064285}
 
 /***/ }),
-/* 422 */
+/* 403 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"OutcomeToken","abi":[{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_for","type":"address"},{"name":"outcomeTokenCount","type":"uint256"}],"name":"issue","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"eventContract","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_for","type":"address"},{"name":"outcomeTokenCount","type":"uint256"}],"name":"revoke","outputs":[],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Issuance","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Revocation","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064286}
 
 /***/ }),
-/* 423 */
+/* 404 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"ScalarEvent","abi":[{"constant":false,"inputs":[],"name":"setOutcome","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"outcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"collateralTokenCount","type":"uint256"}],"name":"buyAllOutcomes","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"LONG","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"getOutcomeTokenDistribution","outputs":[{"name":"outcomeTokenDistribution","type":"uint256[]"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"OUTCOME_RANGE","outputs":[{"name":"","type":"uint24"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenCount","type":"uint256"}],"name":"sellAllOutcomes","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"oracle","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcomeCount","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"outcomeTokens","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"lowerBound","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"SHORT","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"redeemWinnings","outputs":[{"name":"winnings","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"upperBound","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"collateralToken","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isOutcomeSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getEventHash","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcomeTokens","outputs":[{"name":"","type":"address[]"}],"payable":false,"type":"function"},{"inputs":[{"name":"_collateralToken","type":"address"},{"name":"_oracle","type":"address"},{"name":"_lowerBound","type":"int256"},{"name":"_upperBound","type":"int256"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"outcomeToken","type":"address"},{"indexed":false,"name":"index","type":"uint8"}],"name":"OutcomeTokenCreation","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"buyer","type":"address"},{"indexed":false,"name":"collateralTokenCount","type":"uint256"}],"name":"OutcomeTokenSetIssuance","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"seller","type":"address"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"}],"name":"OutcomeTokenSetRevocation","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"outcome","type":"int256"}],"name":"OutcomeAssignment","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"receiver","type":"address"},{"indexed":false,"name":"winnings","type":"uint256"}],"name":"WinningsRedemption","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064283}
 
 /***/ }),
-/* 424 */
+/* 405 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"SignedMessageOracle","abi":[{"constant":true,"inputs":[],"name":"signer","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"outcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"newSigner","type":"address"},{"name":"_nonce","type":"uint256"},{"name":"v","type":"uint8"},{"name":"r","type":"bytes32"},{"name":"s","type":"bytes32"}],"name":"replaceSigner","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"descriptionHash","outputs":[{"name":"","type":"bytes32"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isOutcomeSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_outcome","type":"int256"},{"name":"v","type":"uint8"},{"name":"r","type":"bytes32"},{"name":"s","type":"bytes32"}],"name":"setOutcome","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_descriptionHash","type":"bytes32"},{"name":"v","type":"uint8"},{"name":"r","type":"bytes32"},{"name":"s","type":"bytes32"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"newSigner","type":"address"}],"name":"SignerReplacement","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"outcome","type":"int256"}],"name":"OutcomeAssignment","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064285}
 
 /***/ }),
-/* 425 */
+/* 406 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"SignedMessageOracleFactory","abi":[{"constant":false,"inputs":[{"name":"descriptionHash","type":"bytes32"},{"name":"v","type":"uint8"},{"name":"r","type":"bytes32"},{"name":"s","type":"bytes32"}],"name":"createSignedMessageOracle","outputs":[{"name":"signedMessageOracle","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"signedMessageOracle","type":"address"},{"indexed":false,"name":"oracle","type":"address"}],"name":"SignedMessageOracleCreation","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064285}
 
 /***/ }),
-/* 426 */
+/* 407 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"StandardMarket","abi":[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"marketMaker","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"},{"name":"minProfit","type":"uint256"}],"name":"shortSell","outputs":[{"name":"cost","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"close","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"},{"name":"minProfit","type":"uint256"}],"name":"sell","outputs":[{"name":"profit","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"withdrawFees","outputs":[{"name":"fees","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"createdAtBlock","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"netOutcomeTokensSold","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"outcomeTokenCost","type":"uint256"}],"name":"calcMarketFee","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"stage","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_funding","type":"uint256"}],"name":"fund","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"funding","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"fee","outputs":[{"name":"","type":"uint24"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"eventContract","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"},{"name":"maxCost","type":"uint256"}],"name":"buy","outputs":[{"name":"cost","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"FEE_RANGE","outputs":[{"name":"","type":"uint24"}],"payable":false,"type":"function"},{"inputs":[{"name":"_creator","type":"address"},{"name":"_eventContract","type":"address"},{"name":"_marketMaker","type":"address"},{"name":"_fee","type":"uint24"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"funding","type":"uint256"}],"name":"MarketFunding","type":"event"},{"anonymous":false,"inputs":[],"name":"MarketClosing","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"fees","type":"uint256"}],"name":"FeeWithdrawal","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"buyer","type":"address"},{"indexed":false,"name":"outcomeTokenIndex","type":"uint8"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"},{"indexed":false,"name":"outcomeTokenCost","type":"uint256"},{"indexed":false,"name":"marketFees","type":"uint256"}],"name":"OutcomeTokenPurchase","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"seller","type":"address"},{"indexed":false,"name":"outcomeTokenIndex","type":"uint8"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"},{"indexed":false,"name":"outcomeTokenProfit","type":"uint256"},{"indexed":false,"name":"marketFees","type":"uint256"}],"name":"OutcomeTokenSale","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"buyer","type":"address"},{"indexed":false,"name":"outcomeTokenIndex","type":"uint8"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"},{"indexed":false,"name":"cost","type":"uint256"}],"name":"OutcomeTokenShortSale","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064283}
 
 /***/ }),
-/* 427 */
+/* 408 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"StandardMarketFactory","abi":[{"constant":false,"inputs":[{"name":"eventContract","type":"address"},{"name":"marketMaker","type":"address"},{"name":"fee","type":"uint24"}],"name":"createMarket","outputs":[{"name":"market","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"market","type":"address"},{"indexed":false,"name":"eventContract","type":"address"},{"indexed":false,"name":"marketMaker","type":"address"},{"indexed":false,"name":"fee","type":"uint24"}],"name":"StandardMarketCreation","type":"event"}],"networks":{"3":{"address":"0x11b5257396f156027b9232da7220bd7447282db6","updated_at":1503605014192},"4":{"address":"0xeaa325bacae405fd5b45e9cf695d391f1c624a2f","updated_at":1503603856238},"42":{"address":"0x5acfa40d828f2d3a88b49ff4da31b868380ce414","updated_at":1503602339891},"437894314312":{"address":"0xe982e462b094850f12af94d21d470e21be9d0e9c","updated_at":1507361155411}},"schema_version":"0.0.5","updated_at":1510783852227}
+module.exports = {"contract_name":"StandardMarketFactory","abi":[{"constant":false,"inputs":[{"name":"eventContract","type":"address"},{"name":"marketMaker","type":"address"},{"name":"fee","type":"uint24"}],"name":"createMarket","outputs":[{"name":"market","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"market","type":"address"},{"indexed":false,"name":"eventContract","type":"address"},{"indexed":false,"name":"marketMaker","type":"address"},{"indexed":false,"name":"fee","type":"uint24"}],"name":"StandardMarketCreation","type":"event"}],"networks":{"3":{"address":"0x11b5257396f156027b9232da7220bd7447282db6","updated_at":1503605014192},"4":{"address":"0xeaa325bacae405fd5b45e9cf695d391f1c624a2f","updated_at":1503603856238},"42":{"address":"0x5acfa40d828f2d3a88b49ff4da31b868380ce414","updated_at":1503602339891},"437894314312":{"address":"0xe982e462b094850f12af94d21d470e21be9d0e9c","updated_at":1507361155411}},"schema_version":"0.0.5","updated_at":1512406486194}
 
 /***/ }),
-/* 428 */
+/* 409 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"StandardMarketWithPriceLogger","abi":[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"startDate","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"marketMaker","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"},{"name":"minProfit","type":"uint256"}],"name":"shortSell","outputs":[{"name":"cost","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"close","outputs":[],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"},{"name":"minProfit","type":"uint256"}],"name":"sell","outputs":[{"name":"profit","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"withdrawFees","outputs":[{"name":"fees","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"LONG","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"createdAtBlock","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"lastTradeDate","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"priceIntegral","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"netOutcomeTokensSold","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"outcomeTokenCost","type":"uint256"}],"name":"calcMarketFee","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"stage","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"endDate","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_funding","type":"uint256"}],"name":"fund","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"funding","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"fee","outputs":[{"name":"","type":"uint24"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"lastTradePrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"eventContract","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"getAvgPrice","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"outcomeTokenIndex","type":"uint8"},{"name":"outcomeTokenCount","type":"uint256"},{"name":"maxCost","type":"uint256"}],"name":"buy","outputs":[{"name":"cost","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"FEE_RANGE","outputs":[{"name":"","type":"uint24"}],"payable":false,"type":"function"},{"inputs":[{"name":"_creator","type":"address"},{"name":"_eventContract","type":"address"},{"name":"_marketMaker","type":"address"},{"name":"_fee","type":"uint24"},{"name":"_startDate","type":"uint256"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"funding","type":"uint256"}],"name":"MarketFunding","type":"event"},{"anonymous":false,"inputs":[],"name":"MarketClosing","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"name":"fees","type":"uint256"}],"name":"FeeWithdrawal","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"buyer","type":"address"},{"indexed":false,"name":"outcomeTokenIndex","type":"uint8"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"},{"indexed":false,"name":"outcomeTokenCost","type":"uint256"},{"indexed":false,"name":"marketFees","type":"uint256"}],"name":"OutcomeTokenPurchase","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"seller","type":"address"},{"indexed":false,"name":"outcomeTokenIndex","type":"uint8"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"},{"indexed":false,"name":"outcomeTokenProfit","type":"uint256"},{"indexed":false,"name":"marketFees","type":"uint256"}],"name":"OutcomeTokenSale","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"buyer","type":"address"},{"indexed":false,"name":"outcomeTokenIndex","type":"uint8"},{"indexed":false,"name":"outcomeTokenCount","type":"uint256"},{"indexed":false,"name":"cost","type":"uint256"}],"name":"OutcomeTokenShortSale","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064284}
 
 /***/ }),
-/* 429 */
+/* 410 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"StandardMarketWithPriceLoggerFactory","abi":[{"constant":false,"inputs":[{"name":"eventContract","type":"address"},{"name":"marketMaker","type":"address"},{"name":"fee","type":"uint24"},{"name":"startDate","type":"uint256"}],"name":"createMarket","outputs":[{"name":"market","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"market","type":"address"},{"indexed":false,"name":"eventContract","type":"address"},{"indexed":false,"name":"marketMaker","type":"address"},{"indexed":false,"name":"fee","type":"uint24"},{"indexed":false,"name":"startDate","type":"uint256"}],"name":"StandardMarketWithPriceLoggerCreation","type":"event"}],"networks":{"3":{"address":"0x800820aeb972cb886fdd89d340dbe7b3f4769401","updated_at":1503605014193},"4":{"address":"0xc2803221bf9cb3a245a19bb46727f6d797556dfc","updated_at":1503603856239},"42":{"address":"0xd5daa4b168352ea239cab95cf68a7d4002a6153d","updated_at":1503602339891},"437894314312":{"address":"0x9b1f7f645351af3631a656421ed2e40f2802e6c0","updated_at":1507361155412}},"schema_version":"0.0.5","updated_at":1510783852228}
+module.exports = {"contract_name":"StandardMarketWithPriceLoggerFactory","abi":[{"constant":false,"inputs":[{"name":"eventContract","type":"address"},{"name":"marketMaker","type":"address"},{"name":"fee","type":"uint24"},{"name":"startDate","type":"uint256"}],"name":"createMarket","outputs":[{"name":"market","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"market","type":"address"},{"indexed":false,"name":"eventContract","type":"address"},{"indexed":false,"name":"marketMaker","type":"address"},{"indexed":false,"name":"fee","type":"uint24"},{"indexed":false,"name":"startDate","type":"uint256"}],"name":"StandardMarketWithPriceLoggerCreation","type":"event"}],"networks":{"3":{"address":"0x800820aeb972cb886fdd89d340dbe7b3f4769401","updated_at":1503605014193},"4":{"address":"0xc2803221bf9cb3a245a19bb46727f6d797556dfc","updated_at":1503603856239},"42":{"address":"0xd5daa4b168352ea239cab95cf68a7d4002a6153d","updated_at":1503602339891},"437894314312":{"address":"0x9b1f7f645351af3631a656421ed2e40f2802e6c0","updated_at":1507361155412}},"schema_version":"0.0.5","updated_at":1512406486211}
 
 /***/ }),
-/* 430 */
+/* 411 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"StandardToken","abi":[{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064286}
 
 /***/ }),
-/* 431 */
+/* 412 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"Token","abi":[{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064286}
 
 /***/ }),
-/* 432 */
+/* 413 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"UltimateOracle","abi":[{"constant":true,"inputs":[],"name":"forwardedOracle","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"frontRunnerPeriod","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"frontRunner","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalAmount","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"isFrontRunnerPeriodOver","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"int256"}],"name":"totalOutcomeAmounts","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"withdraw","outputs":[{"name":"amount","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"forwardedOutcomeSetTimestamp","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"isChallengePeriodOver","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"setForwardedOutcome","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"getOutcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"frontRunnerSetTimestamp","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"forwardedOutcome","outputs":[{"name":"","type":"int256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"challengeAmount","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[],"name":"isChallenged","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_outcome","type":"int256"}],"name":"challengeOutcome","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"collateralToken","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"int256"}],"name":"outcomeAmounts","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"isOutcomeSet","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"spreadMultiplier","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"challengePeriod","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"_outcome","type":"int256"},{"name":"amount","type":"uint256"}],"name":"voteForOutcome","outputs":[],"payable":false,"type":"function"},{"inputs":[{"name":"_forwardedOracle","type":"address"},{"name":"_collateralToken","type":"address"},{"name":"_spreadMultiplier","type":"uint8"},{"name":"_challengePeriod","type":"uint256"},{"name":"_challengeAmount","type":"uint256"},{"name":"_frontRunnerPeriod","type":"uint256"}],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":false,"name":"outcome","type":"int256"}],"name":"ForwardedOracleOutcomeAssignment","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"outcome","type":"int256"}],"name":"OutcomeChallenge","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"outcome","type":"int256"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"OutcomeVote","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Withdrawal","type":"event"}],"networks":{},"schema_version":"0.0.5","updated_at":1508776064285}
 
 /***/ }),
-/* 433 */
+/* 414 */
 /***/ (function(module, exports) {
 
-module.exports = {"contract_name":"UltimateOracleFactory","abi":[{"constant":false,"inputs":[{"name":"oracle","type":"address"},{"name":"collateralToken","type":"address"},{"name":"spreadMultiplier","type":"uint8"},{"name":"challengePeriod","type":"uint256"},{"name":"challengeAmount","type":"uint256"},{"name":"frontRunnerPeriod","type":"uint256"}],"name":"createUltimateOracle","outputs":[{"name":"ultimateOracle","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"ultimateOracle","type":"address"},{"indexed":false,"name":"oracle","type":"address"},{"indexed":false,"name":"collateralToken","type":"address"},{"indexed":false,"name":"spreadMultiplier","type":"uint8"},{"indexed":false,"name":"challengePeriod","type":"uint256"},{"indexed":false,"name":"challengeAmount","type":"uint256"},{"indexed":false,"name":"frontRunnerPeriod","type":"uint256"}],"name":"UltimateOracleCreation","type":"event"}],"networks":{"3":{"address":"0x47c70527aaa5e98ade8da8100aec805e6fda037b","updated_at":1503605014191},"4":{"address":"0xe81424ffc847919efc5f0156e3799edc60ebf715","updated_at":1503603856237},"42":{"address":"0x679ef161af4bb37b14a6d06d2e2a991d3650005c","updated_at":1503602339890},"437894314312":{"address":"0xd833215cbcc3f914bd1c9ece3ee7bf8b14f841bb","updated_at":1507361155410}},"schema_version":"0.0.5","updated_at":1510783852226}
+module.exports = {"contract_name":"UltimateOracleFactory","abi":[{"constant":false,"inputs":[{"name":"oracle","type":"address"},{"name":"collateralToken","type":"address"},{"name":"spreadMultiplier","type":"uint8"},{"name":"challengePeriod","type":"uint256"},{"name":"challengeAmount","type":"uint256"},{"name":"frontRunnerPeriod","type":"uint256"}],"name":"createUltimateOracle","outputs":[{"name":"ultimateOracle","type":"address"}],"payable":false,"type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"creator","type":"address"},{"indexed":false,"name":"ultimateOracle","type":"address"},{"indexed":false,"name":"oracle","type":"address"},{"indexed":false,"name":"collateralToken","type":"address"},{"indexed":false,"name":"spreadMultiplier","type":"uint8"},{"indexed":false,"name":"challengePeriod","type":"uint256"},{"indexed":false,"name":"challengeAmount","type":"uint256"},{"indexed":false,"name":"frontRunnerPeriod","type":"uint256"}],"name":"UltimateOracleCreation","type":"event"}],"networks":{"3":{"address":"0x47c70527aaa5e98ade8da8100aec805e6fda037b","updated_at":1503605014191},"4":{"address":"0xe81424ffc847919efc5f0156e3799edc60ebf715","updated_at":1503603856237},"42":{"address":"0x679ef161af4bb37b14a6d06d2e2a991d3650005c","updated_at":1503602339890},"437894314312":{"address":"0xd833215cbcc3f914bd1c9ece3ee7bf8b14f841bb","updated_at":1507361155410}},"schema_version":"0.0.5","updated_at":1512406486193}
 
 /***/ }),
-/* 434 */
+/* 415 */
 /***/ (function(module, exports) {
 
 module.exports = {"contract_name":"OlympiaToken","abi":[{"constant":true,"inputs":[],"name":"creator","outputs":[{"name":"","type":"address"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"value","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"recipients","type":"address[]"},{"name":"amount","type":"uint256"}],"name":"issue","outputs":[],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"type":"function"},{"inputs":[],"payable":false,"type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":false,"name":"amount","type":"uint256"}],"name":"Issuance","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}],"networks":{"4":{"address":"0x66a4625b7010f72e8ab11978d1ac190f1b8b4f42","updated_at":1509383305730}},"schema_version":"0.0.5","updated_at":1509383305730}
