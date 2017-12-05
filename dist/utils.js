@@ -41,6 +41,10 @@ var _filter2 = require('lodash/filter');
 
 var _filter3 = _interopRequireDefault(_filter2);
 
+var _clone2 = require('lodash/clone');
+
+var _clone3 = _interopRequireDefault(_clone2);
+
 var _defaults2 = require('lodash/defaults');
 
 var _defaults3 = _interopRequireDefault(_defaults2);
@@ -48,10 +52,6 @@ var _defaults3 = _interopRequireDefault(_defaults2);
 var _forOwn2 = require('lodash/forOwn');
 
 var _forOwn3 = _interopRequireDefault(_forOwn2);
-
-var _clone2 = require('lodash/clone');
-
-var _clone3 = _interopRequireDefault(_clone2);
 
 var _isNumber2 = require('lodash/isNumber');
 
@@ -74,7 +74,7 @@ var _isArray2 = require('lodash/isArray');
 var _isArray3 = _interopRequireDefault(_isArray2);
 
 var sendTransactionAndGetResult = exports.sendTransactionAndGetResult = function () {
-    var _ref11 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee3(opts) {
+    var _ref9 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee3(opts) {
         var _caller;
 
         var caller, result, matchingLog;
@@ -128,7 +128,7 @@ var sendTransactionAndGetResult = exports.sendTransactionAndGetResult = function
     }));
 
     return function sendTransactionAndGetResult(_x) {
-        return _ref11.apply(this, arguments);
+        return _ref9.apply(this, arguments);
     };
 }();
 
@@ -255,8 +255,8 @@ function getOptsFromArgs(args) {
     return (0, _typeof3.default)(args[args.length - 1]) === 'object' ? args[args.length - 1] : {};
 }
 
-function getTruffleArgsFromOptions(argInfo, opts, argAliases) {
-    opts = opts == null ? {} : (0, _clone3.default)(opts);
+function getTruffleArgsWhileMutatingOptions(argInfo, opts, argAliases) {
+    opts = opts == null ? {} : opts;
 
     if (argAliases != null) {
         (0, _forOwn3.default)(argAliases, function (name, alias) {
@@ -277,7 +277,9 @@ function getTruffleArgsFromOptions(argInfo, opts, argAliases) {
         if (!(0, _has3.default)(opts, name)) {
             throw new Error('missing argument ' + name);
         }
-        return makeWeb3Compatible(opts[name], type, name);
+        var ret = makeWeb3Compatible(opts[name], type, name);
+        delete opts[name];
+        return ret;
     });
 }
 
@@ -299,45 +301,37 @@ function normalizeWeb3Args(args, opts) {
         if ((0, _typeof3.default)(args[0]) === 'object' && (0, _has3.default)(args[0], functionInputs[0].name)) {
             // we consider argument to be an options object if it has the parameter name as a key on it
             methodOpts = (0, _defaults3.default)((0, _clone3.default)(args[0]), defaults);
-            methodArgs = getTruffleArgsFromOptions(functionInputs, methodOpts, argAliases);
-            functionInputs.forEach(function (_ref2) {
-                var name = _ref2.name;
-                delete methodOpts[name];
-            });
+            methodArgs = getTruffleArgsWhileMutatingOptions(functionInputs, methodOpts, argAliases);
         } else {
             methodOpts = null;
-            methodArgs = functionInputs.map(function (_ref3, i) {
-                var name = _ref3.name,
-                    type = _ref3.type;
+            methodArgs = functionInputs.map(function (_ref2, i) {
+                var name = _ref2.name,
+                    type = _ref2.type;
                 return makeWeb3Compatible(args[i], type, name);
             });
         }
     } else if (functionInputs.length === args.length) {
         methodOpts = null;
-        methodArgs = functionInputs.map(function (_ref4, i) {
-            var name = _ref4.name,
-                type = _ref4.type;
+        methodArgs = functionInputs.map(function (_ref3, i) {
+            var name = _ref3.name,
+                type = _ref3.type;
             return makeWeb3Compatible(args[i], type, name);
         });
     } else if (functionInputs.length + 1 === args.length && (0, _typeof3.default)(args[functionInputs.length]) === 'object') {
         methodOpts = args[args.length - 1];
         // this map should not hit the last element of args
-        methodArgs = functionInputs.map(function (_ref5, i) {
-            var name = _ref5.name,
-                type = _ref5.type;
+        methodArgs = functionInputs.map(function (_ref4, i) {
+            var name = _ref4.name,
+                type = _ref4.type;
             return makeWeb3Compatible(args[i], type, name);
         });
     } else if (args.length === 1 && (0, _typeof3.default)(args[0]) === 'object') {
         methodOpts = (0, _defaults3.default)((0, _clone3.default)(args[0]), defaults);
-        methodArgs = getTruffleArgsFromOptions(functionInputs, methodOpts, argAliases);
-        functionInputs.forEach(function (_ref6) {
-            var name = _ref6.name;
-            delete methodOpts[name];
-        });
+        methodArgs = getTruffleArgsWhileMutatingOptions(functionInputs, methodOpts, argAliases);
     } else {
-        throw new Error(methodName + '(' + functionInputs.map(function (_ref7) {
-            var name = _ref7.name,
-                type = _ref7.type;
+        throw new Error(methodName + '(' + functionInputs.map(function (_ref5) {
+            var name = _ref5.name,
+                type = _ref5.type;
             return type + ' ' + name;
         }).join(', ') + ') can\'t be called with args (' + args.join(', ') + ')');
     }
@@ -360,8 +354,8 @@ function getWeb3CallMetadata(args, opts, speccedOpts) {
         callerABI = callerContract.abi;
     }
 
-    var functionCandidates = callerABI.filter(function (_ref8) {
-        var name = _ref8.name;
+    var functionCandidates = callerABI.filter(function (_ref6) {
+        var name = _ref6.name;
         return name === methodName;
     });
 
@@ -398,7 +392,7 @@ function getWeb3CallMetadata(args, opts, speccedOpts) {
 
 function wrapWeb3Function(spec) {
     var wrappedFn = function () {
-        var _ref9 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
+        var _ref7 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
             var opts,
                 speccedOpts,
                 _args = arguments;
@@ -423,7 +417,7 @@ function wrapWeb3Function(spec) {
         }));
 
         return function wrappedFn() {
-            return _ref9.apply(this, arguments);
+            return _ref7.apply(this, arguments);
         };
     }();
 
