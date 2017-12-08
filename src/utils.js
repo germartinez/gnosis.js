@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import TruffleContract from 'truffle-contract'
 import DecimalJS from 'decimal.js'
 
 function makeWeb3Compatible(value, type, argName) {
@@ -247,6 +248,11 @@ export function wrapWeb3Function(spec) {
     }
 
     return wrappedFn
+}
+
+export function wrappedTruffleContract(artifact) {
+    const contract = TruffleContract(artifact)
+    return contract
 }
 
 /**

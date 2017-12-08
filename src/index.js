@@ -1,5 +1,4 @@
 import _ from 'lodash'
-import TruffleContract from 'truffle-contract'
 import Web3 from 'web3'
 import IPFS from 'ipfs-mini'
 
@@ -118,7 +117,7 @@ class Gnosis {
          * @member {Object} Gnosis#contracts
          */
         this.contracts = _.fromPairs(contractArtifacts.map((artifact) => {
-            const c = TruffleContract(artifact)
+            const c = utils.wrappedTruffleContract(artifact)
             const name = c.contract_name
 
             if(gasStatsData[name] != null) {
@@ -142,8 +141,6 @@ class Gnosis {
                 c.defaults({ gas: Math.min(gasLimit, (gasDefaultMaxMultiplier * maxGasCost) | 0) })
             }
         })
-
-        this.TruffleContract = TruffleContract
 
         instanceModules.forEach((module) => {
             Object.keys(module).forEach((instanceProp) => {
