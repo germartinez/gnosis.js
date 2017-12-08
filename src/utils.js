@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import { Observable } from 'rxjs/Observable'
 import TruffleContract from 'truffle-contract'
 import DecimalJS from 'decimal.js'
 
@@ -252,6 +253,31 @@ export function wrapWeb3Function(spec) {
 
 export function wrappedTruffleContract(artifact) {
     const contract = TruffleContract(artifact)
+    const oldSyncTransaction = contract.syncTransaction
+
+    contract.syncTransaction = function(txHash) {
+        const observable = Observable.create(function (observer) {
+            oldSyncTransaction(txHash)
+                .then(v => observer.next(v))
+                .catch(err => observer.error(err))
+        })
+
+        observable.then = (onFulfilled, onRejected) => {
+            const subscription = observable.subscribe({
+                next(value) {
+                    subscription.unsubscribe()
+                    onFulfilled(value)
+                },
+                error(err) {
+                    subscription.unsubscribe()
+                    onRejected(value)
+                },
+            })
+        }
+
+        return observable
+    }
+
     return contract
 }
 
