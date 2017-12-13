@@ -283,7 +283,7 @@ function getTruffleArgsWhileMutatingOptions(argInfo, opts, argAliases) {
     });
 }
 
-var Decimal = exports.Decimal = _decimal2.default.clone({ precision: 80 });
+var Decimal = exports.Decimal = _decimal2.default.clone({ precision: 80, toExpPos: 9999 });
 
 function normalizeWeb3Args(args, opts) {
     var functionInputs = opts.functionInputs,
