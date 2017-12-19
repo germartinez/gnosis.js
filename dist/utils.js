@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.sendTransactionAndGetResult = exports.Decimal = undefined;
+exports.sendTransactionAndGetResult = exports.TransactionError = exports.Decimal = undefined;
 
 var _from = require('babel-runtime/core-js/array/from');
 
@@ -12,6 +12,30 @@ var _from2 = _interopRequireDefault(_from);
 var _promise = require('babel-runtime/core-js/promise');
 
 var _promise2 = _interopRequireDefault(_promise);
+
+var _assign = require('babel-runtime/core-js/object/assign');
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
+
+var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+var _classCallCheck2 = require('babel-runtime/helpers/classCallCheck');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _possibleConstructorReturn2 = require('babel-runtime/helpers/possibleConstructorReturn');
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require('babel-runtime/helpers/inherits');
+
+var _inherits3 = _interopRequireDefault(_inherits2);
+
+var _stringify = require('babel-runtime/core-js/json/stringify');
+
+var _stringify2 = _interopRequireDefault(_stringify);
 
 var _toConsumableArray2 = require('babel-runtime/helpers/toConsumableArray');
 
@@ -75,56 +99,82 @@ var _isArray3 = _interopRequireDefault(_isArray2);
 
 var sendTransactionAndGetResult = exports.sendTransactionAndGetResult = function () {
     var _ref9 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee3(opts) {
-        var _caller;
+        var caller, txHash, txResult, matchingLog, _caller$opts$methodNa;
 
-        var caller, result, matchingLog;
         return _regenerator2.default.wrap(function _callee3$(_context3) {
             while (1) {
                 switch (_context3.prev = _context3.next) {
                     case 0:
                         opts = opts || {};
+                        caller = void 0, txHash = void 0, txResult = void 0, matchingLog = void 0;
+                        _context3.prev = 2;
 
                         caller = opts.callerContract;
 
                         if (!(0, _has3.default)(caller, 'deployed')) {
-                            _context3.next = 6;
+                            _context3.next = 8;
                             break;
                         }
 
-                        _context3.next = 5;
+                        _context3.next = 7;
                         return caller.deployed();
 
-                    case 5:
+                    case 7:
                         caller = _context3.sent;
 
-                    case 6:
-                        _context3.next = 8;
-                        return (_caller = caller)[opts.methodName].apply(_caller, (0, _toConsumableArray3.default)(opts.methodArgs));
-
                     case 8:
-                        result = _context3.sent;
-                        matchingLog = requireEventFromTXResult(result, opts.eventName);
+                        _context3.next = 10;
+                        return (_caller$opts$methodNa = caller[opts.methodName]).sendTransaction.apply(_caller$opts$methodNa, (0, _toConsumableArray3.default)(opts.methodArgs));
+
+                    case 10:
+                        txHash = _context3.sent;
+
+
+                        if (opts.log != null) {
+                            opts.log('got tx hash ' + txHash + ' for call ' + formatCallSignature({ caller: caller, methodName: opts.methodName, methodArgs: opts.methodArgs }));
+                        }
+
+                        _context3.next = 14;
+                        return caller.constructor.syncTransaction(txHash);
+
+                    case 14:
+                        txResult = _context3.sent;
+
+                        matchingLog = requireEventFromTXResult(txResult, opts.eventName);
 
                         if (!(opts.resultContract == null)) {
-                            _context3.next = 14;
+                            _context3.next = 20;
                             break;
                         }
 
                         return _context3.abrupt('return', matchingLog.args[opts.eventArgName]);
 
-                    case 14:
-                        _context3.next = 16;
+                    case 20:
+                        opts.log('tx hash ' + txHash.slice(0, 6) + '..' + txHash.slice(-4) + ' returned ' + opts.resultContract.contractName + '(' + matchingLog.args[opts.eventArgName] + ')');
+                        _context3.next = 23;
                         return opts.resultContract.at(matchingLog.args[opts.eventArgName]);
 
-                    case 16:
+                    case 23:
                         return _context3.abrupt('return', _context3.sent);
 
-                    case 17:
+                    case 24:
+                        _context3.next = 29;
+                        break;
+
+                    case 26:
+                        _context3.prev = 26;
+                        _context3.t0 = _context3['catch'](2);
+                        throw new TransactionError((0, _assign2.default)({
+                            caller: caller, txHash: txHash, txResult: txResult, matchingLog: matchingLog,
+                            subError: _context3.t0
+                        }, opts));
+
+                    case 29:
                     case 'end':
                         return _context3.stop();
                 }
             }
-        }, _callee3, this);
+        }, _callee3, this, [[2, 26]]);
     }));
 
     return function sendTransactionAndGetResult(_x) {
@@ -139,6 +189,7 @@ var sendTransactionAndGetResult = exports.sendTransactionAndGetResult = function
 exports.normalizeWeb3Args = normalizeWeb3Args;
 exports.wrapWeb3Function = wrapWeb3Function;
 exports.requireEventFromTXResult = requireEventFromTXResult;
+exports.formatCallSignature = formatCallSignature;
 exports.promisify = promisify;
 exports.promisifyAll = promisifyAll;
 
@@ -395,6 +446,7 @@ function wrapWeb3Function(spec) {
         var _ref7 = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee() {
             var opts,
                 speccedOpts,
+                callMetadata,
                 _args = arguments;
             return _regenerator2.default.wrap(function _callee$(_context) {
                 while (1) {
@@ -402,13 +454,17 @@ function wrapWeb3Function(spec) {
                         case 0:
                             opts = getOptsFromArgs(_args);
                             speccedOpts = spec(this, opts);
-                            _context.next = 4;
-                            return sendTransactionAndGetResult(getWeb3CallMetadata(_args, opts, speccedOpts));
+                            callMetadata = getWeb3CallMetadata(_args, opts, speccedOpts);
 
-                        case 4:
+                            callMetadata.log = this.log;
+
+                            _context.next = 6;
+                            return sendTransactionAndGetResult(callMetadata);
+
+                        case 6:
                             return _context.abrupt('return', _context.sent);
 
-                        case 5:
+                        case 7:
                         case 'end':
                             return _context.stop();
                     }
@@ -509,6 +565,29 @@ function requireEventFromTXResult(result, eventName) {
 
     return matchingLogs[0];
 }
+
+function formatCallSignature(opts) {
+    return opts.caller.constructor.contractName + '(' + opts.caller.address.slice(0, 6) + '..' + opts.caller.address.slice(-4) + ').' + opts.methodName + '(' + opts.methodArgs.map(function (v) {
+        return (0, _stringify2.default)(v);
+    }).join(', ') + ')';
+}
+
+var TransactionError = exports.TransactionError = function (_Error) {
+    (0, _inherits3.default)(TransactionError, _Error);
+
+    function TransactionError(opts) {
+        (0, _classCallCheck3.default)(this, TransactionError);
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (TransactionError.__proto__ || (0, _getPrototypeOf2.default)(TransactionError)).call(this, '' + formatCallSignature(opts) + (opts.txHash == null ? '' : '\n\n  with transaction hash ' + opts.txHash) + '\n\n  failed with ' + opts.subError));
+
+        (0, _assign2.default)(_this, opts);
+
+        _this.name = 'TransactionError';
+        return _this;
+    }
+
+    return TransactionError;
+}(Error);
 
 function promisify(fn) {
     return new Proxy(fn, {
